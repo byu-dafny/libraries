@@ -1,26 +1,14 @@
-# libraries
+# Dafny Libraries With Automatically Generated Tests
 
-Libraries useful for Dafny programs
+This fork of Dafny Standard Library showcases the newest automatic test generation for Dafny. To skim through the generated tests without reproducing, look in the `generatedTests` directory (note that some files don't have tests - this is normal since there are several absract modules and ghost methods. In addition, test generation does not support certain features, e.g. infinite maps).
 
-## Status
+To reproduce and run the tests, run `make` (if you are on Ubuntu rather than Mac please change the verison of z3 speciifed in the Makefile accordingly)
 
-At the moment, we're just collecting generally useful Dafny code.
+The `make` file performs the following operations:
 
-Once we have some amount of code which is used successfully by several projects, we might restructure this repo, informed by the concrete use cases.
-
-So, please do use this library, give feedback, and contribute code, but also expect breaking changes.
-
-## Contributions
-
-Any contributions of generally useful code are welcome, just open a pull request!  Please follow the [library style guidelines](STYLE.md).  If the way to use your new code is not obvious, please add some examples in the `examples` directory to illustrate how to use the code.  We use the [LLVM integrated tester (lit)](https://llvm.org/docs/CommandGuide/lit.html) to test the library files and ensure they all verify correctly.  Please see Dafny's documentation on [installation](https://github.com/dafny-lang/dafny/wiki/INSTALL) and [testing](https://github.com/dafny-lang/dafny/wiki/Running-Dafny's-test-suite) for more details.
-
-## Acknowledgements
-
-Much of this code came from or was inspired by code from the following projects:
-
-* [Ironclad Apps](https://github.com/microsoft/Ironclad/tree/main/ironclad-apps)
-* [IronFleet](https://github.com/microsoft/Ironclad/tree/main/ironfleet)
-* [Vale](https://github.com/project-everest/vale/tree/legacy_dafny)
-* [Verified BetrFS](https://github.com/vmware-labs/verified-betrfs)
-* [Verifying OpenTitan](https://github.com/secure-foundations/veri-titan)
-
+1) Builds the fork of Dafny that has the newest version of test generation on it and downloads z3 into it
+2) Generates the tests for each of the files in the `src` directory and puts them in the `tests` directory
+3) Compiles Dafny code to C# and creates two files - `src/AllSource.cs` and `tests/AllTests.cs`, which contain all code under test and all code including the tests, respectively
+4) Creates a file `testCoverage/OnlyTests.cs`, which contains the tests but not the code under tests. This is necessary to run coverlet properly
+5) Runs coverlet to produce a coverage report. By default, the report covers all namespaces, including those that are part of the standard Dafny to C# compilation pipeline
+6) Extracts from the coverlet report the coverage information for each relevant Dafny module and prints it to command line
