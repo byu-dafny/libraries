@@ -1,0 +1,47 @@
+include "BoundedInts.dfy"
+include "DivInternals.dfy"
+include "DivInternalsNonlinear.dfy"
+include "DivMod.dfy"
+include "Functions.dfy"
+include "GeneralInternals.dfy"
+include "Imaps.dfy"
+include "Isets.dfy"
+include "LittleEndianNat.dfy"
+include "LittleEndianNatConversions.dfy"
+include "Maps.dfy"
+include "Math.dfy"
+include "ModInternals.dfy"
+include "ModInternalsNonlinear.dfy"
+include "Mul.dfy"
+include "MulInternals.dfy"
+include "MulInternalsNonlinear.dfy"
+include "Power.dfy"
+include "Power2.dfy"
+include "Seq.dfy"
+include "Sets.dfy"
+include "Wrappers.dfy"
+
+module AllTests {
+    import BoundedIntsUnitTests
+    import DivInternalsUnitTests
+    import DivInternalsNonlinearUnitTests
+    import DivModUnitTests
+    import FunctionsUnitTests
+    import GeneralInternalsUnitTests
+    import ImapsUnitTests
+    import IsetsUnitTests
+    import LittleEndianNatUnitTests
+    import LittleEndianNatConversionsUnitTests
+    import MapsUnitTests
+    import MathUnitTests
+    import ModInternalsUnitTests
+    import ModInternalsNonlinearUnitTests
+    import MulUnitTests
+    import MulInternalsUnitTests
+    import MulInternalsNonlinearUnitTests
+    import PowerUnitTests
+    import Power2UnitTests
+    import SeqUnitTests
+    import SetsUnitTests
+    import WrappersUnitTests
+}
