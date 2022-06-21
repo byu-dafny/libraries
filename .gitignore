@@ -1,2 +1,11 @@
-**/Output/
-**/TestResults/
+tests/*.dfy
+tests/AllTests.cs
+tests/bin
+tests/obj
+src/bin
+src/obj
+src/AllSource.cs
+testCoverage/*.cs
+DuplicateRemoves/bin
+DuplicateRemover/obj
+
