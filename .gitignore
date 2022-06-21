@@ -7,4 +7,7 @@ src/AllSource.cs
 testCoverage/*.cs
 DuplicateRemoves/bin
 DuplicateRemover/obj
-
+DuplicateRemover/bin/
+testCoverage/bin/
+testCoverage/coverage.json
+testCoverage/obj/
