@@ -4,13 +4,8 @@ This fork of Dafny Standard Library showcases the newest automatic test generati
 
 Please clone this with `git clone --recursive`.
 
-To reproduce and run the tests, run `make` (if you are on Ubuntu rather than Mac please change the verison of z3 speciifed in the Makefile accordingly)
+To reproduce and run the tests, run `make generate`. If you are on Ubuntu rather than Mac please change the verison of z3 speciifed in the Makefile accordingly. Please note that test generation can take up to several minutes for each of the `Uint`-prefixed files in `src/Collections/Sequences`. While it will be fixed soon, the alorithm may currently also spawn z3 processes that are not terminated so it will kill all z3 processes on your machine inbetween processing files.
 
-The `make` file performs the following operations:
+Finally, due to Dafny's incompleteness, 5 of the 260 generated tests are invalid. These are commented out in the tests directory and if you are to generate the tests again, you would need to comment then again before measuring the coverage.
 
-1) Builds the fork of Dafny that has the newest version of test generation on it and downloads z3 into it
-2) Generates the tests for each of the files in the `src` directory and puts them in the `tests` directory
-3) Compiles Dafny code to C# and creates two files - `src/AllSource.cs` and `tests/AllTests.cs`, which contain all code under test and all code including the tests, respectively
-4) Creates a file `testCoverage/OnlyTests.cs`, which contains the tests but not the code under tests. This is necessary to run coverlet properly
-5) Runs coverlet to produce a coverage report. By default, the report covers all namespaces, including those that are part of the standard Dafny to C# compilation pipeline
-6) Extracts from the coverlet report the coverage information for each relevant Dafny module and prints it to command line
+Run `make` or `make coverage` to get the coverage report.

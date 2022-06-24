@@ -29,7 +29,7 @@ method {:test} test9() {
 var r0 := Seq.Map<int,int>((a0:int)=>0, []);
 }
 method {:test} test10() {
-var r0 := Seq.Map<int,int>((a0:int)=>0, [0, 0, 0, 0]);
+var r0 := Seq.Map<int,int>((a0:int)=>0, [0, 0, 0, 0, 0, 0, 0, 0]);
 }
 method {:test} test11() {
 var r0 := Seq.FlattenReverse<int>([]);
@@ -44,13 +44,13 @@ method {:test} test14() {
 var r0 := Seq.Flatten<int>([[], [0]]);
 }
 method {:test} test15() {
-var r0 := Seq.Min([8855, 5853, 0, 5853]);
+var r0 := Seq.Min([8855, 0, 0, 0, 0, 0, 5853, 0]);
 }
 method {:test} test16() {
 var r0 := Seq.Min([0]);
 }
 method {:test} test17() {
-var r0 := Seq.Max([8855, 5853, 0, 5853]);
+var r0 := Seq.Max([8855, 0, 0, 0, 0, 0, 5853, 0]);
 }
 method {:test} test18() {
 var r0 := Seq.Max([0]);
@@ -88,10 +88,10 @@ method {:test} test28() {
 var r0 := Seq.RemoveValue<int>([], 0);
 }
 method {:test} test29() {
-var r0 := Seq.RemoveValue<int>([0, 0, 0, 0], 0);
+var r0 := Seq.RemoveValue<int>([0, 0, 0, 0, 0, 0, 0], 0);
 }
 method {:test} test30() {
-var r0 := Seq.Remove<int>([0, 0, 0, 0], 3);
+var r0 := Seq.Remove<int>([0, 0, 0, 0, 0], 4);
 }
 method {:test} test31() {
 var r0 := Seq.LastIndexOfOption<int>([], 0);
@@ -100,13 +100,13 @@ method {:test} test32() {
 var r0 := Seq.LastIndexOfOption<int>([0, 0], 1);
 }
 method {:test} test33() {
-var r0 := Seq.LastIndexOfOption<int>([0, 0, 0, 0], 0);
+var r0 := Seq.LastIndexOfOption<int>([0, 0, 0, 0, 0, 0, 0], 0);
 }
 method {:test} test34() {
-var r0 := Seq.LastIndexOf<int>([0, 0, 0, 0], 0);
+var r0 := Seq.LastIndexOf<int>([0, 0, 0, 0, 0, 0, 0], 0);
 }
 method {:test} test35() {
-var r0 := Seq.LastIndexOf<int>([0, 0, 0, 1], 0);
+var r0 := Seq.LastIndexOf<int>([0, 0, 1], 0);
 }
 method {:test} test36() {
 var r0 := Seq.IndexOfOption<int>([], 0);
@@ -115,7 +115,7 @@ method {:test} test37() {
 var r0 := Seq.IndexOfOption<int>([0], 1);
 }
 method {:test} test38() {
-var r0 := Seq.IndexOfOption<int>([0, 0, 0, 1], 1);
+var r0 := Seq.IndexOfOption<int>([0, 0, 0, 0, 0, 0, 0, 1], 1);
 }
 method {:test} test39() {
 var r0 := Seq.IndexOfOption<int>([0], 0);
@@ -127,7 +127,7 @@ method {:test} test41() {
 var r0 := Seq.IndexOf<int>([0, 1], 1);
 }
 method {:test} test42() {
-var r0 := Seq.ToSet<int>([0, 0, 0, 0]);
+var r0 := Seq.ToSet<int>([0, 0, 0, 0, 0, 0, 0]);
 }
 method {:test} test43() {
 var r0 := Seq.ToSet<int>([]);
@@ -136,13 +136,13 @@ method {:test} test45() {
 var r0 := Seq.ToArray<int>([0]);
 }
 method {:test} test47() {
-var r0 := Seq.ToArray<int>([0, 0, 0, 0]);
+var r0 := Seq.ToArray<int>([0, 0, 0, 0, 0, 0, 0]);
 }
 method {:test} test49() {
 var r0 := Seq.DropLast<int>([0, 0]);
 }
 method {:test} test50() {
-var r0 := Seq.Last<int>([0, 0, 0, 0]);
+var r0 := Seq.Last<int>([0, 0, 0, 0, 0, 0, 0]);
 }
 method {:test} test51() {
 var r0 := Seq.DropFirst<int>([0]);

@@ -19,6 +19,11 @@ include "Power.dfy"
 include "Power2.dfy"
 include "Seq.dfy"
 include "Sets.dfy"
+include "Uint8_16.dfy"
+include "Uint8_32.dfy"
+include "Uint8_64.dfy"
+include "Uint16_32.dfy"
+include "Uint32_64.dfy"
 include "Wrappers.dfy"
 
 module AllTests {
@@ -43,5 +48,10 @@ module AllTests {
     import Power2UnitTests
     import SeqUnitTests
     import SetsUnitTests
+    import Uint8_16UnitTests
+    import Uint8_32UnitTests
+    import Uint8_64UnitTests
+    import Uint16_32UnitTests
+    import Uint32_64UnitTests
     import WrappersUnitTests
 }
