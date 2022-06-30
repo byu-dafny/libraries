@@ -4,18 +4,18 @@ import Uint16_32
 import Uint16_32.Uint16Seq
 import Uint16_32.Uint32Seq
 import DivMod
-import Mul
-import Power
-import Seq
 import DivInternalsNonlinear
 import DivInternals
 import GeneralInternals
-import MulInternalsNonlinear
+import ModInternals
 import MulInternals
+import MulInternalsNonlinear
+import Mul
+import ModInternalsNonlinear
+import Power
+import Seq
 import Wrappers
 import Math
-import ModInternals
-import ModInternalsNonlinear
 method {:test} test0() {
 var r0 := Uint16_32.ToLarge([]);
 }
@@ -44,25 +44,25 @@ method {:test} test8() {
 var r0 := Uint16_32.Uint32Seq.SeqAdd([], []);
 }
 method {:test} test9() {
-var r0 := Uint16_32.Uint32Seq.SeqZero(1);
+var r0 := Uint16_32.Uint32Seq.SeqZero((1 as nat));
 }
 method {:test} test10() {
-var r0 := Uint16_32.Uint32Seq.FromNatWithLen(1236, 1);
+var r0 := Uint16_32.Uint32Seq.FromNatWithLen((1236 as nat), (1 as nat));
 }
 method {:test} test11() {
-var r0 := Uint16_32.Uint32Seq.SeqExtendMultiple([0, 0], 3);
+var r0 := Uint16_32.Uint32Seq.SeqExtendMultiple([0, 0], (3 as nat));
 }
 method {:test} test12() {
-var r0 := Uint16_32.Uint32Seq.SeqExtend([0], 1);
+var r0 := Uint16_32.Uint32Seq.SeqExtend([0], (1 as nat));
 }
 method {:test} test13() {
-var r0 := Uint16_32.Uint32Seq.SeqExtend([0, 0, 0, 0, 0, 0], 7);
+var r0 := Uint16_32.Uint32Seq.SeqExtend([0, 0, 0, 0, 0, 0], (7 as nat));
 }
 method {:test} test14() {
-var r0 := Uint16_32.Uint32Seq.FromNat(2279);
+var r0 := Uint16_32.Uint32Seq.FromNat((2279 as nat));
 }
 method {:test} test15() {
-var r0 := Uint16_32.Uint32Seq.FromNat(0);
+var r0 := Uint16_32.Uint32Seq.FromNat((0 as nat));
 }
 method {:test} test16() {
 var r0 := Uint16_32.Uint32Seq.ToNatLeft([]);
@@ -89,25 +89,25 @@ method {:test} test23() {
 var r0 := Uint16_32.Uint16Seq.SeqAdd([], []);
 }
 method {:test} test24() {
-var r0 := Uint16_32.Uint16Seq.SeqZero(1);
+var r0 := Uint16_32.Uint16Seq.SeqZero((1 as nat));
 }
 method {:test} test25() {
-var r0 := Uint16_32.Uint16Seq.FromNatWithLen(1236, 1);
+var r0 := Uint16_32.Uint16Seq.FromNatWithLen((1236 as nat), (1 as nat));
 }
 method {:test} test26() {
-var r0 := Uint16_32.Uint16Seq.SeqExtendMultiple([0, 0], 3);
+var r0 := Uint16_32.Uint16Seq.SeqExtendMultiple([0, 0], (3 as nat));
 }
 method {:test} test27() {
-var r0 := Uint16_32.Uint16Seq.SeqExtend([0], 1);
+var r0 := Uint16_32.Uint16Seq.SeqExtend([0], (1 as nat));
 }
 method {:test} test28() {
-var r0 := Uint16_32.Uint16Seq.SeqExtend([0, 0, 0, 0, 0, 0], 7);
+var r0 := Uint16_32.Uint16Seq.SeqExtend([0, 0, 0, 0, 0, 0], (7 as nat));
 }
 method {:test} test29() {
-var r0 := Uint16_32.Uint16Seq.FromNat(2279);
+var r0 := Uint16_32.Uint16Seq.FromNat((2279 as nat));
 }
 method {:test} test30() {
-var r0 := Uint16_32.Uint16Seq.FromNat(0);
+var r0 := Uint16_32.Uint16Seq.FromNat((0 as nat));
 }
 method {:test} test31() {
 var r0 := Uint16_32.Uint16Seq.ToNatLeft([]);

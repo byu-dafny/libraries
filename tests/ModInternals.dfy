@@ -3,10 +3,10 @@ module ModInternalsUnitTests {
 import ModInternals
 import GeneralInternals
 import MulInternals
+import MulInternalsNonlinear
 import Mul
 import ModInternalsNonlinear
 import DivInternalsNonlinear
-import MulInternalsNonlinear
 method {:test} test0() {
 var r0 := ModInternals.ModRecursive(-2439, 2438);
 }

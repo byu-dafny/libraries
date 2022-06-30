@@ -11,3 +11,4 @@ DuplicateRemover/bin/
 testCoverage/bin/
 testCoverage/coverage.json
 testCoverage/obj/
+.DS_Store

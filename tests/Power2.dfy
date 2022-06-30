@@ -3,13 +3,13 @@ module Power2UnitTests {
 import Power2
 import GeneralInternals
 import MulInternals
-import Power
 import MulInternalsNonlinear
+import Power
 import DivMod
-import Mul
 import DivInternalsNonlinear
 import DivInternals
 import ModInternals
+import Mul
 import ModInternalsNonlinear
 
 }

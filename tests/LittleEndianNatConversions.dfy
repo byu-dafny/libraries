@@ -1,17 +1,17 @@
 include "../src//Collections/Sequences/LittleEndianNatConversions.dfy"
 module LittleEndianNatConversionsUnitTests {
 import DivMod
-import Mul
-import Power
-import Seq
 import DivInternalsNonlinear
 import DivInternals
 import GeneralInternals
-import MulInternalsNonlinear
+import ModInternals
 import MulInternals
+import MulInternalsNonlinear
+import Mul
+import ModInternalsNonlinear
+import Power
+import Seq
 import Wrappers
 import Math
-import ModInternals
-import ModInternalsNonlinear
 
 }

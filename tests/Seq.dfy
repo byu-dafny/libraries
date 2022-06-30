@@ -70,10 +70,10 @@ var d1 := (0,1);
 var r0 := Seq.Unzip<int,int>([d0, d1]);
 }
 method {:test} test23() {
-var r0 := Seq.Repeat<int>(0, 2);
+var r0 := Seq.Repeat<int>(0, (2 as nat));
 }
 method {:test} test24() {
-var r0 := Seq.Repeat<int>(0, 0);
+var r0 := Seq.Repeat<int>(0, (0 as nat));
 }
 method {:test} test25() {
 var r0 := Seq.Reverse<int>([]);
@@ -82,7 +82,7 @@ method {:test} test26() {
 var r0 := Seq.Reverse<int>([0, 0]);
 }
 method {:test} test27() {
-var r0 := Seq.Insert<int>([0, 0], 0, 1);
+var r0 := Seq.Insert<int>([0, 0], 0, (1 as nat));
 }
 method {:test} test28() {
 var r0 := Seq.RemoveValue<int>([], 0);
@@ -91,7 +91,7 @@ method {:test} test29() {
 var r0 := Seq.RemoveValue<int>([0, 0, 0, 0, 0, 0, 0], 0);
 }
 method {:test} test30() {
-var r0 := Seq.Remove<int>([0, 0, 0, 0, 0], 4);
+var r0 := Seq.Remove<int>([0, 0, 0, 0, 0], (4 as nat));
 }
 method {:test} test31() {
 var r0 := Seq.LastIndexOfOption<int>([], 0);

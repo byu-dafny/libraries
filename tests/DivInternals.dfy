@@ -4,10 +4,10 @@ import DivInternals
 import GeneralInternals
 import ModInternals
 import MulInternals
+import MulInternalsNonlinear
 import Mul
 import ModInternalsNonlinear
 import DivInternalsNonlinear
-import MulInternalsNonlinear
 method {:test} test0() {
 var r0 := DivInternals.DivRecursive(0, 12);
 }

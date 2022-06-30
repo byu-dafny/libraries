@@ -6,8 +6,8 @@ import DivInternals
 import GeneralInternals
 import ModInternals
 import MulInternals
+import MulInternalsNonlinear
 import Mul
 import ModInternalsNonlinear
-import MulInternalsNonlinear
 
 }
