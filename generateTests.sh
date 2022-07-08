@@ -8,5 +8,6 @@ for filename in $(find src/ -name '*.dfy'); do
     cd tests/
     dotnet ../dafny/Binaries/Dafny.dll /definiteAssignment:3 /warnShadowing /generateTestTimeout:5 /generateTestMode:Block /generateTestSeqLengthLimit:8 ../$filename > $propername
     pkill -9 -f "z3/bin/z3"
+    pkill -9 -f "usr/local/bin/z3"
     cd ../
 done

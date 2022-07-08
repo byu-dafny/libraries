@@ -13,7 +13,6 @@ method {:test} test2() {
 var d0 : Wrappers.Result<int, int> := Wrappers.Result<int, int>.Success(value:=0);
 var r0 := d0.MapFailure<int>((a0:int)=>0);
 }
-
 method {:test} test4() {
 var d0 : Wrappers.Result<int, int> := Wrappers.Result<int, int>.Success(value:=0);
 var r0 := d0.IsFailure();
@@ -21,6 +20,10 @@ var r0 := d0.IsFailure();
 method {:test} test5() {
 var d0 : Wrappers.Result<int, int> := Wrappers.Result<int, int>.Success(value:=0);
 var r0 := d0.UnwrapOr(1);
+}
+method {:test} test6() {
+var d0 : Wrappers.Result<int, int> := Wrappers.Result<int, int>.Success(value:=0);
+var r0 := d0.UnwrapOr(0);
 }
 method {:test} test7() {
 var d0 : Wrappers.Result<int, int> := Wrappers.Result<int, int>.Success(value:=0);

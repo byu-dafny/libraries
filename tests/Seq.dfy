@@ -24,7 +24,14 @@ var r0 := Seq.Filter<int>((a0:int)=>false, [0, 0]);
 method {:test} test6() {
 var r0 := Seq.Filter<int>((a0:int)=>false, [0]);
 }
-
+method {:test} test7() {
+var d0 : Wrappers.Result<int, int> := Wrappers.Result<int, int>.Success(value:=0);
+var r0 := Seq.MapWithResult<int,int,int>((a0:int)=>d0, []);
+}
+method {:test} test8() {
+var d0 : Wrappers.Result<int, int> := Wrappers.Result<int, int>.Success(value:=0);
+var r0 := Seq.MapWithResult<int,int,int>((a0:int)=>d0, [0, 0, 0, 0, 0, 0, 0, 0]);
+}
 method {:test} test9() {
 var r0 := Seq.Map<int,int>((a0:int)=>0, []);
 }
