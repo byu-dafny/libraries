@@ -6,6 +6,6 @@ Please clone this with `git clone --recursive`.
 
 To reproduce and run the tests, run `make generate`. If you are on Ubuntu rather than Mac please change the verison of z3 speciifed in the Makefile accordingly. Please note that test generation can take up to several minutes for each of the `Uint`-prefixed files in `src/Collections/Sequences`. While it will be fixed soon, the alorithm may currently also spawn z3 processes that are not terminated so it will kill all z3 processes on your machine inbetween processing files.
 
-Finally, due to Dafny's incompleteness, 5 of the 260 generated tests are invalid. These are commented out in the tests directory and if you are to generate the tests again, you would need to comment then again before measuring the coverage.
+Finally, due to Dafny's incompleteness, a few of the generated tests are invalid. These are commented out in the tests directory and if you are to generate the tests again, you would need to comment then again before measuring the coverage.
 
 Run `make` or `make coverage` to get the coverage report.
