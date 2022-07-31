@@ -3,11 +3,11 @@ include "LittleEndianNatConversions.dfy"
 /* Conversions between sequences of uint16 and uint32. */
 module Uint16_32 refines LittleEndianNatConversions {
 
-  module Uint16Seq refines SmallSeq {
+  module {:extern "Uint16__32_mUint16Seq_Compile"} Uint16Seq refines SmallSeq {
     function method BITS(): nat { 16 }
   }
 
-  module Uint32Seq refines LargeSeq {
+  module {:extern "Uint16__32_mUint32Seq_Compile"} Uint32Seq refines LargeSeq {
     import Small = Uint16Seq
     function method BITS(): nat { 32 }
   }

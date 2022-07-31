@@ -1,0 +1,212 @@
+[
+  {
+    "blocks": "4",
+    "blocksCovered": "1",
+    "failedQueries": "3",
+    "queries": "4",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint8Seq.ToNatRight",
+    "compiledName": "Uint8__32_mUint8Seq_Compile.__default.ToNatRight"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "1",
+    "failedQueries": "3",
+    "queries": "4",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint8Seq.ToNatLeft",
+    "compiledName": "Uint8__32_mUint8Seq_Compile.__default.ToNatLeft"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint8Seq.FromNat",
+    "compiledName": "Uint8__32_mUint8Seq_Compile.__default.FromNat"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint8Seq.SeqExtend",
+    "compiledName": "Uint8__32_mUint8Seq_Compile.__default.SeqExtend"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint8Seq.SeqExtendMultiple",
+    "compiledName": "Uint8__32_mUint8Seq_Compile.__default.SeqExtendMultiple"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint8Seq.FromNatWithLen",
+    "compiledName": "Uint8__32_mUint8Seq_Compile.__default.FromNatWithLen"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint8Seq.SeqZero",
+    "compiledName": "Uint8__32_mUint8Seq_Compile.__default.SeqZero"
+  },
+  {
+    "blocks": "7",
+    "blocksCovered": "7",
+    "failedQueries": "0",
+    "queries": "3",
+    "tests": "3",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint8Seq.SeqAdd",
+    "compiledName": "Uint8__32_mUint8Seq_Compile.__default.SeqAdd"
+  },
+  {
+    "blocks": "7",
+    "blocksCovered": "7",
+    "failedQueries": "0",
+    "queries": "3",
+    "tests": "3",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint8Seq.SeqSub",
+    "compiledName": "Uint8__32_mUint8Seq_Compile.__default.SeqSub"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "1",
+    "failedQueries": "3",
+    "queries": "4",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint32Seq.ToNatRight",
+    "compiledName": "Uint8__32_mUint32Seq_Compile.__default.ToNatRight"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "1",
+    "failedQueries": "3",
+    "queries": "4",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint32Seq.ToNatLeft",
+    "compiledName": "Uint8__32_mUint32Seq_Compile.__default.ToNatLeft"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint32Seq.FromNat",
+    "compiledName": "Uint8__32_mUint32Seq_Compile.__default.FromNat"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint32Seq.SeqExtend",
+    "compiledName": "Uint8__32_mUint32Seq_Compile.__default.SeqExtend"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint32Seq.SeqExtendMultiple",
+    "compiledName": "Uint8__32_mUint32Seq_Compile.__default.SeqExtendMultiple"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint32Seq.FromNatWithLen",
+    "compiledName": "Uint8__32_mUint32Seq_Compile.__default.FromNatWithLen"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint32Seq.SeqZero",
+    "compiledName": "Uint8__32_mUint32Seq_Compile.__default.SeqZero"
+  },
+  {
+    "blocks": "7",
+    "blocksCovered": "7",
+    "failedQueries": "0",
+    "queries": "3",
+    "tests": "3",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint32Seq.SeqAdd",
+    "compiledName": "Uint8__32_mUint32Seq_Compile.__default.SeqAdd"
+  },
+  {
+    "blocks": "7",
+    "blocksCovered": "7",
+    "failedQueries": "0",
+    "queries": "3",
+    "tests": "3",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.Uint32Seq.SeqSub",
+    "compiledName": "Uint8__32_mUint32Seq_Compile.__default.SeqSub"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "0",
+    "failedQueries": "1",
+    "queries": "1",
+    "tests": "0",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.E",
+    "compiledName": "Uint8__32_Compile.__default.E"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "1",
+    "failedQueries": "3",
+    "queries": "4",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.ToSmall",
+    "compiledName": "Uint8__32_Compile.__default.ToSmall"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Uint8_32.ToLarge",
+    "compiledName": "Uint8__32_Compile.__default.ToLarge"
+  }
+]

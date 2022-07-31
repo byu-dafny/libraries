@@ -1,0 +1,262 @@
+[
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Seq.First",
+    "compiledName": "Seq_Compile.__default.First"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Seq.DropFirst",
+    "compiledName": "Seq_Compile.__default.DropFirst"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Seq.Last",
+    "compiledName": "Seq_Compile.__default.Last"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Seq.DropLast",
+    "compiledName": "Seq_Compile.__default.DropLast"
+  },
+  {
+    "blocks": "10",
+    "blocksCovered": "8",
+    "failedQueries": "2",
+    "queries": "6",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.ToArray",
+    "compiledName": "Seq_Compile.__default.ToArray"
+  },
+  {
+    "blocks": "6",
+    "blocksCovered": "6",
+    "failedQueries": "0",
+    "queries": "3",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.ToSet",
+    "compiledName": "Seq_Compile.__default.ToSet"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.IndexOf",
+    "compiledName": "Seq_Compile.__default.IndexOf"
+  },
+  {
+    "blocks": "8",
+    "blocksCovered": "8",
+    "failedQueries": "0",
+    "queries": "4",
+    "tests": "4",
+    "failedTests": "0",
+    "dafnyName": "Seq.IndexOfOption",
+    "compiledName": "Seq_Compile.__default.IndexOfOption"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.LastIndexOf",
+    "compiledName": "Seq_Compile.__default.LastIndexOf"
+  },
+  {
+    "blocks": "6",
+    "blocksCovered": "6",
+    "failedQueries": "0",
+    "queries": "3",
+    "tests": "3",
+    "failedTests": "0",
+    "dafnyName": "Seq.LastIndexOfOption",
+    "compiledName": "Seq_Compile.__default.LastIndexOfOption"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Seq.Remove",
+    "compiledName": "Seq_Compile.__default.Remove"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.RemoveValue",
+    "compiledName": "Seq_Compile.__default.RemoveValue"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Seq.Insert",
+    "compiledName": "Seq_Compile.__default.Insert"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.Reverse",
+    "compiledName": "Seq_Compile.__default.Reverse"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.Repeat",
+    "compiledName": "Seq_Compile.__default.Repeat"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "2",
+    "dafnyName": "Seq.Unzip",
+    "compiledName": "Seq_Compile.__default.Unzip"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.Zip",
+    "compiledName": "Seq_Compile.__default.Zip"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.Max",
+    "compiledName": "Seq_Compile.__default.Max"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.Min",
+    "compiledName": "Seq_Compile.__default.Min"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.Flatten",
+    "compiledName": "Seq_Compile.__default.Flatten"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.FlattenReverse",
+    "compiledName": "Seq_Compile.__default.FlattenReverse"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.Map",
+    "compiledName": "Seq_Compile.__default.Map"
+  },
+  {
+    "blocks": "8",
+    "blocksCovered": "8",
+    "failedQueries": "0",
+    "queries": "4",
+    "tests": "4",
+    "failedTests": "0",
+    "dafnyName": "Seq.MapWithResult",
+    "compiledName": "Seq_Compile.__default.MapWithResult"
+  },
+  {
+    "blocks": "7",
+    "blocksCovered": "7",
+    "failedQueries": "0",
+    "queries": "3",
+    "tests": "3",
+    "failedTests": "0",
+    "dafnyName": "Seq.Filter",
+    "compiledName": "Seq_Compile.__default.Filter"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.FoldLeft",
+    "compiledName": "Seq_Compile.__default.FoldLeft"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Seq.FoldRight",
+    "compiledName": "Seq_Compile.__default.FoldRight"
+  }
+]

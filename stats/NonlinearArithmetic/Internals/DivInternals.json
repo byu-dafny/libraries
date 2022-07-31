@@ -1,0 +1,22 @@
+[
+  {
+    "blocks": "6",
+    "blocksCovered": "6",
+    "failedQueries": "0",
+    "queries": "3",
+    "tests": "3",
+    "failedTests": "0",
+    "dafnyName": "DivInternals.DivPos",
+    "compiledName": "DivInternals_Compile.__default.DivPos"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "1",
+    "failedQueries": "3",
+    "queries": "4",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "DivInternals.DivRecursive",
+    "compiledName": "DivInternals_Compile.__default.DivRecursive"
+  }
+]

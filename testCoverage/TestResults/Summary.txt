@@ -1,0 +1,45 @@
+﻿Summary
+  Generated on: 7/31/2022 - 3:12:40 AM
+  Coverage date: 7/31/2022 - 3:12:38 AM
+  Parser: Cobertura
+  Assemblies: 2
+  Classes: 29
+  Files: 1
+  Line coverage: 91.1%
+  Covered lines: 1260
+  Uncovered lines: 122
+  Coverable lines: 1382
+  Total lines: 18573
+
+AllSource                                   91.1%
+  DivInternals_Compile.__default            92.3%
+  Imaps_Compile.__default                    0.0%
+  Maps_Compile.__default                   100.0%
+  Math_Compile.__default                   100.0%
+  ModInternals_Compile.__default           100.0%
+  MulInternals_Compile.__default           100.0%
+  Power_Compile.__default                  100.0%
+  Power2_Compile.__default                   0.0%
+  Seq_Compile.__default                     99.1%
+  Sets_Compile.__default                    83.3%
+  Uint16__32_Compile.__default              60.0%
+  Uint16__32_mUint16Seq_Compile.__default   93.3%
+  Uint16__32_mUint32Seq_Compile.__default   93.3%
+  Uint32__64_Compile.__default              60.0%
+  Uint32__64_mUint32Seq_Compile.__default   93.3%
+  Uint32__64_mUint64Seq_Compile.__default   93.3%
+  Uint8__16_Compile.__default               60.0%
+  Uint8__16_mUint16Seq_Compile.__default    93.3%
+  Uint8__16_mUint8Seq_Compile.__default     93.3%
+  Uint8__32_Compile.__default               60.0%
+  Uint8__32_mUint32Seq_Compile.__default    93.3%
+  Uint8__32_mUint8Seq_Compile.__default     93.3%
+  Uint8__64_Compile.__default               60.0%
+  Uint8__64_mUint64Seq_Compile.__default    93.3%
+  Uint8__64_mUint8Seq_Compile.__default     93.3%
+  Wrappers_Compile.__default               100.0%
+  Wrappers_Compile.Option<T>                92.5%
+  Wrappers_Compile.Outcome<T>              100.0%
+  Wrappers_Compile.Result<T1, T2>          100.0%
+
+TestCoverage                                     

@@ -1,0 +1,142 @@
+[
+  {
+    "blocks": "6",
+    "blocksCovered": "5",
+    "failedQueries": "1",
+    "queries": "3",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Option.ToResult",
+    "compiledName": "Wrappers_Compile.Option.ToResult"
+  },
+  {
+    "blocks": "6",
+    "blocksCovered": "5",
+    "failedQueries": "1",
+    "queries": "3",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Option.UnwrapOr",
+    "compiledName": "Wrappers_Compile.Option.UnwrapOr"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Option.IsFailure",
+    "compiledName": "Wrappers_Compile.Option.IsFailure"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Option.PropagateFailure",
+    "compiledName": "Wrappers_Compile.Option.PropagateFailure"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Option.Extract",
+    "compiledName": "Wrappers_Compile.Option.Extract"
+  },
+  {
+    "blocks": "6",
+    "blocksCovered": "5",
+    "failedQueries": "1",
+    "queries": "3",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Result.ToOption",
+    "compiledName": "Wrappers_Compile.Result.ToOption"
+  },
+  {
+    "blocks": "6",
+    "blocksCovered": "5",
+    "failedQueries": "1",
+    "queries": "3",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Result.UnwrapOr",
+    "compiledName": "Wrappers_Compile.Result.UnwrapOr"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Result.IsFailure",
+    "compiledName": "Wrappers_Compile.Result.IsFailure"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Result.PropagateFailure",
+    "compiledName": "Wrappers_Compile.Result.PropagateFailure"
+  },
+  {
+    "blocks": "6",
+    "blocksCovered": "5",
+    "failedQueries": "1",
+    "queries": "3",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Result.MapFailure",
+    "compiledName": "Wrappers_Compile.Result.MapFailure"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Result.Extract",
+    "compiledName": "Wrappers_Compile.Result.Extract"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Outcome.IsFailure",
+    "compiledName": "Wrappers_Compile.Outcome.IsFailure"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Outcome.PropagateFailure",
+    "compiledName": "Wrappers_Compile.Outcome.PropagateFailure"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Wrappers.Need",
+    "compiledName": "Wrappers_Compile.__default.Need"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "blocks": "4",
+    "blocksCovered": "1",
+    "failedQueries": "3",
+    "queries": "4",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Power.Pow",
+    "compiledName": "Power_Compile.__default.Pow"
+  }
+]

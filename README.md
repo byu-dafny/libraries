@@ -2,6 +2,8 @@
 
 This fork of Dafny Standard Library showcases the newest automatic test generation for Dafny. To skim through the generated tests without reproducing, look in the `tests` directory (note that some files don't have tests - this is normal since there are several absract modules and ghost methods. In addition, test generation does not support certain features, e.g. infinite maps).
 
+The coverage report is available [here](https://github.com/Dargones/libraries/blob/master/testCoverage/TestResults/summary.html)
+
 Please clone this with `git clone --recursive`.
 
 To reproduce and run the tests, run `make generate`. If you are on Ubuntu rather than Mac please change the verison of z3 speciifed in the Makefile accordingly. Please note that test generation can take up to several minutes for each of the `Uint`-prefixed files in `src/Collections/Sequences`. While it will be fixed soon, the alorithm may currently also spawn z3 processes that are not terminated so it will kill all z3 processes on your machine inbetween processing files.

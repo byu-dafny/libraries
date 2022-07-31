@@ -1,0 +1,62 @@
+[
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Maps.Get",
+    "compiledName": "Maps_Compile.__default.Get"
+  },
+  {
+    "blocks": "6",
+    "blocksCovered": "6",
+    "failedQueries": "0",
+    "queries": "3",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Maps.ToImap",
+    "compiledName": "Maps_Compile.__default.ToImap"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Maps.RemoveKeys",
+    "compiledName": "Maps_Compile.__default.RemoveKeys"
+  },
+  {
+    "blocks": "8",
+    "blocksCovered": "8",
+    "failedQueries": "0",
+    "queries": "4",
+    "tests": "3",
+    "failedTests": "0",
+    "dafnyName": "Maps.Remove",
+    "compiledName": "Maps_Compile.__default.Remove"
+  },
+  {
+    "blocks": "8",
+    "blocksCovered": "8",
+    "failedQueries": "0",
+    "queries": "4",
+    "tests": "3",
+    "failedTests": "0",
+    "dafnyName": "Maps.Restrict",
+    "compiledName": "Maps_Compile.__default.Restrict"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Maps.Union",
+    "compiledName": "Maps_Compile.__default.Union"
+  }
+]

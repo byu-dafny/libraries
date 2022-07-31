@@ -1,0 +1,42 @@
+[
+  {
+    "blocks": "6",
+    "blocksCovered": "6",
+    "failedQueries": "0",
+    "queries": "3",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Sets.Map",
+    "compiledName": "Sets_Compile.__default.Map"
+  },
+  {
+    "blocks": "8",
+    "blocksCovered": "8",
+    "failedQueries": "0",
+    "queries": "4",
+    "tests": "3",
+    "failedTests": "0",
+    "dafnyName": "Sets.Filter",
+    "compiledName": "Sets_Compile.__default.Filter"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Sets.SetRange",
+    "compiledName": "Sets_Compile.__default.SetRange"
+  },
+  {
+    "blocks": "1",
+    "blocksCovered": "1",
+    "failedQueries": "0",
+    "queries": "1",
+    "tests": "1",
+    "failedTests": "0",
+    "dafnyName": "Sets.SetRangeZeroBound",
+    "compiledName": "Sets_Compile.__default.SetRangeZeroBound"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "blocks": "1",
+    "blocksCovered": "0",
+    "failedQueries": "1",
+    "queries": "1",
+    "tests": "0",
+    "failedTests": "0",
+    "dafnyName": "Power2.Pow2",
+    "compiledName": "Power2_Compile.__default.Pow2"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Math.Min",
+    "compiledName": "Math_Compile.__default.Min"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "Math.Max",
+    "compiledName": "Math_Compile.__default.Max"
+  }
+]

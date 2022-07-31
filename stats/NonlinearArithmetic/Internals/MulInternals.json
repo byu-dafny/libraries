@@ -1,0 +1,22 @@
+[
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "MulInternals.MulPos",
+    "compiledName": "MulInternals_Compile.__default.MulPos"
+  },
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "0",
+    "dafnyName": "MulInternals.MulRecursive",
+    "compiledName": "MulInternals_Compile.__default.MulRecursive"
+  }
+]

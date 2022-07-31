@@ -1,0 +1,12 @@
+[
+  {
+    "blocks": "6",
+    "blocksCovered": "6",
+    "failedQueries": "0",
+    "queries": "3",
+    "tests": "3",
+    "failedTests": "0",
+    "dafnyName": "ModInternals.ModRecursive",
+    "compiledName": "ModInternals_Compile.__default.ModRecursive"
+  }
+]

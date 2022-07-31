@@ -1,0 +1,12 @@
+[
+  {
+    "blocks": "4",
+    "blocksCovered": "4",
+    "failedQueries": "0",
+    "queries": "2",
+    "tests": "2",
+    "failedTests": "2",
+    "dafnyName": "Imaps.Get",
+    "compiledName": "Imaps_Compile.__default.Get"
+  }
+]

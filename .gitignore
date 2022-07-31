@@ -1,6 +1,6 @@
 tests/AllTests.cs
-tests/bin
-tests/obj
+test/bin
+test/obj
 src/bin
 src/obj
 src/AllSource.cs
@@ -12,3 +12,8 @@ testCoverage/bin/
 testCoverage/coverage.json
 testCoverage/obj/
 .DS_Store
+.config/
+testCoverage/TestResults/*
+!testCoverage/TestResults/summary.html
+!testCoverage/TestResults/summary.htm
+!testCoverage/TestResults/Summary.txt
