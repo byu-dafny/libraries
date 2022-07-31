@@ -2,7 +2,7 @@
 
 This fork of Dafny Standard Library showcases the newest automatic test generation for Dafny. To skim through the generated tests without reproducing, look in the `tests` directory (note that some files don't have tests - this is normal since there are several absract modules and ghost methods. In addition, test generation does not support certain features, e.g. infinite maps).
 
-The coverage report is available [here](https://github.com/Dargones/libraries/blob/master/testCoverage/TestResults/summary.html)
+The coverage report is available [here](https://htmlpreview.github.io/?https://github.com/Dargones/libraries/blob/master/testCoverage/TestResults/summary.html).
 
 Please clone this with `git clone --recursive`.
 
