@@ -94,12 +94,14 @@ module srcWrappersdfyUnitTests {
   method {:test} test5()
   {
     var d0: Wrappers.Option<int> := Wrappers.Option<int>.None;
+    expect d0.None?, ""Test does not meet preconditions and should be removed""
     var r0 := d0.PropagateFailure<int>();
   }
 
   method {:test} test6()
   {
     var d0: Wrappers.Option<int> := Wrappers.Option<int>.Some(value := 0);
+    expect d0.Some?, ""Test does not meet preconditions and should be removed""
     var r0 := d0.Extract();
   }
 
@@ -136,6 +138,7 @@ module srcWrappersdfyUnitTests {
   method {:test} test12()
   {
     var d0: Wrappers.Result<int, int> := Wrappers.Result<int, int>.Failure(error := 0);
+    expect d0.Failure?, ""Test does not meet preconditions and should be removed""
     var r0 := d0.PropagateFailure<int>();
   }
 
@@ -154,6 +157,7 @@ module srcWrappersdfyUnitTests {
   method {:test} test15()
   {
     var d0: Wrappers.Result<int, int> := Wrappers.Result<int, int>.Success(value := 0);
+    expect d0.Success?, ""Test does not meet preconditions and should be removed""
     var r0 := d0.Extract();
   }
 
@@ -166,6 +170,7 @@ module srcWrappersdfyUnitTests {
   method {:test} test17()
   {
     var d0: Wrappers.Outcome<int> := Wrappers.Outcome<int>.Fail(error := 0);
+    expect d0.Fail?, ""Test does not meet preconditions and should be removed""
     var r0 := d0.PropagateFailure<int>();
   }
 
@@ -948,16 +953,19 @@ module srcNonlinearArithmeticInternalsModInternalsdfyUnitTests {
   import DivInternalsNonlinear
   method {:test} test0()
   {
-    var r0 := ModInternals.ModRecursive(-2439, 2438);
+    expect 8856 > 0, ""Test does not meet preconditions and should be removed""
+    var r0 := ModInternals.ModRecursive(-8857, 8856);
   }
 
   method {:test} test1()
   {
-    var r0 := ModInternals.ModRecursive(2438, 1);
+    expect 2460 > 0, ""Test does not meet preconditions and should be removed""
+    var r0 := ModInternals.ModRecursive(4417, 2460);
   }
 
   method {:test} test2()
   {
+    expect 1 > 0, ""Test does not meet preconditions and should be removed""
     var r0 := ModInternals.ModRecursive(0, 1);
   }
 }
@@ -1146,22 +1154,19 @@ module srcNonlinearArithmeticInternalsMulInternalsdfyUnitTests {
   import MulInternalsNonlinear
   method {:test} test0()
   {
-    var r0 := MulInternals.MulPos(8856, 1236);
+    expect 1799 >= 0, ""Test does not meet preconditions and should be removed""
+    var r0 := MulInternals.MulPos(1799, -7719);
   }
 
   method {:test} test1()
   {
+    expect 0 >= 0, ""Test does not meet preconditions and should be removed""
     var r0 := MulInternals.MulPos(0, 0);
   }
 
   method {:test} test2()
   {
-    var r0 := MulInternals.MulRecursive(38, 14);
-  }
-
-  method {:test} test3()
-  {
-    var r0 := MulInternals.MulRecursive(-39, 14);
+    var r0 := MulInternals.MulRecursive(1238, -7719);
   }
 }
 
@@ -1189,22 +1194,26 @@ module srcNonlinearArithmeticInternalsDivInternalsdfyUnitTests {
   import DivInternalsNonlinear
   method {:test} test0()
   {
-    var r0 := DivInternals.DivPos(-2439, 2438);
+    expect 1797 > 0, ""Test does not meet preconditions and should be removed""
+    var r0 := DivInternals.DivPos(-1798, 1797);
   }
 
   method {:test} test1()
   {
-    var r0 := DivInternals.DivPos(2438, 1);
+    expect 2460 > 0, ""Test does not meet preconditions and should be removed""
+    var r0 := DivInternals.DivPos(4417, 2460);
   }
 
   method {:test} test2()
   {
+    expect 1 > 0, ""Test does not meet preconditions and should be removed""
     var r0 := DivInternals.DivPos(0, 1);
   }
 
   method {:test} test3()
   {
-    var r0 := DivInternals.DivRecursive(0, 12);
+    expect 11 != 0, ""Test does not meet preconditions and should be removed""
+    var r0 := DivInternals.DivRecursive(0, 11);
   }
 }
 
@@ -2753,6 +2762,11 @@ module srcCollectionsMapsImapsdfyUnitTests {
   import Imaps
 
   import Wrappers
+  method {:test} test0()
+  {
+    var d0: imap<int, int> := imap[];
+    var r0 := Imaps.Get<int, int>(d0, 0);
+  }
 }
 
 module Imaps {
@@ -4973,7 +4987,7 @@ module srcCollectionsSequencesUint8_32dfyUnitTests {
 
   method {:test} test2()
   {
-    var r0 := Uint8_32.Uint8Seq.FromNat(2279 as nat);
+    var r0 := Uint8_32.Uint8Seq.FromNat(65 as nat);
   }
 
   method {:test} test3()
@@ -4984,6 +4998,7 @@ module srcCollectionsSequencesUint8_32dfyUnitTests {
   method {:test} test4()
   {
     var d0: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint];
+    expect |d0| <= 1 as nat, ""Test does not meet preconditions and should be removed""
     var r0 := Uint8_32.Uint8Seq.SeqExtend(d0, 1 as nat);
     expect |r0| == 1 as nat, ""expectation violation""
     expect Uint8_32.Uint8Seq.ToNatRight(r0) == Uint8_32.Uint8Seq.ToNatRight(d0), ""expectation violation""
@@ -4991,183 +5006,136 @@ module srcCollectionsSequencesUint8_32dfyUnitTests {
 
   method {:test} test5()
   {
-    var d0: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint];
-    var r0 := Uint8_32.Uint8Seq.SeqExtend(d0, 98 as nat);
-    expect |r0| == 98 as nat, ""expectation violation""
-    expect Uint8_32.Uint8Seq.ToNatRight(r0) == Uint8_32.Uint8Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint];
+    var d1: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint8Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test6()
   {
-    var d0: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint];
-    var r0 := Uint8_32.Uint8Seq.SeqExtendMultiple(d0, 66 as nat);
-    expect |r0| % 66 as nat == 0, ""expectation violation""
-    expect Uint8_32.Uint8Seq.ToNatRight(r0) == Uint8_32.Uint8Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_32.Uint8Seq.uint> := [12 as Uint8_32.Uint8Seq.uint, 2283 as Uint8_32.Uint8Seq.uint];
+    var d1: seq<Uint8_32.Uint8Seq.uint> := [281 as Uint8_32.Uint8Seq.uint, 11138 as Uint8_32.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint8Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test7()
+  {
+    var d0: seq<Uint8_32.Uint8Seq.uint> := [];
+    var d1: seq<Uint8_32.Uint8Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint8Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test8()
   {
-    var r0 := Uint8_32.Uint8Seq.SeqZero(1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint8_32.Uint8Seq.ToNatRight(r0) == 0, ""expectation violation""
+    var d0: seq<Uint8_32.Uint8Seq.uint> := [1325 as Uint8_32.Uint8Seq.uint, 2331 as Uint8_32.Uint8Seq.uint];
+    var d1: seq<Uint8_32.Uint8Seq.uint> := [234 as Uint8_32.Uint8Seq.uint, 1796 as Uint8_32.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint8Seq.SeqSub(d0, d1);
   }
 
   method {:test} test9()
   {
-    var d0: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint];
-    var d1: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint];
-    var r0 := Uint8_32.Uint8Seq.SeqAdd(d0, d1);
+    var d0: seq<Uint8_32.Uint8Seq.uint> := [920 as Uint8_32.Uint8Seq.uint, 2061 as Uint8_32.Uint8Seq.uint];
+    var d1: seq<Uint8_32.Uint8Seq.uint> := [645 as Uint8_32.Uint8Seq.uint, 2062 as Uint8_32.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint8Seq.SeqSub(d0, d1);
   }
 
   method {:test} test10()
   {
-    var d0: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 8098 as Uint8_32.Uint8Seq.uint];
-    var d1: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 16953 as Uint8_32.Uint8Seq.uint];
-    var r0 := Uint8_32.Uint8Seq.SeqAdd(d0, d1);
+    var d0: seq<Uint8_32.Uint8Seq.uint> := [];
+    var d1: seq<Uint8_32.Uint8Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint8Seq.SeqSub(d0, d1);
   }
 
   method {:test} test11()
-  {
-    var d0: seq<Uint8_32.Uint8Seq.uint> := [];
-    var d1: seq<Uint8_32.Uint8Seq.uint> := [];
-    var r0 := Uint8_32.Uint8Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test12()
-  {
-    var d0: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 4044 as Uint8_32.Uint8Seq.uint];
-    var d1: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 1653 as Uint8_32.Uint8Seq.uint];
-    var r0 := Uint8_32.Uint8Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test13()
-  {
-    var d0: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 535 as Uint8_32.Uint8Seq.uint];
-    var d1: seq<Uint8_32.Uint8Seq.uint> := [0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 0 as Uint8_32.Uint8Seq.uint, 536 as Uint8_32.Uint8Seq.uint];
-    var r0 := Uint8_32.Uint8Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test14()
-  {
-    var d0: seq<Uint8_32.Uint8Seq.uint> := [];
-    var d1: seq<Uint8_32.Uint8Seq.uint> := [];
-    var r0 := Uint8_32.Uint8Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test15()
   {
     var d0: seq<Uint8_32.Uint32Seq.uint> := [];
     var r0 := Uint8_32.Uint32Seq.ToNatRight(d0);
   }
 
-  method {:test} test16()
+  method {:test} test12()
   {
     var d0: seq<Uint8_32.Uint32Seq.uint> := [];
     var r0 := Uint8_32.Uint32Seq.ToNatLeft(d0);
   }
 
-  method {:test} test17()
+  method {:test} test13()
   {
-    var r0 := Uint8_32.Uint32Seq.FromNat(2279 as nat);
+    var r0 := Uint8_32.Uint32Seq.FromNat(65 as nat);
   }
 
-  method {:test} test18()
+  method {:test} test14()
   {
     var r0 := Uint8_32.Uint32Seq.FromNat(0 as nat);
   }
 
-  method {:test} test19()
+  method {:test} test15()
   {
     var d0: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint];
+    expect |d0| <= 1 as nat, ""Test does not meet preconditions and should be removed""
     var r0 := Uint8_32.Uint32Seq.SeqExtend(d0, 1 as nat);
     expect |r0| == 1 as nat, ""expectation violation""
     expect Uint8_32.Uint32Seq.ToNatRight(r0) == Uint8_32.Uint32Seq.ToNatRight(d0), ""expectation violation""
   }
 
+  method {:test} test16()
+  {
+    var d0: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint];
+    var d1: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint32Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test17()
+  {
+    var d0: seq<Uint8_32.Uint32Seq.uint> := [342 as Uint8_32.Uint32Seq.uint, 4720 as Uint8_32.Uint32Seq.uint];
+    var d1: seq<Uint8_32.Uint32Seq.uint> := [281 as Uint8_32.Uint32Seq.uint, 2283 as Uint8_32.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint32Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test18()
+  {
+    var d0: seq<Uint8_32.Uint32Seq.uint> := [];
+    var d1: seq<Uint8_32.Uint32Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint32Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test19()
+  {
+    var d0: seq<Uint8_32.Uint32Seq.uint> := [1325 as Uint8_32.Uint32Seq.uint, 2331 as Uint8_32.Uint32Seq.uint];
+    var d1: seq<Uint8_32.Uint32Seq.uint> := [234 as Uint8_32.Uint32Seq.uint, 1796 as Uint8_32.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint32Seq.SeqSub(d0, d1);
+  }
+
   method {:test} test20()
   {
-    var d0: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint];
-    var r0 := Uint8_32.Uint32Seq.SeqExtend(d0, 98 as nat);
-    expect |r0| == 98 as nat, ""expectation violation""
-    expect Uint8_32.Uint32Seq.ToNatRight(r0) == Uint8_32.Uint32Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_32.Uint32Seq.uint> := [920 as Uint8_32.Uint32Seq.uint, 2061 as Uint8_32.Uint32Seq.uint];
+    var d1: seq<Uint8_32.Uint32Seq.uint> := [645 as Uint8_32.Uint32Seq.uint, 2062 as Uint8_32.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint32Seq.SeqSub(d0, d1);
   }
 
   method {:test} test21()
   {
-    var d0: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint];
-    var r0 := Uint8_32.Uint32Seq.SeqExtendMultiple(d0, 66 as nat);
-    expect |r0| % 66 as nat == 0, ""expectation violation""
-    expect Uint8_32.Uint32Seq.ToNatRight(r0) == Uint8_32.Uint32Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_32.Uint32Seq.uint> := [];
+    var d1: seq<Uint8_32.Uint32Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_32.Uint32Seq.SeqSub(d0, d1);
   }
 
   method {:test} test22()
   {
-    var r0 := Uint8_32.Uint32Seq.FromNatWithLen(1236 as nat, 1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint8_32.Uint32Seq.ToNatRight(r0) == 1236 as nat, ""expectation violation""
-  }
-
-  method {:test} test23()
-  {
-    var r0 := Uint8_32.Uint32Seq.SeqZero(1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint8_32.Uint32Seq.ToNatRight(r0) == 0, ""expectation violation""
-  }
-
-  method {:test} test24()
-  {
-    var d0: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint];
-    var d1: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint];
-    var r0 := Uint8_32.Uint32Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test25()
-  {
-    var d0: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 8098 as Uint8_32.Uint32Seq.uint];
-    var d1: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 16953 as Uint8_32.Uint32Seq.uint];
-    var r0 := Uint8_32.Uint32Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test26()
-  {
-    var d0: seq<Uint8_32.Uint32Seq.uint> := [];
-    var d1: seq<Uint8_32.Uint32Seq.uint> := [];
-    var r0 := Uint8_32.Uint32Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test27()
-  {
-    var d0: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 2475 as Uint8_32.Uint32Seq.uint];
-    var d1: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 1888 as Uint8_32.Uint32Seq.uint];
-    var r0 := Uint8_32.Uint32Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test28()
-  {
-    var d0: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 535 as Uint8_32.Uint32Seq.uint];
-    var d1: seq<Uint8_32.Uint32Seq.uint> := [0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 0 as Uint8_32.Uint32Seq.uint, 536 as Uint8_32.Uint32Seq.uint];
-    var r0 := Uint8_32.Uint32Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test29()
-  {
-    var d0: seq<Uint8_32.Uint32Seq.uint> := [];
-    var d1: seq<Uint8_32.Uint32Seq.uint> := [];
-    var r0 := Uint8_32.Uint32Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test30()
-  {
     var d0: seq<Uint8_32.Uint32Seq.uint> := [];
     var r0 := Uint8_32.ToSmall(d0);
     expect |r0| == |d0| * Uint8_32.E(), ""expectation violation""
-  }
-
-  method {:test} test31()
-  {
-    var d0: seq<Uint8_32.Uint8Seq.uint> := [];
-    var r0 := Uint8_32.ToLarge(d0);
-    expect |r0| == |d0| / Uint8_32.E(), ""expectation violation""
   }
 }
 
@@ -6581,24 +6549,28 @@ module srcCollectionsSequencesSeqdfyUnitTests {
   method {:test} test0()
   {
     var d0: seq<int> := [0];
+    expect |d0| > 0, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.First<int>(d0);
   }
 
   method {:test} test1()
   {
     var d0: seq<int> := [0];
+    expect |d0| > 0, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.DropFirst<int>(d0);
   }
 
   method {:test} test2()
   {
     var d0: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    expect |d0| > 0, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.Last<int>(d0);
   }
 
   method {:test} test3()
   {
     var d0: seq<int> := [0, 0];
+    expect |d0| > 0, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.DropLast<int>(d0);
   }
 
@@ -6631,13 +6603,15 @@ module srcCollectionsSequencesSeqdfyUnitTests {
   method {:test} test11()
   {
     var d0: seq<int> := [1];
+    expect 1 in d0, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.IndexOf<int>(d0, 1);
     expect r0 < |d0| && d0[r0] == 1, ""expectation violation""
   }
 
   method {:test} test12()
   {
-    var d0: seq<int> := [0, 1];
+    var d0: seq<int> := [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
+    expect 1 in d0, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.IndexOf<int>(d0, 1);
     expect r0 < |d0| && d0[r0] == 1, ""expectation violation""
   }
@@ -6656,8 +6630,8 @@ module srcCollectionsSequencesSeqdfyUnitTests {
 
   method {:test} test15()
   {
-    var d0: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
-    var r0 := Seq.IndexOfOption<int>(d0, 1);
+    var d0: seq<int> := [1, 2];
+    var r0 := Seq.IndexOfOption<int>(d0, 2);
   }
 
   method {:test} test16()
@@ -6669,13 +6643,15 @@ module srcCollectionsSequencesSeqdfyUnitTests {
   method {:test} test17()
   {
     var d0: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    expect 0 in d0, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.LastIndexOf<int>(d0, 0);
     expect r0 < |d0| && d0[r0] == 0, ""expectation violation""
   }
 
   method {:test} test18()
   {
-    var d0: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
+    var d0: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
+    expect 0 in d0, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.LastIndexOf<int>(d0, 0);
     expect r0 < |d0| && d0[r0] == 0, ""expectation violation""
   }
@@ -6688,8 +6664,8 @@ module srcCollectionsSequencesSeqdfyUnitTests {
 
   method {:test} test20()
   {
-    var d0: seq<int> := [0, 0];
-    var r0 := Seq.LastIndexOfOption<int>(d0, 1);
+    var d0: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2];
+    var r0 := Seq.LastIndexOfOption<int>(d0, 3);
   }
 
   method {:test} test21()
@@ -6701,6 +6677,7 @@ module srcCollectionsSequencesSeqdfyUnitTests {
   method {:test} test22()
   {
     var d0: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    expect 39 as nat < |d0|, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.Remove<int>(d0, 39 as nat);
     expect |r0| == |d0| - 1, ""expectation violation""
   }
@@ -6716,16 +6693,17 @@ module srcCollectionsSequencesSeqdfyUnitTests {
 
   method {:test} test24()
   {
-    var d0: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    var r0 := Seq.RemoveValue<int>(d0, 0);
-    expect 0 !in d0 ==> d0 == r0, ""expectation violation""
-    expect 0 in d0 ==> |multiset(r0)| == |multiset(d0)| - 1, ""expectation violation""
-    expect 0 in d0 ==> multiset(r0)[0] == multiset(d0)[0] - 1, ""expectation violation""
+    var d0: seq<int> := [0, 2, 0];
+    var r0 := Seq.RemoveValue<int>(d0, 2);
+    expect 2 !in d0 ==> d0 == r0, ""expectation violation""
+    expect 2 in d0 ==> |multiset(r0)| == |multiset(d0)| - 1, ""expectation violation""
+    expect 2 in d0 ==> multiset(r0)[2] == multiset(d0)[2] - 1, ""expectation violation""
   }
 
   method {:test} test25()
   {
     var d0: seq<int> := [0, 0];
+    expect 1 as nat <= |d0|, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.Insert<int>(d0, 0, 1 as nat);
     expect |Seq.Insert(d0, 0, 1 as nat)| == |d0| + 1, ""expectation violation""
     expect Seq.Insert(d0, 0, 1 as nat)[1 as nat] == 0, ""expectation violation""
@@ -6741,15 +6719,15 @@ module srcCollectionsSequencesSeqdfyUnitTests {
 
   method {:test} test27()
   {
-    var d0: seq<int> := [0, 0];
+    var d0: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0];
     var r0 := Seq.Reverse<int>(d0);
     expect |r0| == |d0|, ""expectation violation""
   }
 
   method {:test} test28()
   {
-    var r0 := Seq.Repeat<int>(0, 2 as nat);
-    expect |r0| == 2 as nat, ""expectation violation""
+    var r0 := Seq.Repeat<int>(0, 76 as nat);
+    expect |r0| == 76 as nat, ""expectation violation""
   }
 
   method {:test} test29()
@@ -6761,7 +6739,8 @@ module srcCollectionsSequencesSeqdfyUnitTests {
   method {:test} test32()
   {
     var d0: seq<int> := [0, 0];
-    var d1: seq<int> := [0, 1];
+    var d1: seq<int> := [0, 0];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.Zip<int, int>(d0, d1);
     expect |Seq.Zip(d0, d1)| == |d0|, ""expectation violation""
     expect Seq.Unzip(Seq.Zip(d0, d1)).0 == d0, ""expectation violation""
@@ -6772,6 +6751,7 @@ module srcCollectionsSequencesSeqdfyUnitTests {
   {
     var d0: seq<int> := [];
     var d1: seq<int> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.Zip<int, int>(d0, d1);
     expect |Seq.Zip(d0, d1)| == |d0|, ""expectation violation""
     expect Seq.Unzip(Seq.Zip(d0, d1)).0 == d0, ""expectation violation""
@@ -6780,7 +6760,8 @@ module srcCollectionsSequencesSeqdfyUnitTests {
 
   method {:test} test34()
   {
-    var d0: seq<int> := [8855, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5853, 0, 0, 0, 0, 0, 0, 5853, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var d0: seq<int> := [8855, 8878, 8879];
+    expect 0 < |d0|, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.Max(d0);
     expect Seq.Max(d0) in d0, ""expectation violation""
   }
@@ -6788,13 +6769,15 @@ module srcCollectionsSequencesSeqdfyUnitTests {
   method {:test} test35()
   {
     var d0: seq<int> := [0];
+    expect 0 < |d0|, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.Max(d0);
     expect Seq.Max(d0) in d0, ""expectation violation""
   }
 
   method {:test} test36()
   {
-    var d0: seq<int> := [8855, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5853, 0, 0, 0, 0, 0, 0, 5853, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var d0: seq<int> := [8855, 1141, 1142];
+    expect 0 < |d0|, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.Min(d0);
     expect Seq.Min(d0) in d0, ""expectation violation""
   }
@@ -6802,6 +6785,7 @@ module srcCollectionsSequencesSeqdfyUnitTests {
   method {:test} test37()
   {
     var d0: seq<int> := [0];
+    expect 0 < |d0|, ""Test does not meet preconditions and should be removed""
     var r0 := Seq.Min(d0);
     expect Seq.Min(d0) in d0, ""expectation violation""
   }
@@ -6843,7 +6827,7 @@ module srcCollectionsSequencesSeqdfyUnitTests {
 
   method {:test} test43()
   {
-    var d0: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var d0: seq<int> := [0, 1];
     var r0 := Seq.Map<int, int>((a0: int) => 0, d0);
     expect |r0| == |d0|, ""expectation violation""
   }
@@ -6858,21 +6842,21 @@ module srcCollectionsSequencesSeqdfyUnitTests {
   method {:test} test45()
   {
     var d0: Wrappers.Result<int, int> := Wrappers.Result<int, int>.Success(value := 0);
-    var d1: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var d1: seq<int> := [0, 1];
     var r0 := Seq.MapWithResult<int, int, int>((a0: int) => d0, d1);
   }
 
   method {:test} test46()
   {
     var d0: Wrappers.Result<int, int> := Wrappers.Result<int, int>.Success(value := 0);
-    var d1: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var d1: seq<int> := [0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var r0 := Seq.MapWithResult<int, int, int>((a0: int) => d0, d1);
   }
 
   method {:test} test47()
   {
     var d0: Wrappers.Result<int, int> := Wrappers.Result<int, int>.Success(value := 0);
-    var d1: seq<int> := [0];
+    var d1: seq<int> := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var r0 := Seq.MapWithResult<int, int, int>((a0: int) => d0, d1);
   }
 
@@ -6884,13 +6868,6 @@ module srcCollectionsSequencesSeqdfyUnitTests {
   }
 
   method {:test} test49()
-  {
-    var d0: seq<int> := [0, 0];
-    var r0 := Seq.Filter<int>((a0: int) => false, d0);
-    expect |r0| <= |d0|, ""expectation violation""
-  }
-
-  method {:test} test50()
   {
     var d0: seq<int> := [0];
     var r0 := Seq.Filter<int>((a0: int) => false, d0);
@@ -6969,7 +6946,7 @@ module srcCollectionsSequencesUint16_32dfyUnitTests {
 
   method {:test} test2()
   {
-    var r0 := Uint16_32.Uint16Seq.FromNat(2279 as nat);
+    var r0 := Uint16_32.Uint16Seq.FromNat(65 as nat);
   }
 
   method {:test} test3()
@@ -6980,6 +6957,7 @@ module srcCollectionsSequencesUint16_32dfyUnitTests {
   method {:test} test4()
   {
     var d0: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint];
+    expect |d0| <= 1 as nat, ""Test does not meet preconditions and should be removed""
     var r0 := Uint16_32.Uint16Seq.SeqExtend(d0, 1 as nat);
     expect |r0| == 1 as nat, ""expectation violation""
     expect Uint16_32.Uint16Seq.ToNatRight(r0) == Uint16_32.Uint16Seq.ToNatRight(d0), ""expectation violation""
@@ -6987,188 +6965,142 @@ module srcCollectionsSequencesUint16_32dfyUnitTests {
 
   method {:test} test5()
   {
-    var d0: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint];
-    var r0 := Uint16_32.Uint16Seq.SeqExtend(d0, 98 as nat);
-    expect |r0| == 98 as nat, ""expectation violation""
-    expect Uint16_32.Uint16Seq.ToNatRight(r0) == Uint16_32.Uint16Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint];
+    var d1: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint16Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test6()
   {
-    var d0: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint];
-    var r0 := Uint16_32.Uint16Seq.SeqExtendMultiple(d0, 66 as nat);
-    expect |r0| % 66 as nat == 0, ""expectation violation""
-    expect Uint16_32.Uint16Seq.ToNatRight(r0) == Uint16_32.Uint16Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint16_32.Uint16Seq.uint> := [12 as Uint16_32.Uint16Seq.uint, 2283 as Uint16_32.Uint16Seq.uint];
+    var d1: seq<Uint16_32.Uint16Seq.uint> := [281 as Uint16_32.Uint16Seq.uint, 11138 as Uint16_32.Uint16Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint16Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test7()
   {
-    var r0 := Uint16_32.Uint16Seq.FromNatWithLen(1236 as nat, 1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint16_32.Uint16Seq.ToNatRight(r0) == 1236 as nat, ""expectation violation""
+    var d0: seq<Uint16_32.Uint16Seq.uint> := [];
+    var d1: seq<Uint16_32.Uint16Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint16Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test8()
   {
-    var r0 := Uint16_32.Uint16Seq.SeqZero(1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint16_32.Uint16Seq.ToNatRight(r0) == 0, ""expectation violation""
+    var d0: seq<Uint16_32.Uint16Seq.uint> := [1325 as Uint16_32.Uint16Seq.uint, 2331 as Uint16_32.Uint16Seq.uint];
+    var d1: seq<Uint16_32.Uint16Seq.uint> := [234 as Uint16_32.Uint16Seq.uint, 1796 as Uint16_32.Uint16Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint16Seq.SeqSub(d0, d1);
   }
 
   method {:test} test9()
   {
-    var d0: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint];
-    var d1: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint];
-    var r0 := Uint16_32.Uint16Seq.SeqAdd(d0, d1);
+    var d0: seq<Uint16_32.Uint16Seq.uint> := [920 as Uint16_32.Uint16Seq.uint, 2061 as Uint16_32.Uint16Seq.uint];
+    var d1: seq<Uint16_32.Uint16Seq.uint> := [645 as Uint16_32.Uint16Seq.uint, 2062 as Uint16_32.Uint16Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint16Seq.SeqSub(d0, d1);
   }
 
   method {:test} test10()
   {
-    var d0: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 8098 as Uint16_32.Uint16Seq.uint];
-    var d1: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 16953 as Uint16_32.Uint16Seq.uint];
-    var r0 := Uint16_32.Uint16Seq.SeqAdd(d0, d1);
+    var d0: seq<Uint16_32.Uint16Seq.uint> := [];
+    var d1: seq<Uint16_32.Uint16Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint16Seq.SeqSub(d0, d1);
   }
 
   method {:test} test11()
-  {
-    var d0: seq<Uint16_32.Uint16Seq.uint> := [];
-    var d1: seq<Uint16_32.Uint16Seq.uint> := [];
-    var r0 := Uint16_32.Uint16Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test12()
-  {
-    var d0: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 4044 as Uint16_32.Uint16Seq.uint];
-    var d1: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 1653 as Uint16_32.Uint16Seq.uint];
-    var r0 := Uint16_32.Uint16Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test13()
-  {
-    var d0: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 535 as Uint16_32.Uint16Seq.uint];
-    var d1: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 536 as Uint16_32.Uint16Seq.uint];
-    var r0 := Uint16_32.Uint16Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test14()
-  {
-    var d0: seq<Uint16_32.Uint16Seq.uint> := [];
-    var d1: seq<Uint16_32.Uint16Seq.uint> := [];
-    var r0 := Uint16_32.Uint16Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test15()
   {
     var d0: seq<Uint16_32.Uint32Seq.uint> := [];
     var r0 := Uint16_32.Uint32Seq.ToNatRight(d0);
   }
 
-  method {:test} test16()
+  method {:test} test12()
   {
     var d0: seq<Uint16_32.Uint32Seq.uint> := [];
     var r0 := Uint16_32.Uint32Seq.ToNatLeft(d0);
   }
 
-  method {:test} test17()
+  method {:test} test13()
   {
-    var r0 := Uint16_32.Uint32Seq.FromNat(2279 as nat);
+    var r0 := Uint16_32.Uint32Seq.FromNat(65 as nat);
   }
 
-  method {:test} test18()
+  method {:test} test14()
   {
     var r0 := Uint16_32.Uint32Seq.FromNat(0 as nat);
   }
 
-  method {:test} test19()
+  method {:test} test15()
   {
     var d0: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint];
+    expect |d0| <= 1 as nat, ""Test does not meet preconditions and should be removed""
     var r0 := Uint16_32.Uint32Seq.SeqExtend(d0, 1 as nat);
     expect |r0| == 1 as nat, ""expectation violation""
     expect Uint16_32.Uint32Seq.ToNatRight(r0) == Uint16_32.Uint32Seq.ToNatRight(d0), ""expectation violation""
   }
 
+  method {:test} test16()
+  {
+    var d0: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint];
+    var d1: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint32Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test17()
+  {
+    var d0: seq<Uint16_32.Uint32Seq.uint> := [342 as Uint16_32.Uint32Seq.uint, 4720 as Uint16_32.Uint32Seq.uint];
+    var d1: seq<Uint16_32.Uint32Seq.uint> := [281 as Uint16_32.Uint32Seq.uint, 2283 as Uint16_32.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint32Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test18()
+  {
+    var d0: seq<Uint16_32.Uint32Seq.uint> := [];
+    var d1: seq<Uint16_32.Uint32Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint32Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test19()
+  {
+    var d0: seq<Uint16_32.Uint32Seq.uint> := [1325 as Uint16_32.Uint32Seq.uint, 2331 as Uint16_32.Uint32Seq.uint];
+    var d1: seq<Uint16_32.Uint32Seq.uint> := [234 as Uint16_32.Uint32Seq.uint, 1796 as Uint16_32.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint32Seq.SeqSub(d0, d1);
+  }
+
   method {:test} test20()
   {
-    var d0: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint];
-    var r0 := Uint16_32.Uint32Seq.SeqExtend(d0, 98 as nat);
-    expect |r0| == 98 as nat, ""expectation violation""
-    expect Uint16_32.Uint32Seq.ToNatRight(r0) == Uint16_32.Uint32Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint16_32.Uint32Seq.uint> := [920 as Uint16_32.Uint32Seq.uint, 2061 as Uint16_32.Uint32Seq.uint];
+    var d1: seq<Uint16_32.Uint32Seq.uint> := [645 as Uint16_32.Uint32Seq.uint, 2062 as Uint16_32.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint32Seq.SeqSub(d0, d1);
   }
 
   method {:test} test21()
   {
-    var d0: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint];
-    var r0 := Uint16_32.Uint32Seq.SeqExtendMultiple(d0, 66 as nat);
-    expect |r0| % 66 as nat == 0, ""expectation violation""
-    expect Uint16_32.Uint32Seq.ToNatRight(r0) == Uint16_32.Uint32Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint16_32.Uint32Seq.uint> := [];
+    var d1: seq<Uint16_32.Uint32Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint16_32.Uint32Seq.SeqSub(d0, d1);
   }
 
   method {:test} test22()
-  {
-    var r0 := Uint16_32.Uint32Seq.FromNatWithLen(1236 as nat, 1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint16_32.Uint32Seq.ToNatRight(r0) == 1236 as nat, ""expectation violation""
-  }
-
-  method {:test} test23()
-  {
-    var r0 := Uint16_32.Uint32Seq.SeqZero(1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint16_32.Uint32Seq.ToNatRight(r0) == 0, ""expectation violation""
-  }
-
-  method {:test} test24()
-  {
-    var d0: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint];
-    var d1: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint];
-    var r0 := Uint16_32.Uint32Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test25()
-  {
-    var d0: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 8098 as Uint16_32.Uint32Seq.uint];
-    var d1: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 16953 as Uint16_32.Uint32Seq.uint];
-    var r0 := Uint16_32.Uint32Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test26()
-  {
-    var d0: seq<Uint16_32.Uint32Seq.uint> := [];
-    var d1: seq<Uint16_32.Uint32Seq.uint> := [];
-    var r0 := Uint16_32.Uint32Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test27()
-  {
-    var d0: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 2475 as Uint16_32.Uint32Seq.uint];
-    var d1: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 1888 as Uint16_32.Uint32Seq.uint];
-    var r0 := Uint16_32.Uint32Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test28()
-  {
-    var d0: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 535 as Uint16_32.Uint32Seq.uint];
-    var d1: seq<Uint16_32.Uint32Seq.uint> := [0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 0 as Uint16_32.Uint32Seq.uint, 536 as Uint16_32.Uint32Seq.uint];
-    var r0 := Uint16_32.Uint32Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test29()
-  {
-    var d0: seq<Uint16_32.Uint32Seq.uint> := [];
-    var d1: seq<Uint16_32.Uint32Seq.uint> := [];
-    var r0 := Uint16_32.Uint32Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test30()
   {
     var d0: seq<Uint16_32.Uint32Seq.uint> := [];
     var r0 := Uint16_32.ToSmall(d0);
     expect |r0| == |d0| * Uint16_32.E(), ""expectation violation""
   }
 
-  method {:test} test31()
+  method {:test} test23()
   {
-    var d0: seq<Uint16_32.Uint16Seq.uint> := [];
+    var d0: seq<Uint16_32.Uint16Seq.uint> := [0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint, 0 as Uint16_32.Uint16Seq.uint];
+    expect |d0| % Uint16_32.E() == 0, ""Test does not meet preconditions and should be removed""
     var r0 := Uint16_32.ToLarge(d0);
     expect |r0| == |d0| / Uint16_32.E(), ""expectation violation""
   }
@@ -8592,7 +8524,7 @@ module srcCollectionsSequencesUint8_64dfyUnitTests {
 
   method {:test} test2()
   {
-    var r0 := Uint8_64.Uint8Seq.FromNat(2279 as nat);
+    var r0 := Uint8_64.Uint8Seq.FromNat(65 as nat);
   }
 
   method {:test} test3()
@@ -8603,6 +8535,7 @@ module srcCollectionsSequencesUint8_64dfyUnitTests {
   method {:test} test4()
   {
     var d0: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint];
+    expect |d0| <= 1 as nat, ""Test does not meet preconditions and should be removed""
     var r0 := Uint8_64.Uint8Seq.SeqExtend(d0, 1 as nat);
     expect |r0| == 1 as nat, ""expectation violation""
     expect Uint8_64.Uint8Seq.ToNatRight(r0) == Uint8_64.Uint8Seq.ToNatRight(d0), ""expectation violation""
@@ -8610,183 +8543,136 @@ module srcCollectionsSequencesUint8_64dfyUnitTests {
 
   method {:test} test5()
   {
-    var d0: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint];
-    var r0 := Uint8_64.Uint8Seq.SeqExtend(d0, 98 as nat);
-    expect |r0| == 98 as nat, ""expectation violation""
-    expect Uint8_64.Uint8Seq.ToNatRight(r0) == Uint8_64.Uint8Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint];
+    var d1: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint8Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test6()
   {
-    var d0: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint];
-    var r0 := Uint8_64.Uint8Seq.SeqExtendMultiple(d0, 66 as nat);
-    expect |r0| % 66 as nat == 0, ""expectation violation""
-    expect Uint8_64.Uint8Seq.ToNatRight(r0) == Uint8_64.Uint8Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_64.Uint8Seq.uint> := [12 as Uint8_64.Uint8Seq.uint, 2283 as Uint8_64.Uint8Seq.uint];
+    var d1: seq<Uint8_64.Uint8Seq.uint> := [281 as Uint8_64.Uint8Seq.uint, 11138 as Uint8_64.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint8Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test7()
+  {
+    var d0: seq<Uint8_64.Uint8Seq.uint> := [];
+    var d1: seq<Uint8_64.Uint8Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint8Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test8()
   {
-    var r0 := Uint8_64.Uint8Seq.SeqZero(1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint8_64.Uint8Seq.ToNatRight(r0) == 0, ""expectation violation""
+    var d0: seq<Uint8_64.Uint8Seq.uint> := [1325 as Uint8_64.Uint8Seq.uint, 2331 as Uint8_64.Uint8Seq.uint];
+    var d1: seq<Uint8_64.Uint8Seq.uint> := [234 as Uint8_64.Uint8Seq.uint, 1796 as Uint8_64.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint8Seq.SeqSub(d0, d1);
   }
 
   method {:test} test9()
   {
-    var d0: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint];
-    var d1: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint];
-    var r0 := Uint8_64.Uint8Seq.SeqAdd(d0, d1);
+    var d0: seq<Uint8_64.Uint8Seq.uint> := [920 as Uint8_64.Uint8Seq.uint, 2061 as Uint8_64.Uint8Seq.uint];
+    var d1: seq<Uint8_64.Uint8Seq.uint> := [645 as Uint8_64.Uint8Seq.uint, 2062 as Uint8_64.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint8Seq.SeqSub(d0, d1);
   }
 
   method {:test} test10()
   {
-    var d0: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 8098 as Uint8_64.Uint8Seq.uint];
-    var d1: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 16953 as Uint8_64.Uint8Seq.uint];
-    var r0 := Uint8_64.Uint8Seq.SeqAdd(d0, d1);
+    var d0: seq<Uint8_64.Uint8Seq.uint> := [];
+    var d1: seq<Uint8_64.Uint8Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint8Seq.SeqSub(d0, d1);
   }
 
   method {:test} test11()
-  {
-    var d0: seq<Uint8_64.Uint8Seq.uint> := [];
-    var d1: seq<Uint8_64.Uint8Seq.uint> := [];
-    var r0 := Uint8_64.Uint8Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test12()
-  {
-    var d0: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 4044 as Uint8_64.Uint8Seq.uint];
-    var d1: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 1653 as Uint8_64.Uint8Seq.uint];
-    var r0 := Uint8_64.Uint8Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test13()
-  {
-    var d0: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 535 as Uint8_64.Uint8Seq.uint];
-    var d1: seq<Uint8_64.Uint8Seq.uint> := [0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 0 as Uint8_64.Uint8Seq.uint, 536 as Uint8_64.Uint8Seq.uint];
-    var r0 := Uint8_64.Uint8Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test14()
-  {
-    var d0: seq<Uint8_64.Uint8Seq.uint> := [];
-    var d1: seq<Uint8_64.Uint8Seq.uint> := [];
-    var r0 := Uint8_64.Uint8Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test15()
   {
     var d0: seq<Uint8_64.Uint64Seq.uint> := [];
     var r0 := Uint8_64.Uint64Seq.ToNatRight(d0);
   }
 
-  method {:test} test16()
+  method {:test} test12()
   {
     var d0: seq<Uint8_64.Uint64Seq.uint> := [];
     var r0 := Uint8_64.Uint64Seq.ToNatLeft(d0);
   }
 
-  method {:test} test17()
+  method {:test} test13()
   {
-    var r0 := Uint8_64.Uint64Seq.FromNat(2279 as nat);
+    var r0 := Uint8_64.Uint64Seq.FromNat(65 as nat);
   }
 
-  method {:test} test18()
+  method {:test} test14()
   {
     var r0 := Uint8_64.Uint64Seq.FromNat(0 as nat);
   }
 
-  method {:test} test19()
+  method {:test} test15()
   {
     var d0: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint];
+    expect |d0| <= 1 as nat, ""Test does not meet preconditions and should be removed""
     var r0 := Uint8_64.Uint64Seq.SeqExtend(d0, 1 as nat);
     expect |r0| == 1 as nat, ""expectation violation""
     expect Uint8_64.Uint64Seq.ToNatRight(r0) == Uint8_64.Uint64Seq.ToNatRight(d0), ""expectation violation""
   }
 
+  method {:test} test16()
+  {
+    var d0: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint];
+    var d1: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint64Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test17()
+  {
+    var d0: seq<Uint8_64.Uint64Seq.uint> := [342 as Uint8_64.Uint64Seq.uint, 4720 as Uint8_64.Uint64Seq.uint];
+    var d1: seq<Uint8_64.Uint64Seq.uint> := [281 as Uint8_64.Uint64Seq.uint, 2283 as Uint8_64.Uint64Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint64Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test18()
+  {
+    var d0: seq<Uint8_64.Uint64Seq.uint> := [];
+    var d1: seq<Uint8_64.Uint64Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint64Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test19()
+  {
+    var d0: seq<Uint8_64.Uint64Seq.uint> := [1325 as Uint8_64.Uint64Seq.uint, 2331 as Uint8_64.Uint64Seq.uint];
+    var d1: seq<Uint8_64.Uint64Seq.uint> := [234 as Uint8_64.Uint64Seq.uint, 1796 as Uint8_64.Uint64Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint64Seq.SeqSub(d0, d1);
+  }
+
   method {:test} test20()
   {
-    var d0: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint];
-    var r0 := Uint8_64.Uint64Seq.SeqExtend(d0, 98 as nat);
-    expect |r0| == 98 as nat, ""expectation violation""
-    expect Uint8_64.Uint64Seq.ToNatRight(r0) == Uint8_64.Uint64Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_64.Uint64Seq.uint> := [920 as Uint8_64.Uint64Seq.uint, 2061 as Uint8_64.Uint64Seq.uint];
+    var d1: seq<Uint8_64.Uint64Seq.uint> := [645 as Uint8_64.Uint64Seq.uint, 2062 as Uint8_64.Uint64Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint64Seq.SeqSub(d0, d1);
   }
 
   method {:test} test21()
   {
-    var d0: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint];
-    var r0 := Uint8_64.Uint64Seq.SeqExtendMultiple(d0, 66 as nat);
-    expect |r0| % 66 as nat == 0, ""expectation violation""
-    expect Uint8_64.Uint64Seq.ToNatRight(r0) == Uint8_64.Uint64Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_64.Uint64Seq.uint> := [];
+    var d1: seq<Uint8_64.Uint64Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_64.Uint64Seq.SeqSub(d0, d1);
   }
 
   method {:test} test22()
   {
-    var r0 := Uint8_64.Uint64Seq.FromNatWithLen(1236 as nat, 1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint8_64.Uint64Seq.ToNatRight(r0) == 1236 as nat, ""expectation violation""
-  }
-
-  method {:test} test23()
-  {
-    var r0 := Uint8_64.Uint64Seq.SeqZero(1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint8_64.Uint64Seq.ToNatRight(r0) == 0, ""expectation violation""
-  }
-
-  method {:test} test24()
-  {
-    var d0: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint];
-    var d1: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint];
-    var r0 := Uint8_64.Uint64Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test25()
-  {
-    var d0: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 8098 as Uint8_64.Uint64Seq.uint];
-    var d1: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 16953 as Uint8_64.Uint64Seq.uint];
-    var r0 := Uint8_64.Uint64Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test26()
-  {
-    var d0: seq<Uint8_64.Uint64Seq.uint> := [];
-    var d1: seq<Uint8_64.Uint64Seq.uint> := [];
-    var r0 := Uint8_64.Uint64Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test27()
-  {
-    var d0: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 2475 as Uint8_64.Uint64Seq.uint];
-    var d1: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 1888 as Uint8_64.Uint64Seq.uint];
-    var r0 := Uint8_64.Uint64Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test28()
-  {
-    var d0: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 535 as Uint8_64.Uint64Seq.uint];
-    var d1: seq<Uint8_64.Uint64Seq.uint> := [0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 0 as Uint8_64.Uint64Seq.uint, 536 as Uint8_64.Uint64Seq.uint];
-    var r0 := Uint8_64.Uint64Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test29()
-  {
-    var d0: seq<Uint8_64.Uint64Seq.uint> := [];
-    var d1: seq<Uint8_64.Uint64Seq.uint> := [];
-    var r0 := Uint8_64.Uint64Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test30()
-  {
     var d0: seq<Uint8_64.Uint64Seq.uint> := [];
     var r0 := Uint8_64.ToSmall(d0);
     expect |r0| == |d0| * Uint8_64.E(), ""expectation violation""
-  }
-
-  method {:test} test31()
-  {
-    var d0: seq<Uint8_64.Uint8Seq.uint> := [];
-    var r0 := Uint8_64.ToLarge(d0);
-    expect |r0| == |d0| / Uint8_64.E(), ""expectation violation""
   }
 }
 
@@ -10208,7 +10094,7 @@ module srcCollectionsSequencesUint8_16dfyUnitTests {
 
   method {:test} test2()
   {
-    var r0 := Uint8_16.Uint8Seq.FromNat(2279 as nat);
+    var r0 := Uint8_16.Uint8Seq.FromNat(65 as nat);
   }
 
   method {:test} test3()
@@ -10219,6 +10105,7 @@ module srcCollectionsSequencesUint8_16dfyUnitTests {
   method {:test} test4()
   {
     var d0: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint];
+    expect |d0| <= 1 as nat, ""Test does not meet preconditions and should be removed""
     var r0 := Uint8_16.Uint8Seq.SeqExtend(d0, 1 as nat);
     expect |r0| == 1 as nat, ""expectation violation""
     expect Uint8_16.Uint8Seq.ToNatRight(r0) == Uint8_16.Uint8Seq.ToNatRight(d0), ""expectation violation""
@@ -10226,181 +10113,142 @@ module srcCollectionsSequencesUint8_16dfyUnitTests {
 
   method {:test} test5()
   {
-    var d0: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint];
-    var r0 := Uint8_16.Uint8Seq.SeqExtend(d0, 98 as nat);
-    expect |r0| == 98 as nat, ""expectation violation""
-    expect Uint8_16.Uint8Seq.ToNatRight(r0) == Uint8_16.Uint8Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint];
+    var d1: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint8Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test6()
   {
-    var d0: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint];
-    var r0 := Uint8_16.Uint8Seq.SeqExtendMultiple(d0, 66 as nat);
-    expect |r0| % 66 as nat == 0, ""expectation violation""
-    expect Uint8_16.Uint8Seq.ToNatRight(r0) == Uint8_16.Uint8Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_16.Uint8Seq.uint> := [12 as Uint8_16.Uint8Seq.uint, 2283 as Uint8_16.Uint8Seq.uint];
+    var d1: seq<Uint8_16.Uint8Seq.uint> := [281 as Uint8_16.Uint8Seq.uint, 11138 as Uint8_16.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint8Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test7()
+  {
+    var d0: seq<Uint8_16.Uint8Seq.uint> := [];
+    var d1: seq<Uint8_16.Uint8Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint8Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test8()
   {
-    var r0 := Uint8_16.Uint8Seq.SeqZero(1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint8_16.Uint8Seq.ToNatRight(r0) == 0, ""expectation violation""
+    var d0: seq<Uint8_16.Uint8Seq.uint> := [1325 as Uint8_16.Uint8Seq.uint, 2331 as Uint8_16.Uint8Seq.uint];
+    var d1: seq<Uint8_16.Uint8Seq.uint> := [234 as Uint8_16.Uint8Seq.uint, 1796 as Uint8_16.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint8Seq.SeqSub(d0, d1);
   }
 
   method {:test} test9()
   {
-    var d0: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint];
-    var d1: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint];
-    var r0 := Uint8_16.Uint8Seq.SeqAdd(d0, d1);
+    var d0: seq<Uint8_16.Uint8Seq.uint> := [920 as Uint8_16.Uint8Seq.uint, 2061 as Uint8_16.Uint8Seq.uint];
+    var d1: seq<Uint8_16.Uint8Seq.uint> := [645 as Uint8_16.Uint8Seq.uint, 2062 as Uint8_16.Uint8Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint8Seq.SeqSub(d0, d1);
   }
 
   method {:test} test10()
   {
-    var d0: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 8098 as Uint8_16.Uint8Seq.uint];
-    var d1: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 16953 as Uint8_16.Uint8Seq.uint];
-    var r0 := Uint8_16.Uint8Seq.SeqAdd(d0, d1);
+    var d0: seq<Uint8_16.Uint8Seq.uint> := [];
+    var d1: seq<Uint8_16.Uint8Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint8Seq.SeqSub(d0, d1);
   }
 
   method {:test} test11()
-  {
-    var d0: seq<Uint8_16.Uint8Seq.uint> := [];
-    var d1: seq<Uint8_16.Uint8Seq.uint> := [];
-    var r0 := Uint8_16.Uint8Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test12()
-  {
-    var d0: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 4044 as Uint8_16.Uint8Seq.uint];
-    var d1: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 1653 as Uint8_16.Uint8Seq.uint];
-    var r0 := Uint8_16.Uint8Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test13()
-  {
-    var d0: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 535 as Uint8_16.Uint8Seq.uint];
-    var d1: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 536 as Uint8_16.Uint8Seq.uint];
-    var r0 := Uint8_16.Uint8Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test14()
-  {
-    var d0: seq<Uint8_16.Uint8Seq.uint> := [];
-    var d1: seq<Uint8_16.Uint8Seq.uint> := [];
-    var r0 := Uint8_16.Uint8Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test15()
   {
     var d0: seq<Uint8_16.Uint16Seq.uint> := [];
     var r0 := Uint8_16.Uint16Seq.ToNatRight(d0);
   }
 
-  method {:test} test16()
+  method {:test} test12()
   {
     var d0: seq<Uint8_16.Uint16Seq.uint> := [];
     var r0 := Uint8_16.Uint16Seq.ToNatLeft(d0);
   }
 
-  method {:test} test17()
+  method {:test} test13()
   {
-    var r0 := Uint8_16.Uint16Seq.FromNat(2279 as nat);
+    var r0 := Uint8_16.Uint16Seq.FromNat(65 as nat);
   }
 
-  method {:test} test18()
+  method {:test} test14()
   {
     var r0 := Uint8_16.Uint16Seq.FromNat(0 as nat);
   }
 
-  method {:test} test19()
+  method {:test} test15()
   {
     var d0: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint];
+    expect |d0| <= 1 as nat, ""Test does not meet preconditions and should be removed""
     var r0 := Uint8_16.Uint16Seq.SeqExtend(d0, 1 as nat);
     expect |r0| == 1 as nat, ""expectation violation""
     expect Uint8_16.Uint16Seq.ToNatRight(r0) == Uint8_16.Uint16Seq.ToNatRight(d0), ""expectation violation""
   }
 
+  method {:test} test16()
+  {
+    var d0: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint];
+    var d1: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint16Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test17()
+  {
+    var d0: seq<Uint8_16.Uint16Seq.uint> := [342 as Uint8_16.Uint16Seq.uint, 4720 as Uint8_16.Uint16Seq.uint];
+    var d1: seq<Uint8_16.Uint16Seq.uint> := [281 as Uint8_16.Uint16Seq.uint, 2283 as Uint8_16.Uint16Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint16Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test18()
+  {
+    var d0: seq<Uint8_16.Uint16Seq.uint> := [];
+    var d1: seq<Uint8_16.Uint16Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint16Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test19()
+  {
+    var d0: seq<Uint8_16.Uint16Seq.uint> := [1325 as Uint8_16.Uint16Seq.uint, 2331 as Uint8_16.Uint16Seq.uint];
+    var d1: seq<Uint8_16.Uint16Seq.uint> := [234 as Uint8_16.Uint16Seq.uint, 1796 as Uint8_16.Uint16Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint16Seq.SeqSub(d0, d1);
+  }
+
   method {:test} test20()
   {
-    var d0: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint];
-    var r0 := Uint8_16.Uint16Seq.SeqExtend(d0, 98 as nat);
-    expect |r0| == 98 as nat, ""expectation violation""
-    expect Uint8_16.Uint16Seq.ToNatRight(r0) == Uint8_16.Uint16Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_16.Uint16Seq.uint> := [920 as Uint8_16.Uint16Seq.uint, 2061 as Uint8_16.Uint16Seq.uint];
+    var d1: seq<Uint8_16.Uint16Seq.uint> := [645 as Uint8_16.Uint16Seq.uint, 2062 as Uint8_16.Uint16Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint16Seq.SeqSub(d0, d1);
   }
 
   method {:test} test21()
   {
-    var d0: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint];
-    var r0 := Uint8_16.Uint16Seq.SeqExtendMultiple(d0, 66 as nat);
-    expect |r0| % 66 as nat == 0, ""expectation violation""
-    expect Uint8_16.Uint16Seq.ToNatRight(r0) == Uint8_16.Uint16Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint8_16.Uint16Seq.uint> := [];
+    var d1: seq<Uint8_16.Uint16Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint8_16.Uint16Seq.SeqSub(d0, d1);
   }
 
   method {:test} test22()
-  {
-    var r0 := Uint8_16.Uint16Seq.FromNatWithLen(1236 as nat, 1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint8_16.Uint16Seq.ToNatRight(r0) == 1236 as nat, ""expectation violation""
-  }
-
-  method {:test} test23()
-  {
-    var r0 := Uint8_16.Uint16Seq.SeqZero(1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint8_16.Uint16Seq.ToNatRight(r0) == 0, ""expectation violation""
-  }
-
-  method {:test} test24()
-  {
-    var d0: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint];
-    var d1: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint];
-    var r0 := Uint8_16.Uint16Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test25()
-  {
-    var d0: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 8098 as Uint8_16.Uint16Seq.uint];
-    var d1: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 16953 as Uint8_16.Uint16Seq.uint];
-    var r0 := Uint8_16.Uint16Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test26()
-  {
-    var d0: seq<Uint8_16.Uint16Seq.uint> := [];
-    var d1: seq<Uint8_16.Uint16Seq.uint> := [];
-    var r0 := Uint8_16.Uint16Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test27()
-  {
-    var d0: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 2475 as Uint8_16.Uint16Seq.uint];
-    var d1: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 1888 as Uint8_16.Uint16Seq.uint];
-    var r0 := Uint8_16.Uint16Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test28()
-  {
-    var d0: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 535 as Uint8_16.Uint16Seq.uint];
-    var d1: seq<Uint8_16.Uint16Seq.uint> := [0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 0 as Uint8_16.Uint16Seq.uint, 536 as Uint8_16.Uint16Seq.uint];
-    var r0 := Uint8_16.Uint16Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test29()
-  {
-    var d0: seq<Uint8_16.Uint16Seq.uint> := [];
-    var d1: seq<Uint8_16.Uint16Seq.uint> := [];
-    var r0 := Uint8_16.Uint16Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test30()
   {
     var d0: seq<Uint8_16.Uint16Seq.uint> := [];
     var r0 := Uint8_16.ToSmall(d0);
     expect |r0| == |d0| * Uint8_16.E(), ""expectation violation""
   }
 
-  method {:test} test31()
+  method {:test} test23()
   {
-    var d0: seq<Uint8_16.Uint8Seq.uint> := [];
+    var d0: seq<Uint8_16.Uint8Seq.uint> := [0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint, 0 as Uint8_16.Uint8Seq.uint];
+    expect |d0| % Uint8_16.E() == 0, ""Test does not meet preconditions and should be removed""
     var r0 := Uint8_16.ToLarge(d0);
     expect |r0| == |d0| / Uint8_16.E(), ""expectation violation""
   }
@@ -11824,7 +11672,7 @@ module srcCollectionsSequencesUint32_64dfyUnitTests {
 
   method {:test} test2()
   {
-    var r0 := Uint32_64.Uint32Seq.FromNat(2279 as nat);
+    var r0 := Uint32_64.Uint32Seq.FromNat(65 as nat);
   }
 
   method {:test} test3()
@@ -11835,6 +11683,7 @@ module srcCollectionsSequencesUint32_64dfyUnitTests {
   method {:test} test4()
   {
     var d0: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint];
+    expect |d0| <= 1 as nat, ""Test does not meet preconditions and should be removed""
     var r0 := Uint32_64.Uint32Seq.SeqExtend(d0, 1 as nat);
     expect |r0| == 1 as nat, ""expectation violation""
     expect Uint32_64.Uint32Seq.ToNatRight(r0) == Uint32_64.Uint32Seq.ToNatRight(d0), ""expectation violation""
@@ -11842,188 +11691,142 @@ module srcCollectionsSequencesUint32_64dfyUnitTests {
 
   method {:test} test5()
   {
-    var d0: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint];
-    var r0 := Uint32_64.Uint32Seq.SeqExtend(d0, 98 as nat);
-    expect |r0| == 98 as nat, ""expectation violation""
-    expect Uint32_64.Uint32Seq.ToNatRight(r0) == Uint32_64.Uint32Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint];
+    var d1: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint32Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test6()
   {
-    var d0: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint];
-    var r0 := Uint32_64.Uint32Seq.SeqExtendMultiple(d0, 66 as nat);
-    expect |r0| % 66 as nat == 0, ""expectation violation""
-    expect Uint32_64.Uint32Seq.ToNatRight(r0) == Uint32_64.Uint32Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint32_64.Uint32Seq.uint> := [12 as Uint32_64.Uint32Seq.uint, 2283 as Uint32_64.Uint32Seq.uint];
+    var d1: seq<Uint32_64.Uint32Seq.uint> := [281 as Uint32_64.Uint32Seq.uint, 11138 as Uint32_64.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint32Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test7()
   {
-    var r0 := Uint32_64.Uint32Seq.FromNatWithLen(1236 as nat, 1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint32_64.Uint32Seq.ToNatRight(r0) == 1236 as nat, ""expectation violation""
+    var d0: seq<Uint32_64.Uint32Seq.uint> := [];
+    var d1: seq<Uint32_64.Uint32Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint32Seq.SeqAdd(d0, d1);
   }
 
   method {:test} test8()
   {
-    var r0 := Uint32_64.Uint32Seq.SeqZero(1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint32_64.Uint32Seq.ToNatRight(r0) == 0, ""expectation violation""
+    var d0: seq<Uint32_64.Uint32Seq.uint> := [1325 as Uint32_64.Uint32Seq.uint, 2331 as Uint32_64.Uint32Seq.uint];
+    var d1: seq<Uint32_64.Uint32Seq.uint> := [234 as Uint32_64.Uint32Seq.uint, 1796 as Uint32_64.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint32Seq.SeqSub(d0, d1);
   }
 
   method {:test} test9()
   {
-    var d0: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint];
-    var d1: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint];
-    var r0 := Uint32_64.Uint32Seq.SeqAdd(d0, d1);
+    var d0: seq<Uint32_64.Uint32Seq.uint> := [920 as Uint32_64.Uint32Seq.uint, 2061 as Uint32_64.Uint32Seq.uint];
+    var d1: seq<Uint32_64.Uint32Seq.uint> := [645 as Uint32_64.Uint32Seq.uint, 2062 as Uint32_64.Uint32Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint32Seq.SeqSub(d0, d1);
   }
 
   method {:test} test10()
   {
-    var d0: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 8098 as Uint32_64.Uint32Seq.uint];
-    var d1: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 16953 as Uint32_64.Uint32Seq.uint];
-    var r0 := Uint32_64.Uint32Seq.SeqAdd(d0, d1);
+    var d0: seq<Uint32_64.Uint32Seq.uint> := [];
+    var d1: seq<Uint32_64.Uint32Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint32Seq.SeqSub(d0, d1);
   }
 
   method {:test} test11()
-  {
-    var d0: seq<Uint32_64.Uint32Seq.uint> := [];
-    var d1: seq<Uint32_64.Uint32Seq.uint> := [];
-    var r0 := Uint32_64.Uint32Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test12()
-  {
-    var d0: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 4044 as Uint32_64.Uint32Seq.uint];
-    var d1: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 1653 as Uint32_64.Uint32Seq.uint];
-    var r0 := Uint32_64.Uint32Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test13()
-  {
-    var d0: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 535 as Uint32_64.Uint32Seq.uint];
-    var d1: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 536 as Uint32_64.Uint32Seq.uint];
-    var r0 := Uint32_64.Uint32Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test14()
-  {
-    var d0: seq<Uint32_64.Uint32Seq.uint> := [];
-    var d1: seq<Uint32_64.Uint32Seq.uint> := [];
-    var r0 := Uint32_64.Uint32Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test15()
   {
     var d0: seq<Uint32_64.Uint64Seq.uint> := [];
     var r0 := Uint32_64.Uint64Seq.ToNatRight(d0);
   }
 
-  method {:test} test16()
+  method {:test} test12()
   {
     var d0: seq<Uint32_64.Uint64Seq.uint> := [];
     var r0 := Uint32_64.Uint64Seq.ToNatLeft(d0);
   }
 
-  method {:test} test17()
+  method {:test} test13()
   {
-    var r0 := Uint32_64.Uint64Seq.FromNat(2279 as nat);
+    var r0 := Uint32_64.Uint64Seq.FromNat(65 as nat);
   }
 
-  method {:test} test18()
+  method {:test} test14()
   {
     var r0 := Uint32_64.Uint64Seq.FromNat(0 as nat);
   }
 
-  method {:test} test19()
+  method {:test} test15()
   {
     var d0: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint];
+    expect |d0| <= 1 as nat, ""Test does not meet preconditions and should be removed""
     var r0 := Uint32_64.Uint64Seq.SeqExtend(d0, 1 as nat);
     expect |r0| == 1 as nat, ""expectation violation""
     expect Uint32_64.Uint64Seq.ToNatRight(r0) == Uint32_64.Uint64Seq.ToNatRight(d0), ""expectation violation""
   }
 
+  method {:test} test16()
+  {
+    var d0: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint];
+    var d1: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint64Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test17()
+  {
+    var d0: seq<Uint32_64.Uint64Seq.uint> := [342 as Uint32_64.Uint64Seq.uint, 4720 as Uint32_64.Uint64Seq.uint];
+    var d1: seq<Uint32_64.Uint64Seq.uint> := [281 as Uint32_64.Uint64Seq.uint, 2283 as Uint32_64.Uint64Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint64Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test18()
+  {
+    var d0: seq<Uint32_64.Uint64Seq.uint> := [];
+    var d1: seq<Uint32_64.Uint64Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint64Seq.SeqAdd(d0, d1);
+  }
+
+  method {:test} test19()
+  {
+    var d0: seq<Uint32_64.Uint64Seq.uint> := [1325 as Uint32_64.Uint64Seq.uint, 2331 as Uint32_64.Uint64Seq.uint];
+    var d1: seq<Uint32_64.Uint64Seq.uint> := [234 as Uint32_64.Uint64Seq.uint, 1796 as Uint32_64.Uint64Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint64Seq.SeqSub(d0, d1);
+  }
+
   method {:test} test20()
   {
-    var d0: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint];
-    var r0 := Uint32_64.Uint64Seq.SeqExtend(d0, 98 as nat);
-    expect |r0| == 98 as nat, ""expectation violation""
-    expect Uint32_64.Uint64Seq.ToNatRight(r0) == Uint32_64.Uint64Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint32_64.Uint64Seq.uint> := [920 as Uint32_64.Uint64Seq.uint, 2061 as Uint32_64.Uint64Seq.uint];
+    var d1: seq<Uint32_64.Uint64Seq.uint> := [645 as Uint32_64.Uint64Seq.uint, 2062 as Uint32_64.Uint64Seq.uint];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint64Seq.SeqSub(d0, d1);
   }
 
   method {:test} test21()
   {
-    var d0: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint];
-    var r0 := Uint32_64.Uint64Seq.SeqExtendMultiple(d0, 66 as nat);
-    expect |r0| % 66 as nat == 0, ""expectation violation""
-    expect Uint32_64.Uint64Seq.ToNatRight(r0) == Uint32_64.Uint64Seq.ToNatRight(d0), ""expectation violation""
+    var d0: seq<Uint32_64.Uint64Seq.uint> := [];
+    var d1: seq<Uint32_64.Uint64Seq.uint> := [];
+    expect |d0| == |d1|, ""Test does not meet preconditions and should be removed""
+    var r0 := Uint32_64.Uint64Seq.SeqSub(d0, d1);
   }
 
   method {:test} test22()
-  {
-    var r0 := Uint32_64.Uint64Seq.FromNatWithLen(1236 as nat, 1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint32_64.Uint64Seq.ToNatRight(r0) == 1236 as nat, ""expectation violation""
-  }
-
-  method {:test} test23()
-  {
-    var r0 := Uint32_64.Uint64Seq.SeqZero(1 as nat);
-    expect |r0| == 1 as nat, ""expectation violation""
-    expect Uint32_64.Uint64Seq.ToNatRight(r0) == 0, ""expectation violation""
-  }
-
-  method {:test} test24()
-  {
-    var d0: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint];
-    var d1: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint];
-    var r0 := Uint32_64.Uint64Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test25()
-  {
-    var d0: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 8098 as Uint32_64.Uint64Seq.uint];
-    var d1: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 16953 as Uint32_64.Uint64Seq.uint];
-    var r0 := Uint32_64.Uint64Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test26()
-  {
-    var d0: seq<Uint32_64.Uint64Seq.uint> := [];
-    var d1: seq<Uint32_64.Uint64Seq.uint> := [];
-    var r0 := Uint32_64.Uint64Seq.SeqAdd(d0, d1);
-  }
-
-  method {:test} test27()
-  {
-    var d0: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 2475 as Uint32_64.Uint64Seq.uint];
-    var d1: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 1888 as Uint32_64.Uint64Seq.uint];
-    var r0 := Uint32_64.Uint64Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test28()
-  {
-    var d0: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 535 as Uint32_64.Uint64Seq.uint];
-    var d1: seq<Uint32_64.Uint64Seq.uint> := [0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 0 as Uint32_64.Uint64Seq.uint, 536 as Uint32_64.Uint64Seq.uint];
-    var r0 := Uint32_64.Uint64Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test29()
-  {
-    var d0: seq<Uint32_64.Uint64Seq.uint> := [];
-    var d1: seq<Uint32_64.Uint64Seq.uint> := [];
-    var r0 := Uint32_64.Uint64Seq.SeqSub(d0, d1);
-  }
-
-  method {:test} test30()
   {
     var d0: seq<Uint32_64.Uint64Seq.uint> := [];
     var r0 := Uint32_64.ToSmall(d0);
     expect |r0| == |d0| * Uint32_64.E(), ""expectation violation""
   }
 
-  method {:test} test31()
+  method {:test} test23()
   {
-    var d0: seq<Uint32_64.Uint32Seq.uint> := [];
+    var d0: seq<Uint32_64.Uint32Seq.uint> := [0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint, 0 as Uint32_64.Uint32Seq.uint];
+    expect |d0| % Uint32_64.E() == 0, ""Test does not meet preconditions and should be removed""
     var r0 := Uint32_64.ToLarge(d0);
     expect |r0| == |d0| / Uint32_64.E(), ""expectation violation""
   }
@@ -13473,20 +13276,23 @@ module srcCollectionsSetsSetsdfyUnitTests {
 
   method {:test} test7()
   {
-    var r0 := Sets.SetRange(2437, 2438);
-    expect |r0| == 2438 - 2437, ""expectation violation""
+    expect 2275 <= 2279, ""Test does not meet preconditions and should be removed""
+    var r0 := Sets.SetRange(2275, 2279);
+    expect |r0| == 2279 - 2275, ""expectation violation""
   }
 
   method {:test} test8()
   {
-    var r0 := Sets.SetRange(15, 15);
-    expect |r0| == 15 - 15, ""expectation violation""
+    expect 7719 <= 7719, ""Test does not meet preconditions and should be removed""
+    var r0 := Sets.SetRange(7719, 7719);
+    expect |r0| == 7719 - 7719, ""expectation violation""
   }
 
   method {:test} test9()
   {
-    var r0 := Sets.SetRangeZeroBound(1);
-    expect |r0| == 1, ""expectation violation""
+    expect 3 >= 0, ""Test does not meet preconditions and should be removed""
+    var r0 := Sets.SetRangeZeroBound(3);
+    expect |r0| == 3, ""expectation violation""
   }
 }
 
@@ -18702,26 +18508,38 @@ namespace srcNonlinearArithmeticInternalsDivInternalsdfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
+      if (!((new BigInteger(1797)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/NonlinearArithmetic/Internals/DivInternals.dfy(22,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
       BigInteger _2_r0;
-      _2_r0 = DivInternals_Compile.__default.DivPos(new BigInteger(-2439), new BigInteger(2438));
+      _2_r0 = DivInternals_Compile.__default.DivPos(new BigInteger(-1798), new BigInteger(1797));
     }
     [Xunit.Fact]
     public static void test1()
     {
+      if (!((new BigInteger(2460)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/NonlinearArithmetic/Internals/DivInternals.dfy(30,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
       BigInteger _3_r0;
-      _3_r0 = DivInternals_Compile.__default.DivPos(new BigInteger(2438), BigInteger.One);
+      _3_r0 = DivInternals_Compile.__default.DivPos(new BigInteger(4417), new BigInteger(2460));
     }
     [Xunit.Fact]
     public static void test2()
     {
+      if (!((BigInteger.One).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/NonlinearArithmetic/Internals/DivInternals.dfy(38,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
       BigInteger _4_r0;
       _4_r0 = DivInternals_Compile.__default.DivPos(BigInteger.Zero, BigInteger.One);
     }
     [Xunit.Fact]
     public static void test3()
     {
+      if (!((new BigInteger(11)).Sign != 0)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/NonlinearArithmetic/Internals/DivInternals.dfy(47,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
       BigInteger _5_r0;
-      _5_r0 = DivInternals_Compile.__default.DivRecursive(BigInteger.Zero, new BigInteger(12));
+      _5_r0 = DivInternals_Compile.__default.DivRecursive(BigInteger.Zero, new BigInteger(11));
     }
   }
 } // end of namespace srcNonlinearArithmeticInternalsDivInternalsdfyUnitTests_Compile
@@ -19111,6 +18929,16 @@ namespace Imaps_Compile {
 } // end of namespace Imaps_Compile
 namespace srcCollectionsMapsImapsdfyUnitTests_Compile {
 
+  public partial class __default {
+    [Xunit.Fact]
+    public static void test0()
+    {
+      Dafny.IMap<BigInteger,BigInteger> _22_d0;
+      _22_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
+      Wrappers_Compile._IOption<BigInteger> _23_r0;
+      _23_r0 = Imaps_Compile.__default.Get<BigInteger, BigInteger>(_22_d0, BigInteger.Zero);
+    }
+  }
 } // end of namespace srcCollectionsMapsImapsdfyUnitTests_Compile
 namespace Isets_Compile {
 
@@ -19123,12 +18951,12 @@ namespace Power_Compile {
   public partial class __default {
     public static BigInteger Pow(BigInteger b, BigInteger e)
     {
-      BigInteger _22___accumulator = BigInteger.One;
+      BigInteger _24___accumulator = BigInteger.One;
     TAIL_CALL_START: ;
       if ((e).Sign == 0) {
-        return (BigInteger.One) * (_22___accumulator);
+        return (BigInteger.One) * (_24___accumulator);
       } else {
-        _22___accumulator = (_22___accumulator) * (b);
+        _24___accumulator = (_24___accumulator) * (b);
         BigInteger _in10 = b;
         BigInteger _in11 = (e) - (BigInteger.One);
         b = _in10;
@@ -19178,8 +19006,8 @@ namespace Seq_Compile {
     {
       __T[] a = new __T[0];
       __T[] _nw0 = new __T[Dafny.Helpers.ToIntChecked(Dafny.Helpers.ToIntChecked(new BigInteger((s).Count), "C# arrays may not be larger than the max 32-bit integer"),"C# array size must not be larger than max 32-bit int")];
-      Func<BigInteger, __T> _arrayinit0 = Dafny.Helpers.Id<Func<Dafny.ISequence<__T>, Func<BigInteger, __T>>>((_23_s) => ((System.Func<BigInteger, __T>)((_24_i) => {
-        return (_23_s).Select(_24_i);
+      Func<BigInteger, __T> _arrayinit0 = Dafny.Helpers.Id<Func<Dafny.ISequence<__T>, Func<BigInteger, __T>>>((_25_s) => ((System.Func<BigInteger, __T>)((_26_i) => {
+        return (_25_s).Select(_26_i);
       })))(s);
       for (var _arrayinit_00 = 0; _arrayinit_00 < new BigInteger(_nw0.Length); _arrayinit_00++) {
         _nw0[(int)(_arrayinit_00)] = _arrayinit0(_arrayinit_00);
@@ -19188,12 +19016,12 @@ namespace Seq_Compile {
       return a;
     }
     public static Dafny.ISet<__T> ToSet<__T>(Dafny.ISequence<__T> s) {
-      return Dafny.Helpers.Id<Func<Dafny.ISequence<__T>, Dafny.ISet<__T>>>((_25_s) => ((System.Func<Dafny.ISet<__T>>)(() => {
+      return Dafny.Helpers.Id<Func<Dafny.ISequence<__T>, Dafny.ISet<__T>>>((_27_s) => ((System.Func<Dafny.ISet<__T>>)(() => {
         var _coll0 = new System.Collections.Generic.List<__T>();
-        foreach (__T _compr_0 in (_25_s).Elements) {
-          __T _26_x = (__T)_compr_0;
-          if ((_25_s).Contains((_26_x))) {
-            _coll0.Add(_26_x);
+        foreach (__T _compr_0 in (_27_s).Elements) {
+          __T _28_x = (__T)_compr_0;
+          if ((_27_s).Contains((_28_x))) {
+            _coll0.Add(_28_x);
           }
         }
         return Dafny.Set<__T>.FromCollection(_coll0);
@@ -19201,12 +19029,12 @@ namespace Seq_Compile {
     }
     public static BigInteger IndexOf<__T>(Dafny.ISequence<__T> s, __T v)
     {
-      BigInteger _27___accumulator = BigInteger.Zero;
+      BigInteger _29___accumulator = BigInteger.Zero;
     TAIL_CALL_START: ;
       if (object.Equals((s).Select(BigInteger.Zero), v)) {
-        return (BigInteger.Zero) + (_27___accumulator);
+        return (BigInteger.Zero) + (_29___accumulator);
       } else {
-        _27___accumulator = (_27___accumulator) + (BigInteger.One);
+        _29___accumulator = (_29___accumulator) + (BigInteger.One);
         Dafny.ISequence<__T> _in12 = (s).Drop(BigInteger.One);
         __T _in13 = v;
         s = _in12;
@@ -19221,9 +19049,9 @@ namespace Seq_Compile {
       } else if (object.Equals((s).Select(BigInteger.Zero), v)) {
         return Wrappers_Compile.Option<BigInteger>.create_Some(BigInteger.Zero);
       } else {
-        Wrappers_Compile._IOption<BigInteger> _28_o_k = Seq_Compile.__default.IndexOfOption<__T>((s).Drop(BigInteger.One), v);
-        if ((_28_o_k).is_Some) {
-          return Wrappers_Compile.Option<BigInteger>.create_Some(((_28_o_k).dtor_value) + (BigInteger.One));
+        Wrappers_Compile._IOption<BigInteger> _30_o_k = Seq_Compile.__default.IndexOfOption<__T>((s).Drop(BigInteger.One), v);
+        if ((_30_o_k).is_Some) {
+          return Wrappers_Compile.Option<BigInteger>.create_Some(((_30_o_k).dtor_value) + (BigInteger.One));
         } else {
           return Wrappers_Compile.Option<BigInteger>.create_None();
         }
@@ -19266,8 +19094,8 @@ namespace Seq_Compile {
       if (!(s).Contains((v))) {
         return s;
       } else {
-        BigInteger _29_i = Seq_Compile.__default.IndexOf<__T>(s, v);
-        return Dafny.Sequence<__T>.Concat((s).Take(_29_i), (s).Drop((_29_i) + (BigInteger.One)));
+        BigInteger _31_i = Seq_Compile.__default.IndexOf<__T>(s, v);
+        return Dafny.Sequence<__T>.Concat((s).Take(_31_i), (s).Drop((_31_i) + (BigInteger.One)));
       }
     }
     public static Dafny.ISequence<__T> Insert<__T>(Dafny.ISequence<__T> s, __T a, BigInteger pos)
@@ -19275,12 +19103,12 @@ namespace Seq_Compile {
       return Dafny.Sequence<__T>.Concat(Dafny.Sequence<__T>.Concat((s).Take(pos), Dafny.Sequence<__T>.FromElements(a)), (s).Drop(pos));
     }
     public static Dafny.ISequence<__T> Reverse<__T>(Dafny.ISequence<__T> s) {
-      Dafny.ISequence<__T> _30___accumulator = Dafny.Sequence<__T>.FromElements();
+      Dafny.ISequence<__T> _32___accumulator = Dafny.Sequence<__T>.FromElements();
     TAIL_CALL_START: ;
       if ((s).Equals((Dafny.Sequence<__T>.FromElements()))) {
-        return Dafny.Sequence<__T>.Concat(_30___accumulator, Dafny.Sequence<__T>.FromElements());
+        return Dafny.Sequence<__T>.Concat(_32___accumulator, Dafny.Sequence<__T>.FromElements());
       } else {
-        _30___accumulator = Dafny.Sequence<__T>.Concat(_30___accumulator, Dafny.Sequence<__T>.FromElements((s).Select((new BigInteger((s).Count)) - (BigInteger.One))));
+        _32___accumulator = Dafny.Sequence<__T>.Concat(_32___accumulator, Dafny.Sequence<__T>.FromElements((s).Select((new BigInteger((s).Count)) - (BigInteger.One))));
         Dafny.ISequence<__T> _in18 = (s).Subsequence(BigInteger.Zero, (new BigInteger((s).Count)) - (BigInteger.One));
         s = _in18;
         goto TAIL_CALL_START;
@@ -19288,12 +19116,12 @@ namespace Seq_Compile {
     }
     public static Dafny.ISequence<__T> Repeat<__T>(__T v, BigInteger length)
     {
-      Dafny.ISequence<__T> _31___accumulator = Dafny.Sequence<__T>.FromElements();
+      Dafny.ISequence<__T> _33___accumulator = Dafny.Sequence<__T>.FromElements();
     TAIL_CALL_START: ;
       if ((length).Sign == 0) {
-        return Dafny.Sequence<__T>.Concat(_31___accumulator, Dafny.Sequence<__T>.FromElements());
+        return Dafny.Sequence<__T>.Concat(_33___accumulator, Dafny.Sequence<__T>.FromElements());
       } else {
-        _31___accumulator = Dafny.Sequence<__T>.Concat(_31___accumulator, Dafny.Sequence<__T>.FromElements(v));
+        _33___accumulator = Dafny.Sequence<__T>.Concat(_33___accumulator, Dafny.Sequence<__T>.FromElements(v));
         __T _in19 = v;
         BigInteger _in20 = (length) - (BigInteger.One);
         v = _in19;
@@ -19306,19 +19134,19 @@ namespace Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<__A>, Dafny.ISequence<__B>>.create(Dafny.Sequence<__A>.FromElements(), Dafny.Sequence<__B>.FromElements());
       } else {
         _System._ITuple2<Dafny.ISequence<__A>, Dafny.ISequence<__B>> _let_tmp_rhs0 = Seq_Compile.__default.Unzip<__A, __B>(Seq_Compile.__default.DropLast<_System._ITuple2<__A, __B>>(s));
-        Dafny.ISequence<__A> _32_a = _let_tmp_rhs0.dtor__0;
-        Dafny.ISequence<__B> _33_b = _let_tmp_rhs0.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<__A>, Dafny.ISequence<__B>>.create(Dafny.Sequence<__A>.Concat(_32_a, Dafny.Sequence<__A>.FromElements((Seq_Compile.__default.Last<_System._ITuple2<__A, __B>>(s)).dtor__0)), Dafny.Sequence<__B>.Concat(_33_b, Dafny.Sequence<__B>.FromElements((Seq_Compile.__default.Last<_System._ITuple2<__A, __B>>(s)).dtor__1)));
+        Dafny.ISequence<__A> _34_a = _let_tmp_rhs0.dtor__0;
+        Dafny.ISequence<__B> _35_b = _let_tmp_rhs0.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<__A>, Dafny.ISequence<__B>>.create(Dafny.Sequence<__A>.Concat(_34_a, Dafny.Sequence<__A>.FromElements((Seq_Compile.__default.Last<_System._ITuple2<__A, __B>>(s)).dtor__0)), Dafny.Sequence<__B>.Concat(_35_b, Dafny.Sequence<__B>.FromElements((Seq_Compile.__default.Last<_System._ITuple2<__A, __B>>(s)).dtor__1)));
       }
     }
     public static Dafny.ISequence<_System._ITuple2<__A, __B>> Zip<__A, __B>(Dafny.ISequence<__A> a, Dafny.ISequence<__B> b)
     {
-      Dafny.ISequence<_System._ITuple2<__A, __B>> _34___accumulator = Dafny.Sequence<_System._ITuple2<__A, __B>>.FromElements();
+      Dafny.ISequence<_System._ITuple2<__A, __B>> _36___accumulator = Dafny.Sequence<_System._ITuple2<__A, __B>>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((a).Count)).Sign == 0) {
-        return Dafny.Sequence<_System._ITuple2<__A, __B>>.Concat(Dafny.Sequence<_System._ITuple2<__A, __B>>.FromElements(), _34___accumulator);
+        return Dafny.Sequence<_System._ITuple2<__A, __B>>.Concat(Dafny.Sequence<_System._ITuple2<__A, __B>>.FromElements(), _36___accumulator);
       } else {
-        _34___accumulator = Dafny.Sequence<_System._ITuple2<__A, __B>>.Concat(Dafny.Sequence<_System._ITuple2<__A, __B>>.FromElements(_System.Tuple2<__A, __B>.create(Seq_Compile.__default.Last<__A>(a), Seq_Compile.__default.Last<__B>(b))), _34___accumulator);
+        _36___accumulator = Dafny.Sequence<_System._ITuple2<__A, __B>>.Concat(Dafny.Sequence<_System._ITuple2<__A, __B>>.FromElements(_System.Tuple2<__A, __B>.create(Seq_Compile.__default.Last<__A>(a), Seq_Compile.__default.Last<__B>(b))), _36___accumulator);
         Dafny.ISequence<__A> _in21 = Seq_Compile.__default.DropLast<__A>(a);
         Dafny.ISequence<__B> _in22 = Seq_Compile.__default.DropLast<__B>(b);
         a = _in21;
@@ -19341,24 +19169,24 @@ namespace Seq_Compile {
       }
     }
     public static Dafny.ISequence<__T> Flatten<__T>(Dafny.ISequence<Dafny.ISequence<__T>> s) {
-      Dafny.ISequence<__T> _35___accumulator = Dafny.Sequence<__T>.FromElements();
+      Dafny.ISequence<__T> _37___accumulator = Dafny.Sequence<__T>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((s).Count)).Sign == 0) {
-        return Dafny.Sequence<__T>.Concat(_35___accumulator, Dafny.Sequence<__T>.FromElements());
+        return Dafny.Sequence<__T>.Concat(_37___accumulator, Dafny.Sequence<__T>.FromElements());
       } else {
-        _35___accumulator = Dafny.Sequence<__T>.Concat(_35___accumulator, (s).Select(BigInteger.Zero));
+        _37___accumulator = Dafny.Sequence<__T>.Concat(_37___accumulator, (s).Select(BigInteger.Zero));
         Dafny.ISequence<Dafny.ISequence<__T>> _in23 = (s).Drop(BigInteger.One);
         s = _in23;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<__T> FlattenReverse<__T>(Dafny.ISequence<Dafny.ISequence<__T>> s) {
-      Dafny.ISequence<__T> _36___accumulator = Dafny.Sequence<__T>.FromElements();
+      Dafny.ISequence<__T> _38___accumulator = Dafny.Sequence<__T>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((s).Count)).Sign == 0) {
-        return Dafny.Sequence<__T>.Concat(Dafny.Sequence<__T>.FromElements(), _36___accumulator);
+        return Dafny.Sequence<__T>.Concat(Dafny.Sequence<__T>.FromElements(), _38___accumulator);
       } else {
-        _36___accumulator = Dafny.Sequence<__T>.Concat(Seq_Compile.__default.Last<Dafny.ISequence<__T>>(s), _36___accumulator);
+        _38___accumulator = Dafny.Sequence<__T>.Concat(Seq_Compile.__default.Last<Dafny.ISequence<__T>>(s), _38___accumulator);
         Dafny.ISequence<Dafny.ISequence<__T>> _in24 = Seq_Compile.__default.DropLast<Dafny.ISequence<__T>>(s);
         s = _in24;
         goto TAIL_CALL_START;
@@ -19366,12 +19194,12 @@ namespace Seq_Compile {
     }
     public static Dafny.ISequence<__R> Map<__T, __R>(Func<__T, __R> f, Dafny.ISequence<__T> s)
     {
-      Dafny.ISequence<__R> _37___accumulator = Dafny.Sequence<__R>.FromElements();
+      Dafny.ISequence<__R> _39___accumulator = Dafny.Sequence<__R>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((s).Count)).Sign == 0) {
-        return Dafny.Sequence<__R>.Concat(_37___accumulator, Dafny.Sequence<__R>.FromElements());
+        return Dafny.Sequence<__R>.Concat(_39___accumulator, Dafny.Sequence<__R>.FromElements());
       } else {
-        _37___accumulator = Dafny.Sequence<__R>.Concat(_37___accumulator, Dafny.Sequence<__R>.FromElements(Dafny.Helpers.Id<Func<__T, __R>>(f)((s).Select(BigInteger.Zero))));
+        _39___accumulator = Dafny.Sequence<__R>.Concat(_39___accumulator, Dafny.Sequence<__R>.FromElements(Dafny.Helpers.Id<Func<__T, __R>>(f)((s).Select(BigInteger.Zero))));
         Func<__T, __R> _in25 = f;
         Dafny.ISequence<__T> _in26 = (s).Drop(BigInteger.One);
         f = _in25;
@@ -19384,29 +19212,29 @@ namespace Seq_Compile {
       if ((new BigInteger((s).Count)).Sign == 0) {
         return Wrappers_Compile.Result<Dafny.ISequence<__R>, __E>.create_Success(Dafny.Sequence<__R>.FromElements());
       } else {
-        Wrappers_Compile._IResult<__R, __E> _38_valueOrError0 = Dafny.Helpers.Id<Func<__T, Wrappers_Compile._IResult<__R, __E>>>(f)((s).Select(BigInteger.Zero));
-        if ((_38_valueOrError0).IsFailure()) {
-          return (_38_valueOrError0).PropagateFailure<Dafny.ISequence<__R>>();
+        Wrappers_Compile._IResult<__R, __E> _40_valueOrError0 = Dafny.Helpers.Id<Func<__T, Wrappers_Compile._IResult<__R, __E>>>(f)((s).Select(BigInteger.Zero));
+        if ((_40_valueOrError0).IsFailure()) {
+          return (_40_valueOrError0).PropagateFailure<Dafny.ISequence<__R>>();
         } else {
-          __R _39_head = (_38_valueOrError0).Extract();
-          Wrappers_Compile._IResult<Dafny.ISequence<__R>, __E> _40_valueOrError1 = Seq_Compile.__default.MapWithResult<__T, __R, __E>(f, (s).Drop(BigInteger.One));
-          if ((_40_valueOrError1).IsFailure()) {
-            return (_40_valueOrError1).PropagateFailure<Dafny.ISequence<__R>>();
+          __R _41_head = (_40_valueOrError0).Extract();
+          Wrappers_Compile._IResult<Dafny.ISequence<__R>, __E> _42_valueOrError1 = Seq_Compile.__default.MapWithResult<__T, __R, __E>(f, (s).Drop(BigInteger.One));
+          if ((_42_valueOrError1).IsFailure()) {
+            return (_42_valueOrError1).PropagateFailure<Dafny.ISequence<__R>>();
           } else {
-            Dafny.ISequence<__R> _41_tail = (_40_valueOrError1).Extract();
-            return Wrappers_Compile.Result<Dafny.ISequence<__R>, __E>.create_Success(Dafny.Sequence<__R>.Concat(Dafny.Sequence<__R>.FromElements(_39_head), _41_tail));
+            Dafny.ISequence<__R> _43_tail = (_42_valueOrError1).Extract();
+            return Wrappers_Compile.Result<Dafny.ISequence<__R>, __E>.create_Success(Dafny.Sequence<__R>.Concat(Dafny.Sequence<__R>.FromElements(_41_head), _43_tail));
           }
         }
       }
     }
     public static Dafny.ISequence<__T> Filter<__T>(Func<__T, bool> f, Dafny.ISequence<__T> s)
     {
-      Dafny.ISequence<__T> _42___accumulator = Dafny.Sequence<__T>.FromElements();
+      Dafny.ISequence<__T> _44___accumulator = Dafny.Sequence<__T>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((s).Count)).Sign == 0) {
-        return Dafny.Sequence<__T>.Concat(_42___accumulator, Dafny.Sequence<__T>.FromElements());
+        return Dafny.Sequence<__T>.Concat(_44___accumulator, Dafny.Sequence<__T>.FromElements());
       } else {
-        _42___accumulator = Dafny.Sequence<__T>.Concat(_42___accumulator, ((Dafny.Helpers.Id<Func<__T, bool>>(f)((s).Select(BigInteger.Zero))) ? (Dafny.Sequence<__T>.FromElements((s).Select(BigInteger.Zero))) : (Dafny.Sequence<__T>.FromElements())));
+        _44___accumulator = Dafny.Sequence<__T>.Concat(_44___accumulator, ((Dafny.Helpers.Id<Func<__T, bool>>(f)((s).Select(BigInteger.Zero))) ? (Dafny.Sequence<__T>.FromElements((s).Select(BigInteger.Zero))) : (Dafny.Sequence<__T>.FromElements())));
         Func<__T, bool> _in27 = f;
         Dafny.ISequence<__T> _in28 = (s).Drop(BigInteger.One);
         f = _in27;
@@ -19457,12 +19285,12 @@ namespace Maps_Compile {
       }
     }
     public static Dafny.IMap<__X,__Y> ToImap<__X, __Y>(Dafny.IMap<__X,__Y> m) {
-      return Dafny.Helpers.Id<Func<Dafny.IMap<__X,__Y>, Dafny.IMap<__X,__Y>>>((_43_m) => ((System.Func<Dafny.IMap<__X,__Y>>)(() => {
+      return Dafny.Helpers.Id<Func<Dafny.IMap<__X,__Y>, Dafny.IMap<__X,__Y>>>((_45_m) => ((System.Func<Dafny.IMap<__X,__Y>>)(() => {
         var _coll1 = new System.Collections.Generic.List<Dafny.Pair<__X,__Y>>();
-        foreach (__X _compr_1 in (_43_m).Keys.Elements) {
-          __X _44_x = (__X)_compr_1;
-          if ((_43_m).Contains((_44_x))) {
-            _coll1.Add(new Dafny.Pair<__X,__Y>(_44_x, Dafny.Map<__X, __Y>.Select(_43_m,_44_x)));
+        foreach (__X _compr_1 in (_45_m).Keys.Elements) {
+          __X _46_x = (__X)_compr_1;
+          if ((_45_m).Contains((_46_x))) {
+            _coll1.Add(new Dafny.Pair<__X,__Y>(_46_x, Dafny.Map<__X, __Y>.Select(_45_m,_46_x)));
           }
         }
         return Dafny.Map<__X,__Y>.FromCollection(_coll1);
@@ -19474,26 +19302,26 @@ namespace Maps_Compile {
     }
     public static Dafny.IMap<__X,__Y> Remove<__X, __Y>(Dafny.IMap<__X,__Y> m, __X x)
     {
-      Dafny.IMap<__X,__Y> _45_m_k = Dafny.Helpers.Id<Func<Dafny.IMap<__X,__Y>, __X, Dafny.IMap<__X,__Y>>>((_46_m, _47_x) => ((System.Func<Dafny.IMap<__X,__Y>>)(() => {
+      Dafny.IMap<__X,__Y> _47_m_k = Dafny.Helpers.Id<Func<Dafny.IMap<__X,__Y>, __X, Dafny.IMap<__X,__Y>>>((_48_m, _49_x) => ((System.Func<Dafny.IMap<__X,__Y>>)(() => {
         var _coll2 = new System.Collections.Generic.List<Dafny.Pair<__X,__Y>>();
-        foreach (__X _compr_2 in (_46_m).Keys.Elements) {
-          __X _48_x_k = (__X)_compr_2;
-          if (((_46_m).Contains((_48_x_k))) && (!object.Equals(_48_x_k, _47_x))) {
-            _coll2.Add(new Dafny.Pair<__X,__Y>(_48_x_k, Dafny.Map<__X, __Y>.Select(_46_m,_48_x_k)));
+        foreach (__X _compr_2 in (_48_m).Keys.Elements) {
+          __X _50_x_k = (__X)_compr_2;
+          if (((_48_m).Contains((_50_x_k))) && (!object.Equals(_50_x_k, _49_x))) {
+            _coll2.Add(new Dafny.Pair<__X,__Y>(_50_x_k, Dafny.Map<__X, __Y>.Select(_48_m,_50_x_k)));
           }
         }
         return Dafny.Map<__X,__Y>.FromCollection(_coll2);
       }))())(m, x);
-      return _45_m_k;
+      return _47_m_k;
     }
     public static Dafny.IMap<__X,__Y> Restrict<__X, __Y>(Dafny.IMap<__X,__Y> m, Dafny.ISet<__X> xs)
     {
-      return Dafny.Helpers.Id<Func<Dafny.ISet<__X>, Dafny.IMap<__X,__Y>, Dafny.IMap<__X,__Y>>>((_49_xs, _50_m) => ((System.Func<Dafny.IMap<__X,__Y>>)(() => {
+      return Dafny.Helpers.Id<Func<Dafny.ISet<__X>, Dafny.IMap<__X,__Y>, Dafny.IMap<__X,__Y>>>((_51_xs, _52_m) => ((System.Func<Dafny.IMap<__X,__Y>>)(() => {
         var _coll3 = new System.Collections.Generic.List<Dafny.Pair<__X,__Y>>();
-        foreach (__X _compr_3 in (_49_xs).Elements) {
-          __X _51_x = (__X)_compr_3;
-          if (((_49_xs).Contains((_51_x))) && ((_50_m).Contains((_51_x)))) {
-            _coll3.Add(new Dafny.Pair<__X,__Y>(_51_x, Dafny.Map<__X, __Y>.Select(_50_m,_51_x)));
+        foreach (__X _compr_3 in (_51_xs).Elements) {
+          __X _53_x = (__X)_compr_3;
+          if (((_51_xs).Contains((_53_x))) && ((_52_m).Contains((_53_x)))) {
+            _coll3.Add(new Dafny.Pair<__X,__Y>(_53_x, Dafny.Map<__X, __Y>.Select(_52_m,_53_x)));
           }
         }
         return Dafny.Map<__X,__Y>.FromCollection(_coll3);
@@ -19511,157 +19339,157 @@ namespace srcCollectionsMapsMapsdfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      Dafny.IMap<BigInteger,BigInteger> _52_d0;
-      _52_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements(new Dafny.Pair<BigInteger, BigInteger>(BigInteger.Zero, BigInteger.One), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(2), new BigInteger(3)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(4), new BigInteger(5)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(6), new BigInteger(7)));
-      Wrappers_Compile._IOption<BigInteger> _53_r0;
-      _53_r0 = Maps_Compile.__default.Get<BigInteger, BigInteger>(_52_d0, BigInteger.Zero);
-    }
-    [Xunit.Fact]
-    public static void test1()
-    {
       Dafny.IMap<BigInteger,BigInteger> _54_d0;
-      _54_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
+      _54_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements(new Dafny.Pair<BigInteger, BigInteger>(BigInteger.Zero, BigInteger.One), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(2), new BigInteger(3)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(4), new BigInteger(5)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(6), new BigInteger(7)));
       Wrappers_Compile._IOption<BigInteger> _55_r0;
       _55_r0 = Maps_Compile.__default.Get<BigInteger, BigInteger>(_54_d0, BigInteger.Zero);
     }
     [Xunit.Fact]
-    public static void test2()
+    public static void test1()
     {
       Dafny.IMap<BigInteger,BigInteger> _56_d0;
-      _56_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements(new Dafny.Pair<BigInteger, BigInteger>(BigInteger.Zero, BigInteger.One), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(2), new BigInteger(3)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(4), new BigInteger(5)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(6), new BigInteger(7)));
-      Dafny.IMap<BigInteger,BigInteger> _57_r0;
-      _57_r0 = Maps_Compile.__default.ToImap<BigInteger, BigInteger>(_56_d0);
+      _56_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
+      Wrappers_Compile._IOption<BigInteger> _57_r0;
+      _57_r0 = Maps_Compile.__default.Get<BigInteger, BigInteger>(_56_d0, BigInteger.Zero);
     }
     [Xunit.Fact]
-    public static void test3()
+    public static void test2()
     {
       Dafny.IMap<BigInteger,BigInteger> _58_d0;
-      _58_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
+      _58_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements(new Dafny.Pair<BigInteger, BigInteger>(BigInteger.Zero, BigInteger.One), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(2), new BigInteger(3)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(4), new BigInteger(5)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(6), new BigInteger(7)));
       Dafny.IMap<BigInteger,BigInteger> _59_r0;
       _59_r0 = Maps_Compile.__default.ToImap<BigInteger, BigInteger>(_58_d0);
     }
     [Xunit.Fact]
-    public static void test5()
+    public static void test3()
     {
       Dafny.IMap<BigInteger,BigInteger> _60_d0;
       _60_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
-      Dafny.ISet<BigInteger> _61_d1;
-      _61_d1 = Dafny.Set<BigInteger>.FromElements();
-      Dafny.IMap<BigInteger,BigInteger> _62_r0;
-      _62_r0 = Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_60_d0, _61_d1);
-      if (!(((_62_r0).Keys).Equals((Dafny.Set<BigInteger>.Difference((_60_d0).Keys, _61_d1))))) {
+      Dafny.IMap<BigInteger,BigInteger> _61_r0;
+      _61_r0 = Maps_Compile.__default.ToImap<BigInteger, BigInteger>(_60_d0);
+    }
+    [Xunit.Fact]
+    public static void test5()
+    {
+      Dafny.IMap<BigInteger,BigInteger> _62_d0;
+      _62_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
+      Dafny.ISet<BigInteger> _63_d1;
+      _63_d1 = Dafny.Set<BigInteger>.FromElements();
+      Dafny.IMap<BigInteger,BigInteger> _64_r0;
+      _64_r0 = Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_62_d0, _63_d1);
+      if (!(((_64_r0).Keys).Equals((Dafny.Set<BigInteger>.Difference((_62_d0).Keys, _63_d1))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(53,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test6()
     {
-      Dafny.IMap<BigInteger,BigInteger> _63_d0;
-      _63_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements(new Dafny.Pair<BigInteger, BigInteger>(BigInteger.Zero, BigInteger.One), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(2), new BigInteger(3)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(4), new BigInteger(5)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(6), new BigInteger(7)));
-      Dafny.IMap<BigInteger,BigInteger> _64_r0;
-      _64_r0 = Maps_Compile.__default.Remove<BigInteger, BigInteger>(_63_d0, new BigInteger(8));
-      if (!((_64_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_63_d0, Dafny.Set<BigInteger>.FromElements(new BigInteger(8))))))) {
+      Dafny.IMap<BigInteger,BigInteger> _65_d0;
+      _65_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements(new Dafny.Pair<BigInteger, BigInteger>(BigInteger.Zero, BigInteger.One), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(2), new BigInteger(3)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(4), new BigInteger(5)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(6), new BigInteger(7)));
+      Dafny.IMap<BigInteger,BigInteger> _66_r0;
+      _66_r0 = Maps_Compile.__default.Remove<BigInteger, BigInteger>(_65_d0, new BigInteger(8));
+      if (!((_66_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_65_d0, Dafny.Set<BigInteger>.FromElements(new BigInteger(8))))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(64,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!((new BigInteger(((_64_r0).Keys).Count)) <= (new BigInteger(((_63_d0).Keys).Count)))) {
+      if (!((new BigInteger(((_66_r0).Keys).Count)) <= (new BigInteger(((_65_d0).Keys).Count)))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(65,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(!((_63_d0).Contains((new BigInteger(8)))) || ((new BigInteger((_64_r0).Count)) == ((new BigInteger((_63_d0).Count)) - (BigInteger.One))))) {
+      if (!(!((_65_d0).Contains((new BigInteger(8)))) || ((new BigInteger((_66_r0).Count)) == ((new BigInteger((_65_d0).Count)) - (BigInteger.One))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(66,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(!(!(_63_d0).Contains((new BigInteger(8)))) || ((new BigInteger((_64_r0).Count)) == (new BigInteger((_63_d0).Count))))) {
+      if (!(!(!(_65_d0).Contains((new BigInteger(8)))) || ((new BigInteger((_66_r0).Count)) == (new BigInteger((_65_d0).Count))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(67,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test7()
     {
-      Dafny.IMap<BigInteger,BigInteger> _65_d0;
-      _65_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
-      Dafny.IMap<BigInteger,BigInteger> _66_r0;
-      _66_r0 = Maps_Compile.__default.Remove<BigInteger, BigInteger>(_65_d0, BigInteger.Zero);
-      if (!((_66_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_65_d0, Dafny.Set<BigInteger>.FromElements(BigInteger.Zero)))))) {
+      Dafny.IMap<BigInteger,BigInteger> _67_d0;
+      _67_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
+      Dafny.IMap<BigInteger,BigInteger> _68_r0;
+      _68_r0 = Maps_Compile.__default.Remove<BigInteger, BigInteger>(_67_d0, BigInteger.Zero);
+      if (!((_68_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_67_d0, Dafny.Set<BigInteger>.FromElements(BigInteger.Zero)))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(75,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!((new BigInteger(((_66_r0).Keys).Count)) <= (new BigInteger(((_65_d0).Keys).Count)))) {
+      if (!((new BigInteger(((_68_r0).Keys).Count)) <= (new BigInteger(((_67_d0).Keys).Count)))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(76,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(!((_65_d0).Contains((BigInteger.Zero))) || ((new BigInteger((_66_r0).Count)) == ((new BigInteger((_65_d0).Count)) - (BigInteger.One))))) {
+      if (!(!((_67_d0).Contains((BigInteger.Zero))) || ((new BigInteger((_68_r0).Count)) == ((new BigInteger((_67_d0).Count)) - (BigInteger.One))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(77,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(!(!(_65_d0).Contains((BigInteger.Zero))) || ((new BigInteger((_66_r0).Count)) == (new BigInteger((_65_d0).Count))))) {
+      if (!(!(!(_67_d0).Contains((BigInteger.Zero))) || ((new BigInteger((_68_r0).Count)) == (new BigInteger((_67_d0).Count))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(78,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test8()
     {
-      Dafny.IMap<BigInteger,BigInteger> _67_d0;
-      _67_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements(new Dafny.Pair<BigInteger, BigInteger>(BigInteger.Zero, BigInteger.One), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(2), new BigInteger(3)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(4), new BigInteger(5)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(6), new BigInteger(7)));
-      Dafny.IMap<BigInteger,BigInteger> _68_r0;
-      _68_r0 = Maps_Compile.__default.Remove<BigInteger, BigInteger>(_67_d0, new BigInteger(6));
-      if (!((_68_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_67_d0, Dafny.Set<BigInteger>.FromElements(new BigInteger(6))))))) {
+      Dafny.IMap<BigInteger,BigInteger> _69_d0;
+      _69_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements(new Dafny.Pair<BigInteger, BigInteger>(BigInteger.Zero, BigInteger.One), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(2), new BigInteger(3)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(4), new BigInteger(5)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(6), new BigInteger(7)));
+      Dafny.IMap<BigInteger,BigInteger> _70_r0;
+      _70_r0 = Maps_Compile.__default.Remove<BigInteger, BigInteger>(_69_d0, new BigInteger(6));
+      if (!((_70_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_69_d0, Dafny.Set<BigInteger>.FromElements(new BigInteger(6))))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(88,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!((new BigInteger(((_68_r0).Keys).Count)) <= (new BigInteger(((_67_d0).Keys).Count)))) {
+      if (!((new BigInteger(((_70_r0).Keys).Count)) <= (new BigInteger(((_69_d0).Keys).Count)))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(89,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(!((_67_d0).Contains((new BigInteger(6)))) || ((new BigInteger((_68_r0).Count)) == ((new BigInteger((_67_d0).Count)) - (BigInteger.One))))) {
+      if (!(!((_69_d0).Contains((new BigInteger(6)))) || ((new BigInteger((_70_r0).Count)) == ((new BigInteger((_69_d0).Count)) - (BigInteger.One))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(90,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(!(!(_67_d0).Contains((new BigInteger(6)))) || ((new BigInteger((_68_r0).Count)) == (new BigInteger((_67_d0).Count))))) {
+      if (!(!(!(_69_d0).Contains((new BigInteger(6)))) || ((new BigInteger((_70_r0).Count)) == (new BigInteger((_69_d0).Count))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(91,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test10()
     {
-      Dafny.IMap<BigInteger,BigInteger> _69_d0;
-      _69_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements(new Dafny.Pair<BigInteger, BigInteger>(BigInteger.Zero, BigInteger.One), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(2), new BigInteger(3)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(4), new BigInteger(5)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(6), new BigInteger(7)));
-      Dafny.ISet<BigInteger> _70_d1;
-      _70_d1 = Dafny.Set<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.IMap<BigInteger,BigInteger> _71_r0;
-      _71_r0 = Maps_Compile.__default.Restrict<BigInteger, BigInteger>(_69_d0, _70_d1);
-      if (!((_71_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_69_d0, Dafny.Set<BigInteger>.Difference((_69_d0).Keys, _70_d1)))))) {
+      Dafny.IMap<BigInteger,BigInteger> _71_d0;
+      _71_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements(new Dafny.Pair<BigInteger, BigInteger>(BigInteger.Zero, BigInteger.One), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(2), new BigInteger(3)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(4), new BigInteger(5)), new Dafny.Pair<BigInteger, BigInteger>(new BigInteger(6), new BigInteger(7)));
+      Dafny.ISet<BigInteger> _72_d1;
+      _72_d1 = Dafny.Set<BigInteger>.FromElements(BigInteger.Zero);
+      Dafny.IMap<BigInteger,BigInteger> _73_r0;
+      _73_r0 = Maps_Compile.__default.Restrict<BigInteger, BigInteger>(_71_d0, _72_d1);
+      if (!((_73_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_71_d0, Dafny.Set<BigInteger>.Difference((_71_d0).Keys, _72_d1)))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(108,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test11()
     {
-      Dafny.IMap<BigInteger,BigInteger> _72_d0;
-      _72_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
-      Dafny.ISet<BigInteger> _73_d1;
-      _73_d1 = Dafny.Set<BigInteger>.FromElements();
-      Dafny.IMap<BigInteger,BigInteger> _74_r0;
-      _74_r0 = Maps_Compile.__default.Restrict<BigInteger, BigInteger>(_72_d0, _73_d1);
-      if (!((_74_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_72_d0, Dafny.Set<BigInteger>.Difference((_72_d0).Keys, _73_d1)))))) {
+      Dafny.IMap<BigInteger,BigInteger> _74_d0;
+      _74_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
+      Dafny.ISet<BigInteger> _75_d1;
+      _75_d1 = Dafny.Set<BigInteger>.FromElements();
+      Dafny.IMap<BigInteger,BigInteger> _76_r0;
+      _76_r0 = Maps_Compile.__default.Restrict<BigInteger, BigInteger>(_74_d0, _75_d1);
+      if (!((_76_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_74_d0, Dafny.Set<BigInteger>.Difference((_74_d0).Keys, _75_d1)))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(117,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test12()
     {
-      Dafny.IMap<BigInteger,BigInteger> _75_d0;
-      _75_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
-      Dafny.ISet<BigInteger> _76_d1;
-      _76_d1 = Dafny.Set<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.IMap<BigInteger,BigInteger> _77_r0;
-      _77_r0 = Maps_Compile.__default.Restrict<BigInteger, BigInteger>(_75_d0, _76_d1);
-      if (!((_77_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_75_d0, Dafny.Set<BigInteger>.Difference((_75_d0).Keys, _76_d1)))))) {
+      Dafny.IMap<BigInteger,BigInteger> _77_d0;
+      _77_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
+      Dafny.ISet<BigInteger> _78_d1;
+      _78_d1 = Dafny.Set<BigInteger>.FromElements(BigInteger.Zero);
+      Dafny.IMap<BigInteger,BigInteger> _79_r0;
+      _79_r0 = Maps_Compile.__default.Restrict<BigInteger, BigInteger>(_77_d0, _78_d1);
+      if (!((_79_r0).Equals((Maps_Compile.__default.RemoveKeys<BigInteger, BigInteger>(_77_d0, Dafny.Set<BigInteger>.Difference((_77_d0).Keys, _78_d1)))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(128,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test14()
     {
-      Dafny.IMap<BigInteger,BigInteger> _78_d0;
-      _78_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
-      Dafny.IMap<BigInteger,BigInteger> _79_d1;
-      _79_d1 = Dafny.Map<BigInteger, BigInteger>.FromElements();
-      Dafny.IMap<BigInteger,BigInteger> _80_r0;
-      _80_r0 = Maps_Compile.__default.Union<BigInteger, BigInteger>(_78_d0, _79_d1);
-      if (!(((_80_r0).Keys).Equals((Dafny.Set<BigInteger>.Union((_78_d0).Keys, (_79_d1).Keys))))) {
+      Dafny.IMap<BigInteger,BigInteger> _80_d0;
+      _80_d0 = Dafny.Map<BigInteger, BigInteger>.FromElements();
+      Dafny.IMap<BigInteger,BigInteger> _81_d1;
+      _81_d1 = Dafny.Map<BigInteger, BigInteger>.FromElements();
+      Dafny.IMap<BigInteger,BigInteger> _82_r0;
+      _82_r0 = Maps_Compile.__default.Union<BigInteger, BigInteger>(_80_d0, _81_d1);
+      if (!(((_82_r0).Keys).Equals((Dafny.Set<BigInteger>.Union((_80_d0).Keys, (_81_d1).Keys))))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Maps/Maps.dfy(141,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
@@ -19673,26 +19501,26 @@ namespace srcMathdfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      BigInteger _81_r0;
-      _81_r0 = Math_Compile.__default.Min(new BigInteger(7719), new BigInteger(7720));
+      BigInteger _83_r0;
+      _83_r0 = Math_Compile.__default.Min(new BigInteger(7719), new BigInteger(7720));
     }
     [Xunit.Fact]
     public static void test1()
     {
-      BigInteger _82_r0;
-      _82_r0 = Math_Compile.__default.Min(BigInteger.Zero, BigInteger.Zero);
+      BigInteger _84_r0;
+      _84_r0 = Math_Compile.__default.Min(BigInteger.Zero, BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test2()
     {
-      BigInteger _83_r0;
-      _83_r0 = Math_Compile.__default.Max(BigInteger.Zero, BigInteger.One);
+      BigInteger _85_r0;
+      _85_r0 = Math_Compile.__default.Max(BigInteger.Zero, BigInteger.One);
     }
     [Xunit.Fact]
     public static void test3()
     {
-      BigInteger _84_r0;
-      _84_r0 = Math_Compile.__default.Max(BigInteger.Zero, BigInteger.Zero);
+      BigInteger _86_r0;
+      _86_r0 = Math_Compile.__default.Max(BigInteger.Zero, BigInteger.Zero);
     }
   }
 } // end of namespace srcMathdfyUnitTests_Compile
@@ -19702,20 +19530,29 @@ namespace srcNonlinearArithmeticInternalsModInternalsdfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      BigInteger _85_r0;
-      _85_r0 = ModInternals_Compile.__default.ModRecursive(new BigInteger(-2439), new BigInteger(2438));
+      if (!((new BigInteger(8856)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/NonlinearArithmetic/Internals/ModInternals.dfy(21,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _87_r0;
+      _87_r0 = ModInternals_Compile.__default.ModRecursive(new BigInteger(-8857), new BigInteger(8856));
     }
     [Xunit.Fact]
     public static void test1()
     {
-      BigInteger _86_r0;
-      _86_r0 = ModInternals_Compile.__default.ModRecursive(new BigInteger(2438), BigInteger.One);
+      if (!((new BigInteger(2460)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/NonlinearArithmetic/Internals/ModInternals.dfy(29,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _88_r0;
+      _88_r0 = ModInternals_Compile.__default.ModRecursive(new BigInteger(4417), new BigInteger(2460));
     }
     [Xunit.Fact]
     public static void test2()
     {
-      BigInteger _87_r0;
-      _87_r0 = ModInternals_Compile.__default.ModRecursive(BigInteger.Zero, BigInteger.One);
+      if (!((BigInteger.One).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/NonlinearArithmetic/Internals/ModInternals.dfy(37,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _89_r0;
+      _89_r0 = ModInternals_Compile.__default.ModRecursive(BigInteger.Zero, BigInteger.One);
     }
   }
 } // end of namespace srcNonlinearArithmeticInternalsModInternalsdfyUnitTests_Compile
@@ -19731,26 +19568,26 @@ namespace srcNonlinearArithmeticInternalsMulInternalsdfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      BigInteger _88_r0;
-      _88_r0 = MulInternals_Compile.__default.MulPos(new BigInteger(8856), new BigInteger(1236));
+      if (!((new BigInteger(1799)).Sign != -1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/NonlinearArithmetic/Internals/MulInternals.dfy(17,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _90_r0;
+      _90_r0 = MulInternals_Compile.__default.MulPos(new BigInteger(1799), new BigInteger(-7719));
     }
     [Xunit.Fact]
     public static void test1()
     {
-      BigInteger _89_r0;
-      _89_r0 = MulInternals_Compile.__default.MulPos(BigInteger.Zero, BigInteger.Zero);
+      if (!((BigInteger.Zero).Sign != -1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/NonlinearArithmetic/Internals/MulInternals.dfy(24,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _91_r0;
+      _91_r0 = MulInternals_Compile.__default.MulPos(BigInteger.Zero, BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test2()
     {
-      BigInteger _90_r0;
-      _90_r0 = MulInternals_Compile.__default.MulRecursive(new BigInteger(38), new BigInteger(14));
-    }
-    [Xunit.Fact]
-    public static void test3()
-    {
-      BigInteger _91_r0;
-      _91_r0 = MulInternals_Compile.__default.MulRecursive(new BigInteger(-39), new BigInteger(14));
+      BigInteger _92_r0;
+      _92_r0 = MulInternals_Compile.__default.MulRecursive(new BigInteger(1238), new BigInteger(-7719));
     }
   }
 } // end of namespace srcNonlinearArithmeticInternalsMulInternalsdfyUnitTests_Compile
@@ -19763,8 +19600,8 @@ namespace srcNonlinearArithmeticPowerdfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      BigInteger _92_r0;
-      _92_r0 = Power_Compile.__default.Pow(BigInteger.Zero, BigInteger.Zero);
+      BigInteger _93_r0;
+      _93_r0 = Power_Compile.__default.Pow(BigInteger.Zero, BigInteger.Zero);
     }
   }
 } // end of namespace srcNonlinearArithmeticPowerdfyUnitTests_Compile
@@ -19785,553 +19622,588 @@ namespace srcCollectionsSequencesSeqdfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      Dafny.ISequence<BigInteger> _93_d0;
-      _93_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      BigInteger _94_r0;
-      _94_r0 = Seq_Compile.__default.First<BigInteger>(_93_d0);
+      Dafny.ISequence<BigInteger> _94_d0;
+      _94_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_94_d0).Count)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(16,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _95_r0;
+      _95_r0 = Seq_Compile.__default.First<BigInteger>(_94_d0);
     }
     [Xunit.Fact]
     public static void test1()
     {
-      Dafny.ISequence<BigInteger> _95_d0;
-      _95_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _96_r0;
-      _96_r0 = Seq_Compile.__default.DropFirst<BigInteger>(_95_d0);
+      Dafny.ISequence<BigInteger> _96_d0;
+      _96_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_96_d0).Count)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(23,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Dafny.ISequence<BigInteger> _97_r0;
+      _97_r0 = Seq_Compile.__default.DropFirst<BigInteger>(_96_d0);
     }
     [Xunit.Fact]
     public static void test2()
     {
-      Dafny.ISequence<BigInteger> _97_d0;
-      _97_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      BigInteger _98_r0;
-      _98_r0 = Seq_Compile.__default.Last<BigInteger>(_97_d0);
+      Dafny.ISequence<BigInteger> _98_d0;
+      _98_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_98_d0).Count)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(30,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _99_r0;
+      _99_r0 = Seq_Compile.__default.Last<BigInteger>(_98_d0);
     }
     [Xunit.Fact]
     public static void test3()
     {
-      Dafny.ISequence<BigInteger> _99_d0;
-      _99_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _100_r0;
-      _100_r0 = Seq_Compile.__default.DropLast<BigInteger>(_99_d0);
+      Dafny.ISequence<BigInteger> _100_d0;
+      _100_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_100_d0).Count)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(37,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Dafny.ISequence<BigInteger> _101_r0;
+      _101_r0 = Seq_Compile.__default.DropLast<BigInteger>(_100_d0);
     }
     [Xunit.Fact]
     public static void test4()
     {
-      Dafny.ISequence<BigInteger> _101_d0;
-      _101_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      BigInteger[] _102_r0;
+      Dafny.ISequence<BigInteger> _102_d0;
+      _102_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      BigInteger[] _103_r0;
       BigInteger[] _out0;
-      _out0 = Seq_Compile.__default.ToArray<BigInteger>(_101_d0);
-      _102_r0 = _out0;
-      if (!((new BigInteger((_102_r0).Length)) == (new BigInteger((_101_d0).Count)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(42,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      _out0 = Seq_Compile.__default.ToArray<BigInteger>(_102_d0);
+      _103_r0 = _out0;
+      if (!((new BigInteger((_103_r0).Length)) == (new BigInteger((_102_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(46,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test6()
     {
-      Dafny.ISequence<BigInteger> _103_d0;
-      _103_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      BigInteger[] _104_r0;
+      Dafny.ISequence<BigInteger> _104_d0;
+      _104_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
+      BigInteger[] _105_r0;
       BigInteger[] _out1;
-      _out1 = Seq_Compile.__default.ToArray<BigInteger>(_103_d0);
-      _104_r0 = _out1;
-      if (!((new BigInteger((_104_r0).Length)) == (new BigInteger((_103_d0).Count)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(62,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      _out1 = Seq_Compile.__default.ToArray<BigInteger>(_104_d0);
+      _105_r0 = _out1;
+      if (!((new BigInteger((_105_r0).Length)) == (new BigInteger((_104_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(66,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test8()
     {
-      Dafny.ISequence<BigInteger> _105_d0;
-      _105_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISet<BigInteger> _106_r0;
-      _106_r0 = Seq_Compile.__default.ToSet<BigInteger>(_105_d0);
+      Dafny.ISequence<BigInteger> _106_d0;
+      _106_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISet<BigInteger> _107_r0;
+      _107_r0 = Seq_Compile.__default.ToSet<BigInteger>(_106_d0);
     }
     [Xunit.Fact]
     public static void test9()
     {
-      Dafny.ISequence<BigInteger> _107_d0;
-      _107_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISet<BigInteger> _108_r0;
-      _108_r0 = Seq_Compile.__default.ToSet<BigInteger>(_107_d0);
+      Dafny.ISequence<BigInteger> _108_d0;
+      _108_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISet<BigInteger> _109_r0;
+      _109_r0 = Seq_Compile.__default.ToSet<BigInteger>(_108_d0);
     }
     [Xunit.Fact]
     public static void test11()
     {
-      Dafny.ISequence<BigInteger> _109_d0;
-      _109_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.One);
-      BigInteger _110_r0;
-      _110_r0 = Seq_Compile.__default.IndexOf<BigInteger>(_109_d0, BigInteger.One);
-      if (!(((_110_r0) < (new BigInteger((_109_d0).Count))) && (((_109_d0).Select(_110_r0)) == (BigInteger.One)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(98,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _110_d0;
+      _110_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.One);
+      if (!((_110_d0).Contains((BigInteger.One)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(101,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _111_r0;
+      _111_r0 = Seq_Compile.__default.IndexOf<BigInteger>(_110_d0, BigInteger.One);
+      if (!(((_111_r0) < (new BigInteger((_110_d0).Count))) && (((_110_d0).Select(_111_r0)) == (BigInteger.One)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(103,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test12()
     {
-      Dafny.ISequence<BigInteger> _111_d0;
-      _111_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.One);
-      BigInteger _112_r0;
-      _112_r0 = Seq_Compile.__default.IndexOf<BigInteger>(_111_d0, BigInteger.One);
-      if (!(((_112_r0) < (new BigInteger((_111_d0).Count))) && (((_111_d0).Select(_112_r0)) == (BigInteger.One)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(106,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _112_d0;
+      _112_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.One, BigInteger.One, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.One, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.One);
+      if (!((_112_d0).Contains((BigInteger.One)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(110,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _113_r0;
+      _113_r0 = Seq_Compile.__default.IndexOf<BigInteger>(_112_d0, BigInteger.One);
+      if (!(((_113_r0) < (new BigInteger((_112_d0).Count))) && (((_112_d0).Select(_113_r0)) == (BigInteger.One)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(112,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test13()
     {
-      Dafny.ISequence<BigInteger> _113_d0;
-      _113_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Wrappers_Compile._IOption<BigInteger> _114_r0;
-      _114_r0 = Seq_Compile.__default.IndexOfOption<BigInteger>(_113_d0, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _114_d0;
+      _114_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Wrappers_Compile._IOption<BigInteger> _115_r0;
+      _115_r0 = Seq_Compile.__default.IndexOfOption<BigInteger>(_114_d0, BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test14()
     {
-      Dafny.ISequence<BigInteger> _115_d0;
-      _115_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Wrappers_Compile._IOption<BigInteger> _116_r0;
-      _116_r0 = Seq_Compile.__default.IndexOfOption<BigInteger>(_115_d0, BigInteger.One);
+      Dafny.ISequence<BigInteger> _116_d0;
+      _116_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      Wrappers_Compile._IOption<BigInteger> _117_r0;
+      _117_r0 = Seq_Compile.__default.IndexOfOption<BigInteger>(_116_d0, BigInteger.One);
     }
     [Xunit.Fact]
     public static void test15()
     {
-      Dafny.ISequence<BigInteger> _117_d0;
-      _117_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.One);
-      Wrappers_Compile._IOption<BigInteger> _118_r0;
-      _118_r0 = Seq_Compile.__default.IndexOfOption<BigInteger>(_117_d0, BigInteger.One);
+      Dafny.ISequence<BigInteger> _118_d0;
+      _118_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.One, new BigInteger(2));
+      Wrappers_Compile._IOption<BigInteger> _119_r0;
+      _119_r0 = Seq_Compile.__default.IndexOfOption<BigInteger>(_118_d0, new BigInteger(2));
     }
     [Xunit.Fact]
     public static void test16()
     {
-      Dafny.ISequence<BigInteger> _119_d0;
-      _119_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Wrappers_Compile._IOption<BigInteger> _120_r0;
-      _120_r0 = Seq_Compile.__default.IndexOfOption<BigInteger>(_119_d0, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _120_d0;
+      _120_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      Wrappers_Compile._IOption<BigInteger> _121_r0;
+      _121_r0 = Seq_Compile.__default.IndexOfOption<BigInteger>(_120_d0, BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test17()
     {
-      Dafny.ISequence<BigInteger> _121_d0;
-      _121_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      BigInteger _122_r0;
-      _122_r0 = Seq_Compile.__default.LastIndexOf<BigInteger>(_121_d0, BigInteger.Zero);
-      if (!(((_122_r0) < (new BigInteger((_121_d0).Count))) && (((_121_d0).Select(_122_r0)).Sign == 0))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(149,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _122_d0;
+      _122_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
+      if (!((_122_d0).Contains((BigInteger.Zero)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(154,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _123_r0;
+      _123_r0 = Seq_Compile.__default.LastIndexOf<BigInteger>(_122_d0, BigInteger.Zero);
+      if (!(((_123_r0) < (new BigInteger((_122_d0).Count))) && (((_122_d0).Select(_123_r0)).Sign == 0))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(156,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test18()
     {
-      Dafny.ISequence<BigInteger> _123_d0;
-      _123_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.One);
-      BigInteger _124_r0;
-      _124_r0 = Seq_Compile.__default.LastIndexOf<BigInteger>(_123_d0, BigInteger.Zero);
-      if (!(((_124_r0) < (new BigInteger((_123_d0).Count))) && (((_123_d0).Select(_124_r0)).Sign == 0))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(157,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _124_d0;
+      _124_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.One);
+      if (!((_124_d0).Contains((BigInteger.Zero)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(163,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _125_r0;
+      _125_r0 = Seq_Compile.__default.LastIndexOf<BigInteger>(_124_d0, BigInteger.Zero);
+      if (!(((_125_r0) < (new BigInteger((_124_d0).Count))) && (((_124_d0).Select(_125_r0)).Sign == 0))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(165,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test19()
     {
-      Dafny.ISequence<BigInteger> _125_d0;
-      _125_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Wrappers_Compile._IOption<BigInteger> _126_r0;
-      _126_r0 = Seq_Compile.__default.LastIndexOfOption<BigInteger>(_125_d0, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _126_d0;
+      _126_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Wrappers_Compile._IOption<BigInteger> _127_r0;
+      _127_r0 = Seq_Compile.__default.LastIndexOfOption<BigInteger>(_126_d0, BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test20()
     {
-      Dafny.ISequence<BigInteger> _127_d0;
-      _127_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
-      Wrappers_Compile._IOption<BigInteger> _128_r0;
-      _128_r0 = Seq_Compile.__default.LastIndexOfOption<BigInteger>(_127_d0, BigInteger.One);
+      Dafny.ISequence<BigInteger> _128_d0;
+      _128_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.One, new BigInteger(2));
+      Wrappers_Compile._IOption<BigInteger> _129_r0;
+      _129_r0 = Seq_Compile.__default.LastIndexOfOption<BigInteger>(_128_d0, new BigInteger(3));
     }
     [Xunit.Fact]
     public static void test21()
     {
-      Dafny.ISequence<BigInteger> _129_d0;
-      _129_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Wrappers_Compile._IOption<BigInteger> _130_r0;
-      _130_r0 = Seq_Compile.__default.LastIndexOfOption<BigInteger>(_129_d0, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _130_d0;
+      _130_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
+      Wrappers_Compile._IOption<BigInteger> _131_r0;
+      _131_r0 = Seq_Compile.__default.LastIndexOfOption<BigInteger>(_130_d0, BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test22()
     {
-      Dafny.ISequence<BigInteger> _131_d0;
-      _131_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _132_r0;
-      _132_r0 = Seq_Compile.__default.Remove<BigInteger>(_131_d0, new BigInteger(39));
-      if (!((new BigInteger((_132_r0).Count)) == ((new BigInteger((_131_d0).Count)) - (BigInteger.One)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(188,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _132_d0;
+      _132_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger(39)) < (new BigInteger((_132_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(195,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Dafny.ISequence<BigInteger> _133_r0;
+      _133_r0 = Seq_Compile.__default.Remove<BigInteger>(_132_d0, new BigInteger(39));
+      if (!((new BigInteger((_133_r0).Count)) == ((new BigInteger((_132_d0).Count)) - (BigInteger.One)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(197,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test23()
     {
-      Dafny.ISequence<BigInteger> _133_d0;
-      _133_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _134_r0;
-      _134_r0 = Seq_Compile.__default.RemoveValue<BigInteger>(_133_d0, BigInteger.Zero);
-      if (!(!(!(_133_d0).Contains((BigInteger.Zero))) || ((_133_d0).Equals((_134_r0))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(197,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _134_d0;
+      _134_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _135_r0;
+      _135_r0 = Seq_Compile.__default.RemoveValue<BigInteger>(_134_d0, BigInteger.Zero);
+      if (!(!(!(_134_d0).Contains((BigInteger.Zero))) || ((_134_d0).Equals((_135_r0))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(206,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(!((_133_d0).Contains((BigInteger.Zero))) || ((new BigInteger((Dafny.MultiSet<BigInteger>.FromSeq(_134_r0)).Count)) == ((new BigInteger((Dafny.MultiSet<BigInteger>.FromSeq(_133_d0)).Count)) - (BigInteger.One))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(198,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      if (!(!((_134_d0).Contains((BigInteger.Zero))) || ((new BigInteger((Dafny.MultiSet<BigInteger>.FromSeq(_135_r0)).Count)) == ((new BigInteger((Dafny.MultiSet<BigInteger>.FromSeq(_134_d0)).Count)) - (BigInteger.One))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(207,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(!((_133_d0).Contains((BigInteger.Zero))) || (((Dafny.MultiSet<BigInteger>.FromSeq(_134_r0)).Select(BigInteger.Zero)) == (((Dafny.MultiSet<BigInteger>.FromSeq(_133_d0)).Select(BigInteger.Zero)) - (BigInteger.One))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(199,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      if (!(!((_134_d0).Contains((BigInteger.Zero))) || (((Dafny.MultiSet<BigInteger>.FromSeq(_135_r0)).Select(BigInteger.Zero)) == (((Dafny.MultiSet<BigInteger>.FromSeq(_134_d0)).Select(BigInteger.Zero)) - (BigInteger.One))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(208,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test24()
     {
-      Dafny.ISequence<BigInteger> _135_d0;
-      _135_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _136_r0;
-      _136_r0 = Seq_Compile.__default.RemoveValue<BigInteger>(_135_d0, BigInteger.Zero);
-      if (!(!(!(_135_d0).Contains((BigInteger.Zero))) || ((_135_d0).Equals((_136_r0))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(207,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _136_d0;
+      _136_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, new BigInteger(2), BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _137_r0;
+      _137_r0 = Seq_Compile.__default.RemoveValue<BigInteger>(_136_d0, new BigInteger(2));
+      if (!(!(!(_136_d0).Contains((new BigInteger(2)))) || ((_136_d0).Equals((_137_r0))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(216,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(!((_135_d0).Contains((BigInteger.Zero))) || ((new BigInteger((Dafny.MultiSet<BigInteger>.FromSeq(_136_r0)).Count)) == ((new BigInteger((Dafny.MultiSet<BigInteger>.FromSeq(_135_d0)).Count)) - (BigInteger.One))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(208,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      if (!(!((_136_d0).Contains((new BigInteger(2)))) || ((new BigInteger((Dafny.MultiSet<BigInteger>.FromSeq(_137_r0)).Count)) == ((new BigInteger((Dafny.MultiSet<BigInteger>.FromSeq(_136_d0)).Count)) - (BigInteger.One))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(217,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(!((_135_d0).Contains((BigInteger.Zero))) || (((Dafny.MultiSet<BigInteger>.FromSeq(_136_r0)).Select(BigInteger.Zero)) == (((Dafny.MultiSet<BigInteger>.FromSeq(_135_d0)).Select(BigInteger.Zero)) - (BigInteger.One))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(209,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      if (!(!((_136_d0).Contains((new BigInteger(2)))) || (((Dafny.MultiSet<BigInteger>.FromSeq(_137_r0)).Select(new BigInteger(2))) == (((Dafny.MultiSet<BigInteger>.FromSeq(_136_d0)).Select(new BigInteger(2))) - (BigInteger.One))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(218,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test25()
     {
-      Dafny.ISequence<BigInteger> _137_d0;
-      _137_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _138_r0;
-      _138_r0 = Seq_Compile.__default.Insert<BigInteger>(_137_d0, BigInteger.Zero, BigInteger.One);
-      if (!((new BigInteger((Seq_Compile.__default.Insert<BigInteger>(_137_d0, BigInteger.Zero, BigInteger.One)).Count)) == ((new BigInteger((_137_d0).Count)) + (BigInteger.One)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(216,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _138_d0;
+      _138_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((BigInteger.One) <= (new BigInteger((_138_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(224,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!(((Seq_Compile.__default.Insert<BigInteger>(_137_d0, BigInteger.Zero, BigInteger.One)).Select(BigInteger.One)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(217,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _139_r0;
+      _139_r0 = Seq_Compile.__default.Insert<BigInteger>(_138_d0, BigInteger.Zero, BigInteger.One);
+      if (!((new BigInteger((Seq_Compile.__default.Insert<BigInteger>(_138_d0, BigInteger.Zero, BigInteger.One)).Count)) == ((new BigInteger((_138_d0).Count)) + (BigInteger.One)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(226,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!((Dafny.MultiSet<BigInteger>.FromSeq(Seq_Compile.__default.Insert<BigInteger>(_137_d0, BigInteger.Zero, BigInteger.One))).Equals((Dafny.MultiSet<BigInteger>.Union(Dafny.MultiSet<BigInteger>.FromSeq(_137_d0), Dafny.MultiSet<BigInteger>.FromElements(BigInteger.Zero)))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(218,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      if (!(((Seq_Compile.__default.Insert<BigInteger>(_138_d0, BigInteger.Zero, BigInteger.One)).Select(BigInteger.One)).Sign == 0)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(227,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!((Dafny.MultiSet<BigInteger>.FromSeq(Seq_Compile.__default.Insert<BigInteger>(_138_d0, BigInteger.Zero, BigInteger.One))).Equals((Dafny.MultiSet<BigInteger>.Union(Dafny.MultiSet<BigInteger>.FromSeq(_138_d0), Dafny.MultiSet<BigInteger>.FromElements(BigInteger.Zero)))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(228,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test26()
     {
-      Dafny.ISequence<BigInteger> _139_d0;
-      _139_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _140_r0;
-      _140_r0 = Seq_Compile.__default.Reverse<BigInteger>(_139_d0);
-      if (!((new BigInteger((_140_r0).Count)) == (new BigInteger((_139_d0).Count)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(227,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _140_d0;
+      _140_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _141_r0;
+      _141_r0 = Seq_Compile.__default.Reverse<BigInteger>(_140_d0);
+      if (!((new BigInteger((_141_r0).Count)) == (new BigInteger((_140_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(237,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test27()
     {
-      Dafny.ISequence<BigInteger> _141_d0;
-      _141_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _142_r0;
-      _142_r0 = Seq_Compile.__default.Reverse<BigInteger>(_141_d0);
-      if (!((new BigInteger((_142_r0).Count)) == (new BigInteger((_141_d0).Count)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(235,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _142_d0;
+      _142_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.One, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _143_r0;
+      _143_r0 = Seq_Compile.__default.Reverse<BigInteger>(_142_d0);
+      if (!((new BigInteger((_143_r0).Count)) == (new BigInteger((_142_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(245,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test28()
     {
-      Dafny.ISequence<BigInteger> _143_r0;
-      _143_r0 = Seq_Compile.__default.Repeat<BigInteger>(BigInteger.Zero, new BigInteger(2));
-      if (!((new BigInteger((_143_r0).Count)) == (new BigInteger(2)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(243,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _144_r0;
+      _144_r0 = Seq_Compile.__default.Repeat<BigInteger>(BigInteger.Zero, new BigInteger(76));
+      if (!((new BigInteger((_144_r0).Count)) == (new BigInteger(76)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(253,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test29()
     {
-      Dafny.ISequence<BigInteger> _144_r0;
-      _144_r0 = Seq_Compile.__default.Repeat<BigInteger>(BigInteger.Zero, BigInteger.Zero);
-      if (!((new BigInteger((_144_r0).Count)) == (BigInteger.Zero))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(250,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _145_r0;
+      _145_r0 = Seq_Compile.__default.Repeat<BigInteger>(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_145_r0).Count)) == (BigInteger.Zero))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(260,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test32()
     {
-      Dafny.ISequence<BigInteger> _145_d0;
-      _145_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _146_d1;
-      _146_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.One);
-      Dafny.ISequence<_System._ITuple2<BigInteger, BigInteger>> _147_r0;
-      _147_r0 = Seq_Compile.__default.Zip<BigInteger, BigInteger>(_145_d0, _146_d1);
-      if (!((new BigInteger((Seq_Compile.__default.Zip<BigInteger, BigInteger>(_145_d0, _146_d1)).Count)) == (new BigInteger((_145_d0).Count)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(269,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _146_d0;
+      _146_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _147_d1;
+      _147_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_146_d0).Count)) == (new BigInteger((_147_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(279,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!(((Seq_Compile.__default.Unzip<BigInteger, BigInteger>(Seq_Compile.__default.Zip<BigInteger, BigInteger>(_145_d0, _146_d1))).dtor__0).Equals((_145_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(270,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<_System._ITuple2<BigInteger, BigInteger>> _148_r0;
+      _148_r0 = Seq_Compile.__default.Zip<BigInteger, BigInteger>(_146_d0, _147_d1);
+      if (!((new BigInteger((Seq_Compile.__default.Zip<BigInteger, BigInteger>(_146_d0, _147_d1)).Count)) == (new BigInteger((_146_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(281,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(((Seq_Compile.__default.Unzip<BigInteger, BigInteger>(Seq_Compile.__default.Zip<BigInteger, BigInteger>(_145_d0, _146_d1))).dtor__1).Equals((_146_d1)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(271,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      if (!(((Seq_Compile.__default.Unzip<BigInteger, BigInteger>(Seq_Compile.__default.Zip<BigInteger, BigInteger>(_146_d0, _147_d1))).dtor__0).Equals((_146_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(282,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!(((Seq_Compile.__default.Unzip<BigInteger, BigInteger>(Seq_Compile.__default.Zip<BigInteger, BigInteger>(_146_d0, _147_d1))).dtor__1).Equals((_147_d1)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(283,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test33()
     {
-      Dafny.ISequence<BigInteger> _148_d0;
-      _148_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _149_d1;
-      _149_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<_System._ITuple2<BigInteger, BigInteger>> _150_r0;
-      _150_r0 = Seq_Compile.__default.Zip<BigInteger, BigInteger>(_148_d0, _149_d1);
-      if (!((new BigInteger((Seq_Compile.__default.Zip<BigInteger, BigInteger>(_148_d0, _149_d1)).Count)) == (new BigInteger((_148_d0).Count)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(280,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _149_d0;
+      _149_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _150_d1;
+      _150_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_149_d0).Count)) == (new BigInteger((_150_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(292,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!(((Seq_Compile.__default.Unzip<BigInteger, BigInteger>(Seq_Compile.__default.Zip<BigInteger, BigInteger>(_148_d0, _149_d1))).dtor__0).Equals((_148_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(281,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<_System._ITuple2<BigInteger, BigInteger>> _151_r0;
+      _151_r0 = Seq_Compile.__default.Zip<BigInteger, BigInteger>(_149_d0, _150_d1);
+      if (!((new BigInteger((Seq_Compile.__default.Zip<BigInteger, BigInteger>(_149_d0, _150_d1)).Count)) == (new BigInteger((_149_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(294,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
-      if (!(((Seq_Compile.__default.Unzip<BigInteger, BigInteger>(Seq_Compile.__default.Zip<BigInteger, BigInteger>(_148_d0, _149_d1))).dtor__1).Equals((_149_d1)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(282,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      if (!(((Seq_Compile.__default.Unzip<BigInteger, BigInteger>(Seq_Compile.__default.Zip<BigInteger, BigInteger>(_149_d0, _150_d1))).dtor__0).Equals((_149_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(295,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!(((Seq_Compile.__default.Unzip<BigInteger, BigInteger>(Seq_Compile.__default.Zip<BigInteger, BigInteger>(_149_d0, _150_d1))).dtor__1).Equals((_150_d1)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(296,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test34()
     {
-      Dafny.ISequence<BigInteger> _151_d0;
-      _151_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(8855), BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(5853), BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(5853), BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      BigInteger _152_r0;
-      _152_r0 = Seq_Compile.__default.Max(_151_d0);
-      if (!((_151_d0).Contains((Seq_Compile.__default.Max(_151_d0))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(291,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _152_d0;
+      _152_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(8855), new BigInteger(8878), new BigInteger(8879));
+      if (!((new BigInteger((_152_d0).Count)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(304,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _153_r0;
+      _153_r0 = Seq_Compile.__default.Max(_152_d0);
+      if (!((_152_d0).Contains((Seq_Compile.__default.Max(_152_d0))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(306,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test35()
     {
-      Dafny.ISequence<BigInteger> _153_d0;
-      _153_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      BigInteger _154_r0;
-      _154_r0 = Seq_Compile.__default.Max(_153_d0);
-      if (!((_153_d0).Contains((Seq_Compile.__default.Max(_153_d0))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(299,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _154_d0;
+      _154_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_154_d0).Count)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(313,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _155_r0;
+      _155_r0 = Seq_Compile.__default.Max(_154_d0);
+      if (!((_154_d0).Contains((Seq_Compile.__default.Max(_154_d0))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(315,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test36()
     {
-      Dafny.ISequence<BigInteger> _155_d0;
-      _155_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(8855), BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(5853), BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(5853), BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      BigInteger _156_r0;
-      _156_r0 = Seq_Compile.__default.Min(_155_d0);
-      if (!((_155_d0).Contains((Seq_Compile.__default.Min(_155_d0))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(308,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _156_d0;
+      _156_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(8855), new BigInteger(1141), new BigInteger(1142));
+      if (!((new BigInteger((_156_d0).Count)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(323,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _157_r0;
+      _157_r0 = Seq_Compile.__default.Min(_156_d0);
+      if (!((_156_d0).Contains((Seq_Compile.__default.Min(_156_d0))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(325,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test37()
     {
-      Dafny.ISequence<BigInteger> _157_d0;
-      _157_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      BigInteger _158_r0;
-      _158_r0 = Seq_Compile.__default.Min(_157_d0);
-      if (!((_157_d0).Contains((Seq_Compile.__default.Min(_157_d0))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(316,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _158_d0;
+      _158_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_158_d0).Count)).Sign == 1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(332,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _159_r0;
+      _159_r0 = Seq_Compile.__default.Min(_158_d0);
+      if (!((_158_d0).Contains((Seq_Compile.__default.Min(_158_d0))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(334,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test38()
     {
-      Dafny.ISequence<Dafny.ISequence<BigInteger>> _159_d0;
-      _159_d0 = Dafny.Sequence<Dafny.ISequence<BigInteger>>.FromElements();
-      Dafny.ISequence<BigInteger> _160_r0;
-      _160_r0 = Seq_Compile.__default.Flatten<BigInteger>(_159_d0);
+      Dafny.ISequence<Dafny.ISequence<BigInteger>> _160_d0;
+      _160_d0 = Dafny.Sequence<Dafny.ISequence<BigInteger>>.FromElements();
+      Dafny.ISequence<BigInteger> _161_r0;
+      _161_r0 = Seq_Compile.__default.Flatten<BigInteger>(_160_d0);
     }
     [Xunit.Fact]
     public static void test39()
     {
-      Dafny.ISequence<BigInteger> _161_d0;
-      _161_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _162_d1;
-      _162_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<Dafny.ISequence<BigInteger>> _163_d2;
-      _163_d2 = Dafny.Sequence<Dafny.ISequence<BigInteger>>.FromElements(_161_d0, _162_d1);
-      Dafny.ISequence<BigInteger> _164_r0;
-      _164_r0 = Seq_Compile.__default.Flatten<BigInteger>(_163_d2);
+      Dafny.ISequence<BigInteger> _162_d0;
+      _162_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _163_d1;
+      _163_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      Dafny.ISequence<Dafny.ISequence<BigInteger>> _164_d2;
+      _164_d2 = Dafny.Sequence<Dafny.ISequence<BigInteger>>.FromElements(_162_d0, _163_d1);
+      Dafny.ISequence<BigInteger> _165_r0;
+      _165_r0 = Seq_Compile.__default.Flatten<BigInteger>(_164_d2);
     }
     [Xunit.Fact]
     public static void test40()
     {
-      Dafny.ISequence<Dafny.ISequence<BigInteger>> _165_d0;
-      _165_d0 = Dafny.Sequence<Dafny.ISequence<BigInteger>>.FromElements();
-      Dafny.ISequence<BigInteger> _166_r0;
-      _166_r0 = Seq_Compile.__default.FlattenReverse<BigInteger>(_165_d0);
+      Dafny.ISequence<Dafny.ISequence<BigInteger>> _166_d0;
+      _166_d0 = Dafny.Sequence<Dafny.ISequence<BigInteger>>.FromElements();
+      Dafny.ISequence<BigInteger> _167_r0;
+      _167_r0 = Seq_Compile.__default.FlattenReverse<BigInteger>(_166_d0);
     }
     [Xunit.Fact]
     public static void test41()
     {
-      Dafny.ISequence<BigInteger> _167_d0;
-      _167_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _168_d1;
-      _168_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<Dafny.ISequence<BigInteger>> _169_d2;
-      _169_d2 = Dafny.Sequence<Dafny.ISequence<BigInteger>>.FromElements(_167_d0, _168_d1);
-      Dafny.ISequence<BigInteger> _170_r0;
-      _170_r0 = Seq_Compile.__default.FlattenReverse<BigInteger>(_169_d2);
+      Dafny.ISequence<BigInteger> _168_d0;
+      _168_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _169_d1;
+      _169_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<Dafny.ISequence<BigInteger>> _170_d2;
+      _170_d2 = Dafny.Sequence<Dafny.ISequence<BigInteger>>.FromElements(_168_d0, _169_d1);
+      Dafny.ISequence<BigInteger> _171_r0;
+      _171_r0 = Seq_Compile.__default.FlattenReverse<BigInteger>(_170_d2);
     }
     [Xunit.Fact]
     public static void test42()
     {
-      Dafny.ISequence<BigInteger> _171_d0;
-      _171_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _172_r0;
-      _172_r0 = Seq_Compile.__default.Map<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger>)((_173_a0) => {
+      Dafny.ISequence<BigInteger> _172_d0;
+      _172_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _173_r0;
+      _173_r0 = Seq_Compile.__default.Map<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger>)((_174_a0) => {
         return BigInteger.Zero;
-      })), _171_d0);
-      if (!((new BigInteger((_172_r0).Count)) == (new BigInteger((_171_d0).Count)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(359,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      })), _172_d0);
+      if (!((new BigInteger((_173_r0).Count)) == (new BigInteger((_172_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(377,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test43()
     {
-      Dafny.ISequence<BigInteger> _174_d0;
-      _174_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _175_r0;
-      _175_r0 = Seq_Compile.__default.Map<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger>)((_176_a0) => {
+      Dafny.ISequence<BigInteger> _175_d0;
+      _175_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.One);
+      Dafny.ISequence<BigInteger> _176_r0;
+      _176_r0 = Seq_Compile.__default.Map<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger>)((_177_a0) => {
         return BigInteger.Zero;
-      })), _174_d0);
-      if (!((new BigInteger((_175_r0).Count)) == (new BigInteger((_174_d0).Count)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(367,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      })), _175_d0);
+      if (!((new BigInteger((_176_r0).Count)) == (new BigInteger((_175_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(385,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test44()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _177_d0;
-      _177_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _178_d1;
-      _178_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      Wrappers_Compile._IResult<Dafny.ISequence<BigInteger>, BigInteger> _179_r0;
-      _179_r0 = Seq_Compile.__default.MapWithResult<BigInteger, BigInteger, BigInteger>(Dafny.Helpers.Id<Func<Wrappers_Compile._IResult<BigInteger, BigInteger>, Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>>>((_180_d0) => ((System.Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>)((_181_a0) => {
-        return _180_d0;
-      })))(_177_d0), _178_d1);
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _178_d0;
+      _178_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _179_d1;
+      _179_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      Wrappers_Compile._IResult<Dafny.ISequence<BigInteger>, BigInteger> _180_r0;
+      _180_r0 = Seq_Compile.__default.MapWithResult<BigInteger, BigInteger, BigInteger>(Dafny.Helpers.Id<Func<Wrappers_Compile._IResult<BigInteger, BigInteger>, Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>>>((_181_d0) => ((System.Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>)((_182_a0) => {
+        return _181_d0;
+      })))(_178_d0), _179_d1);
     }
     [Xunit.Fact]
     public static void test45()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _182_d0;
-      _182_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _183_d1;
-      _183_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Wrappers_Compile._IResult<Dafny.ISequence<BigInteger>, BigInteger> _184_r0;
-      _184_r0 = Seq_Compile.__default.MapWithResult<BigInteger, BigInteger, BigInteger>(Dafny.Helpers.Id<Func<Wrappers_Compile._IResult<BigInteger, BigInteger>, Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>>>((_185_d0) => ((System.Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>)((_186_a0) => {
-        return _185_d0;
-      })))(_182_d0), _183_d1);
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _183_d0;
+      _183_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _184_d1;
+      _184_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.One);
+      Wrappers_Compile._IResult<Dafny.ISequence<BigInteger>, BigInteger> _185_r0;
+      _185_r0 = Seq_Compile.__default.MapWithResult<BigInteger, BigInteger, BigInteger>(Dafny.Helpers.Id<Func<Wrappers_Compile._IResult<BigInteger, BigInteger>, Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>>>((_186_d0) => ((System.Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>)((_187_a0) => {
+        return _186_d0;
+      })))(_183_d0), _184_d1);
     }
     [Xunit.Fact]
     public static void test46()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _187_d0;
-      _187_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _188_d1;
-      _188_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Wrappers_Compile._IResult<Dafny.ISequence<BigInteger>, BigInteger> _189_r0;
-      _189_r0 = Seq_Compile.__default.MapWithResult<BigInteger, BigInteger, BigInteger>(Dafny.Helpers.Id<Func<Wrappers_Compile._IResult<BigInteger, BigInteger>, Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>>>((_190_d0) => ((System.Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>)((_191_a0) => {
-        return _190_d0;
-      })))(_187_d0), _188_d1);
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _188_d0;
+      _188_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _189_d1;
+      _189_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.One, new BigInteger(2), BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
+      Wrappers_Compile._IResult<Dafny.ISequence<BigInteger>, BigInteger> _190_r0;
+      _190_r0 = Seq_Compile.__default.MapWithResult<BigInteger, BigInteger, BigInteger>(Dafny.Helpers.Id<Func<Wrappers_Compile._IResult<BigInteger, BigInteger>, Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>>>((_191_d0) => ((System.Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>)((_192_a0) => {
+        return _191_d0;
+      })))(_188_d0), _189_d1);
     }
     [Xunit.Fact]
     public static void test47()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _192_d0;
-      _192_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _193_d1;
-      _193_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Wrappers_Compile._IResult<Dafny.ISequence<BigInteger>, BigInteger> _194_r0;
-      _194_r0 = Seq_Compile.__default.MapWithResult<BigInteger, BigInteger, BigInteger>(Dafny.Helpers.Id<Func<Wrappers_Compile._IResult<BigInteger, BigInteger>, Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>>>((_195_d0) => ((System.Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>)((_196_a0) => {
-        return _195_d0;
-      })))(_192_d0), _193_d1);
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _193_d0;
+      _193_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _194_d1;
+      _194_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
+      Wrappers_Compile._IResult<Dafny.ISequence<BigInteger>, BigInteger> _195_r0;
+      _195_r0 = Seq_Compile.__default.MapWithResult<BigInteger, BigInteger, BigInteger>(Dafny.Helpers.Id<Func<Wrappers_Compile._IResult<BigInteger, BigInteger>, Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>>>((_196_d0) => ((System.Func<BigInteger, Wrappers_Compile._IResult<BigInteger, BigInteger>>)((_197_a0) => {
+        return _196_d0;
+      })))(_193_d0), _194_d1);
     }
     [Xunit.Fact]
     public static void test48()
     {
-      Dafny.ISequence<BigInteger> _197_d0;
-      _197_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _198_r0;
-      _198_r0 = Seq_Compile.__default.Filter<BigInteger>(((System.Func<BigInteger, bool>)((_199_a0) => {
+      Dafny.ISequence<BigInteger> _198_d0;
+      _198_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _199_r0;
+      _199_r0 = Seq_Compile.__default.Filter<BigInteger>(((System.Func<BigInteger, bool>)((_200_a0) => {
         return false;
-      })), _197_d0);
-      if (!((new BigInteger((_198_r0).Count)) <= (new BigInteger((_197_d0).Count)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(414,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      })), _198_d0);
+      if (!((new BigInteger((_199_r0).Count)) <= (new BigInteger((_198_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(432,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test49()
     {
-      Dafny.ISequence<BigInteger> _200_d0;
-      _200_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _201_r0;
-      _201_r0 = Seq_Compile.__default.Filter<BigInteger>(((System.Func<BigInteger, bool>)((_202_a0) => {
+      Dafny.ISequence<BigInteger> _201_d0;
+      _201_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _202_r0;
+      _202_r0 = Seq_Compile.__default.Filter<BigInteger>(((System.Func<BigInteger, bool>)((_203_a0) => {
         return false;
-      })), _200_d0);
-      if (!((new BigInteger((_201_r0).Count)) <= (new BigInteger((_200_d0).Count)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(424,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test50()
-    {
-      Dafny.ISequence<BigInteger> _203_d0;
-      _203_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _204_r0;
-      _204_r0 = Seq_Compile.__default.Filter<BigInteger>(((System.Func<BigInteger, bool>)((_205_a0) => {
-        return false;
-      })), _203_d0);
-      if (!((new BigInteger((_204_r0).Count)) <= (new BigInteger((_203_d0).Count)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(433,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      })), _201_d0);
+      if (!((new BigInteger((_202_r0).Count)) <= (new BigInteger((_201_d0).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Seq.dfy(442,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test51()
     {
-      Dafny.ISequence<BigInteger> _206_d0;
-      _206_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _207_r0;
-      _207_r0 = Seq_Compile.__default.FoldLeft<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger, BigInteger>)((_208_a0, _209_a1) => {
+      Dafny.ISequence<BigInteger> _204_d0;
+      _204_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _205_r0;
+      _205_r0 = Seq_Compile.__default.FoldLeft<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger, BigInteger>)((_206_a0, _207_a1) => {
         return BigInteger.Zero;
-      })), BigInteger.Zero, _206_d0);
+      })), BigInteger.Zero, _204_d0);
     }
     [Xunit.Fact]
     public static void test52()
     {
-      Dafny.ISequence<BigInteger> _210_d0;
-      _210_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.One);
-      BigInteger _211_r0;
-      _211_r0 = Seq_Compile.__default.FoldLeft<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger, BigInteger>)((_212_a0, _213_a1) => {
+      Dafny.ISequence<BigInteger> _208_d0;
+      _208_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.One);
+      BigInteger _209_r0;
+      _209_r0 = Seq_Compile.__default.FoldLeft<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger, BigInteger>)((_210_a0, _211_a1) => {
         return BigInteger.Zero;
-      })), BigInteger.Zero, _210_d0);
+      })), BigInteger.Zero, _208_d0);
     }
     [Xunit.Fact]
     public static void test53()
     {
-      Dafny.ISequence<BigInteger> _214_d0;
-      _214_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _215_r0;
-      _215_r0 = Seq_Compile.__default.FoldRight<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger, BigInteger>)((_216_a0, _217_a1) => {
+      Dafny.ISequence<BigInteger> _212_d0;
+      _212_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _213_r0;
+      _213_r0 = Seq_Compile.__default.FoldRight<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger, BigInteger>)((_214_a0, _215_a1) => {
         return BigInteger.Zero;
-      })), _214_d0, BigInteger.Zero);
+      })), _212_d0, BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test54()
     {
-      Dafny.ISequence<BigInteger> _218_d0;
-      _218_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      BigInteger _219_r0;
-      _219_r0 = Seq_Compile.__default.FoldRight<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger, BigInteger>)((_220_a0, _221_a1) => {
+      Dafny.ISequence<BigInteger> _216_d0;
+      _216_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      BigInteger _217_r0;
+      _217_r0 = Seq_Compile.__default.FoldRight<BigInteger, BigInteger>(((System.Func<BigInteger, BigInteger, BigInteger>)((_218_a0, _219_a1) => {
         return BigInteger.Zero;
-      })), _218_d0, BigInteger.Zero);
+      })), _216_d0, BigInteger.Zero);
     }
   }
 } // end of namespace srcCollectionsSequencesSeqdfyUnitTests_Compile
@@ -20340,40 +20212,40 @@ namespace Sets_Compile {
   public partial class __default {
     public static Dafny.ISet<__Y> Map<__X, __Y>(Dafny.ISet<__X> xs, Func<__X, __Y> f)
     {
-      Dafny.ISet<__Y> _222_ys = Dafny.Helpers.Id<Func<Dafny.ISet<__X>, Func<__X, __Y>, Dafny.ISet<__Y>>>((_223_xs, _224_f) => ((System.Func<Dafny.ISet<__Y>>)(() => {
+      Dafny.ISet<__Y> _220_ys = Dafny.Helpers.Id<Func<Dafny.ISet<__X>, Func<__X, __Y>, Dafny.ISet<__Y>>>((_221_xs, _222_f) => ((System.Func<Dafny.ISet<__Y>>)(() => {
         var _coll4 = new System.Collections.Generic.List<__Y>();
-        foreach (__X _compr_4 in (_223_xs).Elements) {
-          __X _225_x = (__X)_compr_4;
-          if ((_223_xs).Contains((_225_x))) {
-            _coll4.Add(Dafny.Helpers.Id<Func<__X, __Y>>(_224_f)(_225_x));
+        foreach (__X _compr_4 in (_221_xs).Elements) {
+          __X _223_x = (__X)_compr_4;
+          if ((_221_xs).Contains((_223_x))) {
+            _coll4.Add(Dafny.Helpers.Id<Func<__X, __Y>>(_222_f)(_223_x));
           }
         }
         return Dafny.Set<__Y>.FromCollection(_coll4);
       }))())(xs, f);
-      return _222_ys;
+      return _220_ys;
     }
     public static Dafny.ISet<__X> Filter<__X>(Dafny.ISet<__X> xs, Func<__X, bool> f)
     {
-      Dafny.ISet<__X> _226_ys = Dafny.Helpers.Id<Func<Dafny.ISet<__X>, Func<__X, bool>, Dafny.ISet<__X>>>((_227_xs, _228_f) => ((System.Func<Dafny.ISet<__X>>)(() => {
+      Dafny.ISet<__X> _224_ys = Dafny.Helpers.Id<Func<Dafny.ISet<__X>, Func<__X, bool>, Dafny.ISet<__X>>>((_225_xs, _226_f) => ((System.Func<Dafny.ISet<__X>>)(() => {
         var _coll5 = new System.Collections.Generic.List<__X>();
-        foreach (__X _compr_5 in (_227_xs).Elements) {
-          __X _229_x = (__X)_compr_5;
-          if (((_227_xs).Contains((_229_x))) && (Dafny.Helpers.Id<Func<__X, bool>>(_228_f)(_229_x))) {
-            _coll5.Add(_229_x);
+        foreach (__X _compr_5 in (_225_xs).Elements) {
+          __X _227_x = (__X)_compr_5;
+          if (((_225_xs).Contains((_227_x))) && (Dafny.Helpers.Id<Func<__X, bool>>(_226_f)(_227_x))) {
+            _coll5.Add(_227_x);
           }
         }
         return Dafny.Set<__X>.FromCollection(_coll5);
       }))())(xs, f);
-      return _226_ys;
+      return _224_ys;
     }
     public static Dafny.ISet<BigInteger> SetRange(BigInteger a, BigInteger b)
     {
-      Dafny.ISet<BigInteger> _230___accumulator = Dafny.Set<BigInteger>.FromElements();
+      Dafny.ISet<BigInteger> _228___accumulator = Dafny.Set<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((a) == (b)) {
-        return Dafny.Set<BigInteger>.Union(Dafny.Set<BigInteger>.FromElements(), _230___accumulator);
+        return Dafny.Set<BigInteger>.Union(Dafny.Set<BigInteger>.FromElements(), _228___accumulator);
       } else {
-        _230___accumulator = Dafny.Set<BigInteger>.Union(_230___accumulator, Dafny.Set<BigInteger>.FromElements(a));
+        _228___accumulator = Dafny.Set<BigInteger>.Union(_228___accumulator, Dafny.Set<BigInteger>.FromElements(a));
         BigInteger _in32 = (a) + (BigInteger.One);
         BigInteger _in33 = b;
         a = _in32;
@@ -20392,80 +20264,89 @@ namespace srcCollectionsSetsSetsdfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test1()
     {
-      Dafny.ISet<BigInteger> _231_d0;
-      _231_d0 = Dafny.Set<BigInteger>.FromElements();
-      Dafny.ISet<BigInteger> _232_r0;
-      _232_r0 = Sets_Compile.__default.Map<BigInteger, BigInteger>(_231_d0, ((System.Func<BigInteger, BigInteger>)((_233_a0) => {
+      Dafny.ISet<BigInteger> _229_d0;
+      _229_d0 = Dafny.Set<BigInteger>.FromElements();
+      Dafny.ISet<BigInteger> _230_r0;
+      _230_r0 = Sets_Compile.__default.Map<BigInteger, BigInteger>(_229_d0, ((System.Func<BigInteger, BigInteger>)((_231_a0) => {
         return BigInteger.Zero;
       })));
-      if (!((new BigInteger((_231_d0).Count)) == (new BigInteger((_232_r0).Count)))) {
+      if (!((new BigInteger((_229_d0).Count)) == (new BigInteger((_230_r0).Count)))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(27,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test3()
     {
-      Dafny.ISet<BigInteger> _234_d0;
-      _234_d0 = Dafny.Set<BigInteger>.FromElements(BigInteger.Zero, BigInteger.One, new BigInteger(2));
-      Dafny.ISet<BigInteger> _235_r0;
-      _235_r0 = Sets_Compile.__default.Filter<BigInteger>(_234_d0, ((System.Func<BigInteger, bool>)((_236_a0) => {
+      Dafny.ISet<BigInteger> _232_d0;
+      _232_d0 = Dafny.Set<BigInteger>.FromElements(BigInteger.Zero, BigInteger.One, new BigInteger(2));
+      Dafny.ISet<BigInteger> _233_r0;
+      _233_r0 = Sets_Compile.__default.Filter<BigInteger>(_232_d0, ((System.Func<BigInteger, bool>)((_234_a0) => {
         return false;
       })));
-      if (!((new BigInteger((_235_r0).Count)) <= (new BigInteger((_234_d0).Count)))) {
+      if (!((new BigInteger((_233_r0).Count)) <= (new BigInteger((_232_d0).Count)))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(43,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test4()
     {
-      Dafny.ISet<BigInteger> _237_d0;
-      _237_d0 = Dafny.Set<BigInteger>.FromElements();
-      Dafny.ISet<BigInteger> _238_r0;
-      _238_r0 = Sets_Compile.__default.Filter<BigInteger>(_237_d0, ((System.Func<BigInteger, bool>)((_239_a0) => {
+      Dafny.ISet<BigInteger> _235_d0;
+      _235_d0 = Dafny.Set<BigInteger>.FromElements();
+      Dafny.ISet<BigInteger> _236_r0;
+      _236_r0 = Sets_Compile.__default.Filter<BigInteger>(_235_d0, ((System.Func<BigInteger, bool>)((_237_a0) => {
         return false;
       })));
-      if (!((new BigInteger((_238_r0).Count)) <= (new BigInteger((_237_d0).Count)))) {
+      if (!((new BigInteger((_236_r0).Count)) <= (new BigInteger((_235_d0).Count)))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(51,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test5()
     {
-      Dafny.ISet<BigInteger> _240_d0;
-      _240_d0 = Dafny.Set<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISet<BigInteger> _241_r0;
-      _241_r0 = Sets_Compile.__default.Filter<BigInteger>(_240_d0, ((System.Func<BigInteger, bool>)((_242_a0) => {
+      Dafny.ISet<BigInteger> _238_d0;
+      _238_d0 = Dafny.Set<BigInteger>.FromElements(BigInteger.Zero);
+      Dafny.ISet<BigInteger> _239_r0;
+      _239_r0 = Sets_Compile.__default.Filter<BigInteger>(_238_d0, ((System.Func<BigInteger, bool>)((_240_a0) => {
         return false;
       })));
-      if (!((new BigInteger((_241_r0).Count)) <= (new BigInteger((_240_d0).Count)))) {
+      if (!((new BigInteger((_239_r0).Count)) <= (new BigInteger((_238_d0).Count)))) {
         throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(61,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test7()
     {
-      Dafny.ISet<BigInteger> _243_r0;
-      _243_r0 = Sets_Compile.__default.SetRange(new BigInteger(2437), new BigInteger(2438));
-      if (!((new BigInteger((_243_r0).Count)) == ((new BigInteger(2438)) - (new BigInteger(2437))))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(74,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      if (!((new BigInteger(2275)) <= (new BigInteger(2279)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(73,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Dafny.ISet<BigInteger> _241_r0;
+      _241_r0 = Sets_Compile.__default.SetRange(new BigInteger(2275), new BigInteger(2279));
+      if (!((new BigInteger((_241_r0).Count)) == ((new BigInteger(2279)) - (new BigInteger(2275))))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(75,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test8()
     {
-      Dafny.ISet<BigInteger> _244_r0;
-      _244_r0 = Sets_Compile.__default.SetRange(new BigInteger(15), new BigInteger(15));
-      if (!((new BigInteger((_244_r0).Count)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(81,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      if (!((new BigInteger(7719)) <= (new BigInteger(7719)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(81,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Dafny.ISet<BigInteger> _242_r0;
+      _242_r0 = Sets_Compile.__default.SetRange(new BigInteger(7719), new BigInteger(7719));
+      if (!((new BigInteger((_242_r0).Count)).Sign == 0)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(83,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test9()
     {
-      Dafny.ISet<BigInteger> _245_r0;
-      _245_r0 = Sets_Compile.__default.SetRangeZeroBound(BigInteger.One);
-      if (!((new BigInteger((_245_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(87,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      if (!((new BigInteger(3)).Sign != -1)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(88,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Dafny.ISet<BigInteger> _243_r0;
+      _243_r0 = Sets_Compile.__default.SetRangeZeroBound(new BigInteger(3));
+      if (!((new BigInteger((_243_r0).Count)) == (new BigInteger(3)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sets/Sets.dfy(90,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
   }
@@ -20487,24 +20368,24 @@ namespace Uint8__16_mUint8Seq_Compile {
       }
     }
     public static BigInteger ToNatLeft(Dafny.ISequence<BigInteger> xs) {
-      BigInteger _246___accumulator = BigInteger.Zero;
+      BigInteger _244___accumulator = BigInteger.Zero;
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return (BigInteger.Zero) + (_246___accumulator);
+        return (BigInteger.Zero) + (_244___accumulator);
       } else {
-        _246___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__16_mUint8Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_246___accumulator);
+        _244___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__16_mUint8Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_244___accumulator);
         Dafny.ISequence<BigInteger> _in34 = Seq_Compile.__default.DropLast<BigInteger>(xs);
         xs = _in34;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> FromNat(BigInteger n) {
-      Dafny.ISequence<BigInteger> _247___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _245___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((n).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_247___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_245___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _247___accumulator = Dafny.Sequence<BigInteger>.Concat(_247___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__16_mUint8Seq_Compile.__default.BASE())));
+        _245___accumulator = Dafny.Sequence<BigInteger>.Concat(_245___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__16_mUint8Seq_Compile.__default.BASE())));
         BigInteger _in35 = Dafny.Helpers.EuclideanDivision(n, Uint8__16_mUint8Seq_Compile.__default.BASE());
         n = _in35;
         goto TAIL_CALL_START;
@@ -20525,16 +20406,16 @@ namespace Uint8__16_mUint8Seq_Compile {
     }
     public static Dafny.ISequence<BigInteger> SeqExtendMultiple(Dafny.ISequence<BigInteger> xs, BigInteger n)
     {
-      BigInteger _248_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
-      return Uint8__16_mUint8Seq_Compile.__default.SeqExtend(xs, _248_newLen);
+      BigInteger _246_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
+      return Uint8__16_mUint8Seq_Compile.__default.SeqExtend(xs, _246_newLen);
     }
     public static Dafny.ISequence<BigInteger> FromNatWithLen(BigInteger n, BigInteger len)
     {
       return Uint8__16_mUint8Seq_Compile.__default.SeqExtend(Uint8__16_mUint8Seq_Compile.__default.FromNat(n), len);
     }
     public static Dafny.ISequence<BigInteger> SeqZero(BigInteger len) {
-      Dafny.ISequence<BigInteger> _249_xs = Uint8__16_mUint8Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
-      return _249_xs;
+      Dafny.ISequence<BigInteger> _247_xs = Uint8__16_mUint8Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
+      return _247_xs;
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqAdd(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
     {
@@ -20542,13 +20423,13 @@ namespace Uint8__16_mUint8Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs1 = Uint8__16_mUint8Seq_Compile.__default.SeqAdd(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _250_zs_k = _let_tmp_rhs1.dtor__0;
-        BigInteger _251_cin = _let_tmp_rhs1.dtor__1;
-        BigInteger _252_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_251_cin);
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs2 = (((_252_sum) < (Uint8__16_mUint8Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_252_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_252_sum) - (Uint8__16_mUint8Seq_Compile.__default.BASE()), BigInteger.One)));
-        BigInteger _253_sum__out = _let_tmp_rhs2.dtor__0;
-        BigInteger _254_cout = _let_tmp_rhs2.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_250_zs_k, Dafny.Sequence<BigInteger>.FromElements(_253_sum__out)), _254_cout);
+        Dafny.ISequence<BigInteger> _248_zs_k = _let_tmp_rhs1.dtor__0;
+        BigInteger _249_cin = _let_tmp_rhs1.dtor__1;
+        BigInteger _250_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_249_cin);
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs2 = (((_250_sum) < (Uint8__16_mUint8Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_250_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_250_sum) - (Uint8__16_mUint8Seq_Compile.__default.BASE()), BigInteger.One)));
+        BigInteger _251_sum__out = _let_tmp_rhs2.dtor__0;
+        BigInteger _252_cout = _let_tmp_rhs2.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_248_zs_k, Dafny.Sequence<BigInteger>.FromElements(_251_sum__out)), _252_cout);
       }
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqSub(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
@@ -20557,12 +20438,12 @@ namespace Uint8__16_mUint8Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs3 = Uint8__16_mUint8Seq_Compile.__default.SeqSub(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _255_zs = _let_tmp_rhs3.dtor__0;
-        BigInteger _256_cin = _let_tmp_rhs3.dtor__1;
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs4 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_256_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_256_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__16_mUint8Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_256_cin), BigInteger.One)));
-        BigInteger _257_diff__out = _let_tmp_rhs4.dtor__0;
-        BigInteger _258_cout = _let_tmp_rhs4.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_255_zs, Dafny.Sequence<BigInteger>.FromElements(_257_diff__out)), _258_cout);
+        Dafny.ISequence<BigInteger> _253_zs = _let_tmp_rhs3.dtor__0;
+        BigInteger _254_cin = _let_tmp_rhs3.dtor__1;
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs4 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_254_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_254_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__16_mUint8Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_254_cin), BigInteger.One)));
+        BigInteger _255_diff__out = _let_tmp_rhs4.dtor__0;
+        BigInteger _256_cout = _let_tmp_rhs4.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_253_zs, Dafny.Sequence<BigInteger>.FromElements(_255_diff__out)), _256_cout);
       }
     }
   }
@@ -20591,24 +20472,24 @@ namespace Uint8__16_mUint16Seq_Compile {
       }
     }
     public static BigInteger ToNatLeft(Dafny.ISequence<BigInteger> xs) {
-      BigInteger _259___accumulator = BigInteger.Zero;
+      BigInteger _257___accumulator = BigInteger.Zero;
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return (BigInteger.Zero) + (_259___accumulator);
+        return (BigInteger.Zero) + (_257___accumulator);
       } else {
-        _259___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__16_mUint16Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_259___accumulator);
+        _257___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__16_mUint16Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_257___accumulator);
         Dafny.ISequence<BigInteger> _in38 = Seq_Compile.__default.DropLast<BigInteger>(xs);
         xs = _in38;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> FromNat(BigInteger n) {
-      Dafny.ISequence<BigInteger> _260___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _258___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((n).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_260___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_258___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _260___accumulator = Dafny.Sequence<BigInteger>.Concat(_260___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__16_mUint16Seq_Compile.__default.BASE())));
+        _258___accumulator = Dafny.Sequence<BigInteger>.Concat(_258___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__16_mUint16Seq_Compile.__default.BASE())));
         BigInteger _in39 = Dafny.Helpers.EuclideanDivision(n, Uint8__16_mUint16Seq_Compile.__default.BASE());
         n = _in39;
         goto TAIL_CALL_START;
@@ -20629,16 +20510,16 @@ namespace Uint8__16_mUint16Seq_Compile {
     }
     public static Dafny.ISequence<BigInteger> SeqExtendMultiple(Dafny.ISequence<BigInteger> xs, BigInteger n)
     {
-      BigInteger _261_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
-      return Uint8__16_mUint16Seq_Compile.__default.SeqExtend(xs, _261_newLen);
+      BigInteger _259_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
+      return Uint8__16_mUint16Seq_Compile.__default.SeqExtend(xs, _259_newLen);
     }
     public static Dafny.ISequence<BigInteger> FromNatWithLen(BigInteger n, BigInteger len)
     {
       return Uint8__16_mUint16Seq_Compile.__default.SeqExtend(Uint8__16_mUint16Seq_Compile.__default.FromNat(n), len);
     }
     public static Dafny.ISequence<BigInteger> SeqZero(BigInteger len) {
-      Dafny.ISequence<BigInteger> _262_xs = Uint8__16_mUint16Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
-      return _262_xs;
+      Dafny.ISequence<BigInteger> _260_xs = Uint8__16_mUint16Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
+      return _260_xs;
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqAdd(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
     {
@@ -20646,13 +20527,13 @@ namespace Uint8__16_mUint16Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs5 = Uint8__16_mUint16Seq_Compile.__default.SeqAdd(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _263_zs_k = _let_tmp_rhs5.dtor__0;
-        BigInteger _264_cin = _let_tmp_rhs5.dtor__1;
-        BigInteger _265_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_264_cin);
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs6 = (((_265_sum) < (Uint8__16_mUint16Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_265_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_265_sum) - (Uint8__16_mUint16Seq_Compile.__default.BASE()), BigInteger.One)));
-        BigInteger _266_sum__out = _let_tmp_rhs6.dtor__0;
-        BigInteger _267_cout = _let_tmp_rhs6.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_263_zs_k, Dafny.Sequence<BigInteger>.FromElements(_266_sum__out)), _267_cout);
+        Dafny.ISequence<BigInteger> _261_zs_k = _let_tmp_rhs5.dtor__0;
+        BigInteger _262_cin = _let_tmp_rhs5.dtor__1;
+        BigInteger _263_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_262_cin);
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs6 = (((_263_sum) < (Uint8__16_mUint16Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_263_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_263_sum) - (Uint8__16_mUint16Seq_Compile.__default.BASE()), BigInteger.One)));
+        BigInteger _264_sum__out = _let_tmp_rhs6.dtor__0;
+        BigInteger _265_cout = _let_tmp_rhs6.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_261_zs_k, Dafny.Sequence<BigInteger>.FromElements(_264_sum__out)), _265_cout);
       }
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqSub(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
@@ -20661,12 +20542,12 @@ namespace Uint8__16_mUint16Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs7 = Uint8__16_mUint16Seq_Compile.__default.SeqSub(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _268_zs = _let_tmp_rhs7.dtor__0;
-        BigInteger _269_cin = _let_tmp_rhs7.dtor__1;
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs8 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_269_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_269_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__16_mUint16Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_269_cin), BigInteger.One)));
-        BigInteger _270_diff__out = _let_tmp_rhs8.dtor__0;
-        BigInteger _271_cout = _let_tmp_rhs8.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_268_zs, Dafny.Sequence<BigInteger>.FromElements(_270_diff__out)), _271_cout);
+        Dafny.ISequence<BigInteger> _266_zs = _let_tmp_rhs7.dtor__0;
+        BigInteger _267_cin = _let_tmp_rhs7.dtor__1;
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs8 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_267_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_267_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__16_mUint16Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_267_cin), BigInteger.One)));
+        BigInteger _268_diff__out = _let_tmp_rhs8.dtor__0;
+        BigInteger _269_cout = _let_tmp_rhs8.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_266_zs, Dafny.Sequence<BigInteger>.FromElements(_268_diff__out)), _269_cout);
       }
     }
   }
@@ -20685,24 +20566,24 @@ namespace Uint8__16_Compile {
       return Dafny.Helpers.EuclideanDivision(Uint8__16_mUint16Seq_Compile.__default.BITS(), Uint8__16_mUint8Seq_Compile.__default.BITS());
     }
     public static Dafny.ISequence<BigInteger> ToSmall(Dafny.ISequence<BigInteger> xs) {
-      Dafny.ISequence<BigInteger> _272___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _270___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_272___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_270___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _272___accumulator = Dafny.Sequence<BigInteger>.Concat(_272___accumulator, Uint8__16_mUint8Seq_Compile.__default.FromNatWithLen(Seq_Compile.__default.First<BigInteger>(xs), Uint8__16_Compile.__default.E()));
+        _270___accumulator = Dafny.Sequence<BigInteger>.Concat(_270___accumulator, Uint8__16_mUint8Seq_Compile.__default.FromNatWithLen(Seq_Compile.__default.First<BigInteger>(xs), Uint8__16_Compile.__default.E()));
         Dafny.ISequence<BigInteger> _in42 = Seq_Compile.__default.DropFirst<BigInteger>(xs);
         xs = _in42;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> ToLarge(Dafny.ISequence<BigInteger> xs) {
-      Dafny.ISequence<BigInteger> _273___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _271___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_273___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_271___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _273___accumulator = Dafny.Sequence<BigInteger>.Concat(_273___accumulator, Dafny.Sequence<BigInteger>.FromElements(Uint8__16_mUint8Seq_Compile.__default.ToNatRight((xs).Take(Uint8__16_Compile.__default.E()))));
+        _271___accumulator = Dafny.Sequence<BigInteger>.Concat(_271___accumulator, Dafny.Sequence<BigInteger>.FromElements(Uint8__16_mUint8Seq_Compile.__default.ToNatRight((xs).Take(Uint8__16_Compile.__default.E()))));
         Dafny.ISequence<BigInteger> _in43 = (xs).Drop(Uint8__16_Compile.__default.E());
         xs = _in43;
         goto TAIL_CALL_START;
@@ -20716,319 +20597,272 @@ namespace srcCollectionsSequencesUint8__16dfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      Dafny.ISequence<BigInteger> _274_d0;
-      _274_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _275_r0;
-      _275_r0 = Uint8__16_mUint8Seq_Compile.__default.ToNatRight(_274_d0);
+      Dafny.ISequence<BigInteger> _272_d0;
+      _272_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _273_r0;
+      _273_r0 = Uint8__16_mUint8Seq_Compile.__default.ToNatRight(_272_d0);
     }
     [Xunit.Fact]
     public static void test1()
     {
-      Dafny.ISequence<BigInteger> _276_d0;
-      _276_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _277_r0;
-      _277_r0 = Uint8__16_mUint8Seq_Compile.__default.ToNatLeft(_276_d0);
+      Dafny.ISequence<BigInteger> _274_d0;
+      _274_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _275_r0;
+      _275_r0 = Uint8__16_mUint8Seq_Compile.__default.ToNatLeft(_274_d0);
     }
     [Xunit.Fact]
     public static void test2()
     {
-      Dafny.ISequence<BigInteger> _278_r0;
-      _278_r0 = Uint8__16_mUint8Seq_Compile.__default.FromNat(new BigInteger(2279));
+      Dafny.ISequence<BigInteger> _276_r0;
+      _276_r0 = Uint8__16_mUint8Seq_Compile.__default.FromNat(new BigInteger(65));
     }
     [Xunit.Fact]
     public static void test3()
     {
-      Dafny.ISequence<BigInteger> _279_r0;
-      _279_r0 = Uint8__16_mUint8Seq_Compile.__default.FromNat(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _277_r0;
+      _277_r0 = Uint8__16_mUint8Seq_Compile.__default.FromNat(BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test4()
     {
-      Dafny.ISequence<BigInteger> _280_d0;
-      _280_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _281_r0;
-      _281_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqExtend(_280_d0, BigInteger.One);
-      if (!((new BigInteger((_281_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(69,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _278_d0;
+      _278_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_278_d0).Count)) <= (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(69,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__16_mUint8Seq_Compile.__default.ToNatRight(_281_r0)) == (Uint8__16_mUint8Seq_Compile.__default.ToNatRight(_280_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(70,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _279_r0;
+      _279_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqExtend(_278_d0, BigInteger.One);
+      if (!((new BigInteger((_279_r0).Count)) == (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(71,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!((Uint8__16_mUint8Seq_Compile.__default.ToNatRight(_279_r0)) == (Uint8__16_mUint8Seq_Compile.__default.ToNatRight(_278_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(72,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test5()
     {
-      Dafny.ISequence<BigInteger> _282_d0;
-      _282_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _283_r0;
-      _283_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqExtend(_282_d0, new BigInteger(98));
-      if (!((new BigInteger((_283_r0).Count)) == (new BigInteger(98)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(78,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _280_d0;
+      _280_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _281_d1;
+      _281_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_280_d0).Count)) == (new BigInteger((_281_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(86,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__16_mUint8Seq_Compile.__default.ToNatRight(_283_r0)) == (Uint8__16_mUint8Seq_Compile.__default.ToNatRight(_282_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(79,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _282_r0;
+      _282_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqAdd(_280_d0, _281_d1);
     }
     [Xunit.Fact]
     public static void test6()
     {
-      Dafny.ISequence<BigInteger> _284_d0;
-      _284_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _285_r0;
-      _285_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqExtendMultiple(_284_d0, new BigInteger(66));
-      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_285_r0).Count), new BigInteger(66))).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(86,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _283_d0;
+      _283_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(12), new BigInteger(2283));
+      Dafny.ISequence<BigInteger> _284_d1;
+      _284_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(281), new BigInteger(11138));
+      if (!((new BigInteger((_283_d0).Count)) == (new BigInteger((_284_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(96,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__16_mUint8Seq_Compile.__default.ToNatRight(_285_r0)) == (Uint8__16_mUint8Seq_Compile.__default.ToNatRight(_284_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(87,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _285_r0;
+      _285_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqAdd(_283_d0, _284_d1);
+    }
+    [Xunit.Fact]
+    public static void test7()
+    {
+      Dafny.ISequence<BigInteger> _286_d0;
+      _286_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _287_d1;
+      _287_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_286_d0).Count)) == (new BigInteger((_287_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(105,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _288_r0;
+      _288_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqAdd(_286_d0, _287_d1);
     }
     [Xunit.Fact]
     public static void test8()
     {
-      Dafny.ISequence<BigInteger> _286_r0;
-      _286_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqZero(BigInteger.One);
-      if (!((new BigInteger((_286_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(100,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _289_d0;
+      _289_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(1325), new BigInteger(2331));
+      Dafny.ISequence<BigInteger> _290_d1;
+      _290_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(234), new BigInteger(1796));
+      if (!((new BigInteger((_289_d0).Count)) == (new BigInteger((_290_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(117,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__16_mUint8Seq_Compile.__default.ToNatRight(_286_r0)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(101,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _291_r0;
+      _291_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqSub(_289_d0, _290_d1);
     }
     [Xunit.Fact]
     public static void test9()
     {
-      Dafny.ISequence<BigInteger> _287_d0;
-      _287_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _288_d1;
-      _288_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _289_r0;
-      _289_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqAdd(_287_d0, _288_d1);
+      Dafny.ISequence<BigInteger> _292_d0;
+      _292_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(920), new BigInteger(2061));
+      Dafny.ISequence<BigInteger> _293_d1;
+      _293_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(645), new BigInteger(2062));
+      if (!((new BigInteger((_292_d0).Count)) == (new BigInteger((_293_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(127,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _294_r0;
+      _294_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqSub(_292_d0, _293_d1);
     }
     [Xunit.Fact]
     public static void test10()
     {
-      Dafny.ISequence<BigInteger> _290_d0;
-      _290_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(8098));
-      Dafny.ISequence<BigInteger> _291_d1;
-      _291_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(16953));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _292_r0;
-      _292_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqAdd(_290_d0, _291_d1);
+      Dafny.ISequence<BigInteger> _295_d0;
+      _295_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _296_d1;
+      _296_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_295_d0).Count)) == (new BigInteger((_296_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(136,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _297_r0;
+      _297_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqSub(_295_d0, _296_d1);
     }
     [Xunit.Fact]
     public static void test11()
     {
-      Dafny.ISequence<BigInteger> _293_d0;
-      _293_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _294_d1;
-      _294_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _295_r0;
-      _295_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqAdd(_293_d0, _294_d1);
+      Dafny.ISequence<BigInteger> _298_d0;
+      _298_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _299_r0;
+      _299_r0 = Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_298_d0);
     }
     [Xunit.Fact]
     public static void test12()
     {
-      Dafny.ISequence<BigInteger> _296_d0;
-      _296_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(4044));
-      Dafny.ISequence<BigInteger> _297_d1;
-      _297_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(1653));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _298_r0;
-      _298_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqSub(_296_d0, _297_d1);
+      Dafny.ISequence<BigInteger> _300_d0;
+      _300_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _301_r0;
+      _301_r0 = Uint8__16_mUint16Seq_Compile.__default.ToNatLeft(_300_d0);
     }
     [Xunit.Fact]
     public static void test13()
     {
-      Dafny.ISequence<BigInteger> _299_d0;
-      _299_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(535));
-      Dafny.ISequence<BigInteger> _300_d1;
-      _300_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(536));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _301_r0;
-      _301_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqSub(_299_d0, _300_d1);
+      Dafny.ISequence<BigInteger> _302_r0;
+      _302_r0 = Uint8__16_mUint16Seq_Compile.__default.FromNat(new BigInteger(65));
     }
     [Xunit.Fact]
     public static void test14()
     {
-      Dafny.ISequence<BigInteger> _302_d0;
-      _302_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _303_d1;
-      _303_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _304_r0;
-      _304_r0 = Uint8__16_mUint8Seq_Compile.__default.SeqSub(_302_d0, _303_d1);
+      Dafny.ISequence<BigInteger> _303_r0;
+      _303_r0 = Uint8__16_mUint16Seq_Compile.__default.FromNat(BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test15()
     {
-      Dafny.ISequence<BigInteger> _305_d0;
-      _305_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _306_r0;
-      _306_r0 = Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_305_d0);
+      Dafny.ISequence<BigInteger> _304_d0;
+      _304_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_304_d0).Count)) <= (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(177,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Dafny.ISequence<BigInteger> _305_r0;
+      _305_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqExtend(_304_d0, BigInteger.One);
+      if (!((new BigInteger((_305_r0).Count)) == (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(179,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!((Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_305_r0)) == (Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_304_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(180,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
     }
     [Xunit.Fact]
     public static void test16()
     {
-      Dafny.ISequence<BigInteger> _307_d0;
-      _307_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _308_r0;
-      _308_r0 = Uint8__16_mUint16Seq_Compile.__default.ToNatLeft(_307_d0);
+      Dafny.ISequence<BigInteger> _306_d0;
+      _306_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _307_d1;
+      _307_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_306_d0).Count)) == (new BigInteger((_307_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(194,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _308_r0;
+      _308_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqAdd(_306_d0, _307_d1);
     }
     [Xunit.Fact]
     public static void test17()
     {
-      Dafny.ISequence<BigInteger> _309_r0;
-      _309_r0 = Uint8__16_mUint16Seq_Compile.__default.FromNat(new BigInteger(2279));
+      Dafny.ISequence<BigInteger> _309_d0;
+      _309_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(342), new BigInteger(4720));
+      Dafny.ISequence<BigInteger> _310_d1;
+      _310_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(281), new BigInteger(2283));
+      if (!((new BigInteger((_309_d0).Count)) == (new BigInteger((_310_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(204,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _311_r0;
+      _311_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqAdd(_309_d0, _310_d1);
     }
     [Xunit.Fact]
     public static void test18()
     {
-      Dafny.ISequence<BigInteger> _310_r0;
-      _310_r0 = Uint8__16_mUint16Seq_Compile.__default.FromNat(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _312_d0;
+      _312_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _313_d1;
+      _313_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_312_d0).Count)) == (new BigInteger((_313_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(213,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _314_r0;
+      _314_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqAdd(_312_d0, _313_d1);
     }
     [Xunit.Fact]
     public static void test19()
     {
-      Dafny.ISequence<BigInteger> _311_d0;
-      _311_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _312_r0;
-      _312_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqExtend(_311_d0, BigInteger.One);
-      if (!((new BigInteger((_312_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(197,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _315_d0;
+      _315_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(1325), new BigInteger(2331));
+      Dafny.ISequence<BigInteger> _316_d1;
+      _316_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(234), new BigInteger(1796));
+      if (!((new BigInteger((_315_d0).Count)) == (new BigInteger((_316_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(225,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_312_r0)) == (Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_311_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(198,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _317_r0;
+      _317_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqSub(_315_d0, _316_d1);
     }
     [Xunit.Fact]
     public static void test20()
     {
-      Dafny.ISequence<BigInteger> _313_d0;
-      _313_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _314_r0;
-      _314_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqExtend(_313_d0, new BigInteger(98));
-      if (!((new BigInteger((_314_r0).Count)) == (new BigInteger(98)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(206,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _318_d0;
+      _318_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(920), new BigInteger(2061));
+      Dafny.ISequence<BigInteger> _319_d1;
+      _319_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(645), new BigInteger(2062));
+      if (!((new BigInteger((_318_d0).Count)) == (new BigInteger((_319_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(235,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_314_r0)) == (Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_313_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(207,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _320_r0;
+      _320_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqSub(_318_d0, _319_d1);
     }
     [Xunit.Fact]
     public static void test21()
     {
-      Dafny.ISequence<BigInteger> _315_d0;
-      _315_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _316_r0;
-      _316_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqExtendMultiple(_315_d0, new BigInteger(66));
-      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_316_r0).Count), new BigInteger(66))).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(214,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _321_d0;
+      _321_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _322_d1;
+      _322_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_321_d0).Count)) == (new BigInteger((_322_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(244,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_316_r0)) == (Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_315_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(215,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _323_r0;
+      _323_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqSub(_321_d0, _322_d1);
     }
     [Xunit.Fact]
     public static void test22()
     {
-      Dafny.ISequence<BigInteger> _317_r0;
-      _317_r0 = Uint8__16_mUint16Seq_Compile.__default.FromNatWithLen(new BigInteger(1236), BigInteger.One);
-      if (!((new BigInteger((_317_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(221,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-      if (!((Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_317_r0)) == (new BigInteger(1236)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(222,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _324_d0;
+      _324_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _325_r0;
+      _325_r0 = Uint8__16_Compile.__default.ToSmall(_324_d0);
+      if (!((new BigInteger((_325_r0).Count)) == ((new BigInteger((_324_d0).Count)) * (Uint8__16_Compile.__default.E())))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(256,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test23()
     {
-      Dafny.ISequence<BigInteger> _318_r0;
-      _318_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqZero(BigInteger.One);
-      if (!((new BigInteger((_318_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(228,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _326_d0;
+      _326_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
+      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_326_d0).Count), Uint8__16_Compile.__default.E())).Sign == 0)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(265,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__16_mUint16Seq_Compile.__default.ToNatRight(_318_r0)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(229,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test24()
-    {
-      Dafny.ISequence<BigInteger> _319_d0;
-      _319_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _320_d1;
-      _320_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _321_r0;
-      _321_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqAdd(_319_d0, _320_d1);
-    }
-    [Xunit.Fact]
-    public static void test25()
-    {
-      Dafny.ISequence<BigInteger> _322_d0;
-      _322_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(8098));
-      Dafny.ISequence<BigInteger> _323_d1;
-      _323_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(16953));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _324_r0;
-      _324_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqAdd(_322_d0, _323_d1);
-    }
-    [Xunit.Fact]
-    public static void test26()
-    {
-      Dafny.ISequence<BigInteger> _325_d0;
-      _325_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _326_d1;
-      _326_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _327_r0;
-      _327_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqAdd(_325_d0, _326_d1);
-    }
-    [Xunit.Fact]
-    public static void test27()
-    {
-      Dafny.ISequence<BigInteger> _328_d0;
-      _328_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(2475));
-      Dafny.ISequence<BigInteger> _329_d1;
-      _329_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(1888));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _330_r0;
-      _330_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqSub(_328_d0, _329_d1);
-    }
-    [Xunit.Fact]
-    public static void test28()
-    {
-      Dafny.ISequence<BigInteger> _331_d0;
-      _331_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(535));
-      Dafny.ISequence<BigInteger> _332_d1;
-      _332_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(536));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _333_r0;
-      _333_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqSub(_331_d0, _332_d1);
-    }
-    [Xunit.Fact]
-    public static void test29()
-    {
-      Dafny.ISequence<BigInteger> _334_d0;
-      _334_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _335_d1;
-      _335_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _336_r0;
-      _336_r0 = Uint8__16_mUint16Seq_Compile.__default.SeqSub(_334_d0, _335_d1);
-    }
-    [Xunit.Fact]
-    public static void test30()
-    {
-      Dafny.ISequence<BigInteger> _337_d0;
-      _337_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _338_r0;
-      _338_r0 = Uint8__16_Compile.__default.ToSmall(_337_d0);
-      if (!((new BigInteger((_338_r0).Count)) == ((new BigInteger((_337_d0).Count)) * (Uint8__16_Compile.__default.E())))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(296,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test31()
-    {
-      Dafny.ISequence<BigInteger> _339_d0;
-      _339_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _340_r0;
-      _340_r0 = Uint8__16_Compile.__default.ToLarge(_339_d0);
-      if (!((new BigInteger((_340_r0).Count)) == (Dafny.Helpers.EuclideanDivision(new BigInteger((_339_d0).Count), Uint8__16_Compile.__default.E())))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(305,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _327_r0;
+      _327_r0 = Uint8__16_Compile.__default.ToLarge(_326_d0);
+      if (!((new BigInteger((_327_r0).Count)) == (Dafny.Helpers.EuclideanDivision(new BigInteger((_326_d0).Count), Uint8__16_Compile.__default.E())))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_16.dfy(267,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
   }
@@ -21050,24 +20884,24 @@ namespace Uint8__32_mUint8Seq_Compile {
       }
     }
     public static BigInteger ToNatLeft(Dafny.ISequence<BigInteger> xs) {
-      BigInteger _341___accumulator = BigInteger.Zero;
+      BigInteger _328___accumulator = BigInteger.Zero;
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return (BigInteger.Zero) + (_341___accumulator);
+        return (BigInteger.Zero) + (_328___accumulator);
       } else {
-        _341___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__32_mUint8Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_341___accumulator);
+        _328___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__32_mUint8Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_328___accumulator);
         Dafny.ISequence<BigInteger> _in44 = Seq_Compile.__default.DropLast<BigInteger>(xs);
         xs = _in44;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> FromNat(BigInteger n) {
-      Dafny.ISequence<BigInteger> _342___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _329___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((n).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_342___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_329___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _342___accumulator = Dafny.Sequence<BigInteger>.Concat(_342___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__32_mUint8Seq_Compile.__default.BASE())));
+        _329___accumulator = Dafny.Sequence<BigInteger>.Concat(_329___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__32_mUint8Seq_Compile.__default.BASE())));
         BigInteger _in45 = Dafny.Helpers.EuclideanDivision(n, Uint8__32_mUint8Seq_Compile.__default.BASE());
         n = _in45;
         goto TAIL_CALL_START;
@@ -21088,16 +20922,16 @@ namespace Uint8__32_mUint8Seq_Compile {
     }
     public static Dafny.ISequence<BigInteger> SeqExtendMultiple(Dafny.ISequence<BigInteger> xs, BigInteger n)
     {
-      BigInteger _343_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
-      return Uint8__32_mUint8Seq_Compile.__default.SeqExtend(xs, _343_newLen);
+      BigInteger _330_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
+      return Uint8__32_mUint8Seq_Compile.__default.SeqExtend(xs, _330_newLen);
     }
     public static Dafny.ISequence<BigInteger> FromNatWithLen(BigInteger n, BigInteger len)
     {
       return Uint8__32_mUint8Seq_Compile.__default.SeqExtend(Uint8__32_mUint8Seq_Compile.__default.FromNat(n), len);
     }
     public static Dafny.ISequence<BigInteger> SeqZero(BigInteger len) {
-      Dafny.ISequence<BigInteger> _344_xs = Uint8__32_mUint8Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
-      return _344_xs;
+      Dafny.ISequence<BigInteger> _331_xs = Uint8__32_mUint8Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
+      return _331_xs;
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqAdd(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
     {
@@ -21105,13 +20939,13 @@ namespace Uint8__32_mUint8Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs9 = Uint8__32_mUint8Seq_Compile.__default.SeqAdd(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _345_zs_k = _let_tmp_rhs9.dtor__0;
-        BigInteger _346_cin = _let_tmp_rhs9.dtor__1;
-        BigInteger _347_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_346_cin);
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs10 = (((_347_sum) < (Uint8__32_mUint8Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_347_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_347_sum) - (Uint8__32_mUint8Seq_Compile.__default.BASE()), BigInteger.One)));
-        BigInteger _348_sum__out = _let_tmp_rhs10.dtor__0;
-        BigInteger _349_cout = _let_tmp_rhs10.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_345_zs_k, Dafny.Sequence<BigInteger>.FromElements(_348_sum__out)), _349_cout);
+        Dafny.ISequence<BigInteger> _332_zs_k = _let_tmp_rhs9.dtor__0;
+        BigInteger _333_cin = _let_tmp_rhs9.dtor__1;
+        BigInteger _334_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_333_cin);
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs10 = (((_334_sum) < (Uint8__32_mUint8Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_334_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_334_sum) - (Uint8__32_mUint8Seq_Compile.__default.BASE()), BigInteger.One)));
+        BigInteger _335_sum__out = _let_tmp_rhs10.dtor__0;
+        BigInteger _336_cout = _let_tmp_rhs10.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_332_zs_k, Dafny.Sequence<BigInteger>.FromElements(_335_sum__out)), _336_cout);
       }
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqSub(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
@@ -21120,12 +20954,12 @@ namespace Uint8__32_mUint8Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs11 = Uint8__32_mUint8Seq_Compile.__default.SeqSub(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _350_zs = _let_tmp_rhs11.dtor__0;
-        BigInteger _351_cin = _let_tmp_rhs11.dtor__1;
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs12 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_351_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_351_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__32_mUint8Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_351_cin), BigInteger.One)));
-        BigInteger _352_diff__out = _let_tmp_rhs12.dtor__0;
-        BigInteger _353_cout = _let_tmp_rhs12.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_350_zs, Dafny.Sequence<BigInteger>.FromElements(_352_diff__out)), _353_cout);
+        Dafny.ISequence<BigInteger> _337_zs = _let_tmp_rhs11.dtor__0;
+        BigInteger _338_cin = _let_tmp_rhs11.dtor__1;
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs12 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_338_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_338_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__32_mUint8Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_338_cin), BigInteger.One)));
+        BigInteger _339_diff__out = _let_tmp_rhs12.dtor__0;
+        BigInteger _340_cout = _let_tmp_rhs12.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_337_zs, Dafny.Sequence<BigInteger>.FromElements(_339_diff__out)), _340_cout);
       }
     }
   }
@@ -21154,24 +20988,24 @@ namespace Uint8__32_mUint32Seq_Compile {
       }
     }
     public static BigInteger ToNatLeft(Dafny.ISequence<BigInteger> xs) {
-      BigInteger _354___accumulator = BigInteger.Zero;
+      BigInteger _341___accumulator = BigInteger.Zero;
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return (BigInteger.Zero) + (_354___accumulator);
+        return (BigInteger.Zero) + (_341___accumulator);
       } else {
-        _354___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__32_mUint32Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_354___accumulator);
+        _341___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__32_mUint32Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_341___accumulator);
         Dafny.ISequence<BigInteger> _in48 = Seq_Compile.__default.DropLast<BigInteger>(xs);
         xs = _in48;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> FromNat(BigInteger n) {
-      Dafny.ISequence<BigInteger> _355___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _342___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((n).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_355___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_342___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _355___accumulator = Dafny.Sequence<BigInteger>.Concat(_355___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__32_mUint32Seq_Compile.__default.BASE())));
+        _342___accumulator = Dafny.Sequence<BigInteger>.Concat(_342___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__32_mUint32Seq_Compile.__default.BASE())));
         BigInteger _in49 = Dafny.Helpers.EuclideanDivision(n, Uint8__32_mUint32Seq_Compile.__default.BASE());
         n = _in49;
         goto TAIL_CALL_START;
@@ -21192,16 +21026,16 @@ namespace Uint8__32_mUint32Seq_Compile {
     }
     public static Dafny.ISequence<BigInteger> SeqExtendMultiple(Dafny.ISequence<BigInteger> xs, BigInteger n)
     {
-      BigInteger _356_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
-      return Uint8__32_mUint32Seq_Compile.__default.SeqExtend(xs, _356_newLen);
+      BigInteger _343_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
+      return Uint8__32_mUint32Seq_Compile.__default.SeqExtend(xs, _343_newLen);
     }
     public static Dafny.ISequence<BigInteger> FromNatWithLen(BigInteger n, BigInteger len)
     {
       return Uint8__32_mUint32Seq_Compile.__default.SeqExtend(Uint8__32_mUint32Seq_Compile.__default.FromNat(n), len);
     }
     public static Dafny.ISequence<BigInteger> SeqZero(BigInteger len) {
-      Dafny.ISequence<BigInteger> _357_xs = Uint8__32_mUint32Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
-      return _357_xs;
+      Dafny.ISequence<BigInteger> _344_xs = Uint8__32_mUint32Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
+      return _344_xs;
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqAdd(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
     {
@@ -21209,13 +21043,13 @@ namespace Uint8__32_mUint32Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs13 = Uint8__32_mUint32Seq_Compile.__default.SeqAdd(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _358_zs_k = _let_tmp_rhs13.dtor__0;
-        BigInteger _359_cin = _let_tmp_rhs13.dtor__1;
-        BigInteger _360_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_359_cin);
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs14 = (((_360_sum) < (Uint8__32_mUint32Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_360_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_360_sum) - (Uint8__32_mUint32Seq_Compile.__default.BASE()), BigInteger.One)));
-        BigInteger _361_sum__out = _let_tmp_rhs14.dtor__0;
-        BigInteger _362_cout = _let_tmp_rhs14.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_358_zs_k, Dafny.Sequence<BigInteger>.FromElements(_361_sum__out)), _362_cout);
+        Dafny.ISequence<BigInteger> _345_zs_k = _let_tmp_rhs13.dtor__0;
+        BigInteger _346_cin = _let_tmp_rhs13.dtor__1;
+        BigInteger _347_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_346_cin);
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs14 = (((_347_sum) < (Uint8__32_mUint32Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_347_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_347_sum) - (Uint8__32_mUint32Seq_Compile.__default.BASE()), BigInteger.One)));
+        BigInteger _348_sum__out = _let_tmp_rhs14.dtor__0;
+        BigInteger _349_cout = _let_tmp_rhs14.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_345_zs_k, Dafny.Sequence<BigInteger>.FromElements(_348_sum__out)), _349_cout);
       }
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqSub(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
@@ -21224,12 +21058,12 @@ namespace Uint8__32_mUint32Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs15 = Uint8__32_mUint32Seq_Compile.__default.SeqSub(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _363_zs = _let_tmp_rhs15.dtor__0;
-        BigInteger _364_cin = _let_tmp_rhs15.dtor__1;
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs16 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_364_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_364_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__32_mUint32Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_364_cin), BigInteger.One)));
-        BigInteger _365_diff__out = _let_tmp_rhs16.dtor__0;
-        BigInteger _366_cout = _let_tmp_rhs16.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_363_zs, Dafny.Sequence<BigInteger>.FromElements(_365_diff__out)), _366_cout);
+        Dafny.ISequence<BigInteger> _350_zs = _let_tmp_rhs15.dtor__0;
+        BigInteger _351_cin = _let_tmp_rhs15.dtor__1;
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs16 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_351_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_351_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__32_mUint32Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_351_cin), BigInteger.One)));
+        BigInteger _352_diff__out = _let_tmp_rhs16.dtor__0;
+        BigInteger _353_cout = _let_tmp_rhs16.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_350_zs, Dafny.Sequence<BigInteger>.FromElements(_352_diff__out)), _353_cout);
       }
     }
   }
@@ -21248,24 +21082,24 @@ namespace Uint8__32_Compile {
       return Dafny.Helpers.EuclideanDivision(Uint8__32_mUint32Seq_Compile.__default.BITS(), Uint8__32_mUint8Seq_Compile.__default.BITS());
     }
     public static Dafny.ISequence<BigInteger> ToSmall(Dafny.ISequence<BigInteger> xs) {
-      Dafny.ISequence<BigInteger> _367___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _354___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_367___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_354___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _367___accumulator = Dafny.Sequence<BigInteger>.Concat(_367___accumulator, Uint8__32_mUint8Seq_Compile.__default.FromNatWithLen(Seq_Compile.__default.First<BigInteger>(xs), Uint8__32_Compile.__default.E()));
+        _354___accumulator = Dafny.Sequence<BigInteger>.Concat(_354___accumulator, Uint8__32_mUint8Seq_Compile.__default.FromNatWithLen(Seq_Compile.__default.First<BigInteger>(xs), Uint8__32_Compile.__default.E()));
         Dafny.ISequence<BigInteger> _in52 = Seq_Compile.__default.DropFirst<BigInteger>(xs);
         xs = _in52;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> ToLarge(Dafny.ISequence<BigInteger> xs) {
-      Dafny.ISequence<BigInteger> _368___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _355___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_368___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_355___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _368___accumulator = Dafny.Sequence<BigInteger>.Concat(_368___accumulator, Dafny.Sequence<BigInteger>.FromElements(Uint8__32_mUint8Seq_Compile.__default.ToNatRight((xs).Take(Uint8__32_Compile.__default.E()))));
+        _355___accumulator = Dafny.Sequence<BigInteger>.Concat(_355___accumulator, Dafny.Sequence<BigInteger>.FromElements(Uint8__32_mUint8Seq_Compile.__default.ToNatRight((xs).Take(Uint8__32_Compile.__default.E()))));
         Dafny.ISequence<BigInteger> _in53 = (xs).Drop(Uint8__32_Compile.__default.E());
         xs = _in53;
         goto TAIL_CALL_START;
@@ -21279,319 +21113,258 @@ namespace srcCollectionsSequencesUint8__32dfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      Dafny.ISequence<BigInteger> _369_d0;
-      _369_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _370_r0;
-      _370_r0 = Uint8__32_mUint8Seq_Compile.__default.ToNatRight(_369_d0);
+      Dafny.ISequence<BigInteger> _356_d0;
+      _356_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _357_r0;
+      _357_r0 = Uint8__32_mUint8Seq_Compile.__default.ToNatRight(_356_d0);
     }
     [Xunit.Fact]
     public static void test1()
     {
-      Dafny.ISequence<BigInteger> _371_d0;
-      _371_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _372_r0;
-      _372_r0 = Uint8__32_mUint8Seq_Compile.__default.ToNatLeft(_371_d0);
+      Dafny.ISequence<BigInteger> _358_d0;
+      _358_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _359_r0;
+      _359_r0 = Uint8__32_mUint8Seq_Compile.__default.ToNatLeft(_358_d0);
     }
     [Xunit.Fact]
     public static void test2()
     {
-      Dafny.ISequence<BigInteger> _373_r0;
-      _373_r0 = Uint8__32_mUint8Seq_Compile.__default.FromNat(new BigInteger(2279));
+      Dafny.ISequence<BigInteger> _360_r0;
+      _360_r0 = Uint8__32_mUint8Seq_Compile.__default.FromNat(new BigInteger(65));
     }
     [Xunit.Fact]
     public static void test3()
     {
-      Dafny.ISequence<BigInteger> _374_r0;
-      _374_r0 = Uint8__32_mUint8Seq_Compile.__default.FromNat(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _361_r0;
+      _361_r0 = Uint8__32_mUint8Seq_Compile.__default.FromNat(BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test4()
     {
-      Dafny.ISequence<BigInteger> _375_d0;
-      _375_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _376_r0;
-      _376_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqExtend(_375_d0, BigInteger.One);
-      if (!((new BigInteger((_376_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(69,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _362_d0;
+      _362_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_362_d0).Count)) <= (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(69,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__32_mUint8Seq_Compile.__default.ToNatRight(_376_r0)) == (Uint8__32_mUint8Seq_Compile.__default.ToNatRight(_375_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(70,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _363_r0;
+      _363_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqExtend(_362_d0, BigInteger.One);
+      if (!((new BigInteger((_363_r0).Count)) == (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(71,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!((Uint8__32_mUint8Seq_Compile.__default.ToNatRight(_363_r0)) == (Uint8__32_mUint8Seq_Compile.__default.ToNatRight(_362_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(72,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test5()
     {
-      Dafny.ISequence<BigInteger> _377_d0;
-      _377_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _378_r0;
-      _378_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqExtend(_377_d0, new BigInteger(98));
-      if (!((new BigInteger((_378_r0).Count)) == (new BigInteger(98)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(78,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _364_d0;
+      _364_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _365_d1;
+      _365_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_364_d0).Count)) == (new BigInteger((_365_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(86,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__32_mUint8Seq_Compile.__default.ToNatRight(_378_r0)) == (Uint8__32_mUint8Seq_Compile.__default.ToNatRight(_377_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(79,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _366_r0;
+      _366_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqAdd(_364_d0, _365_d1);
     }
     [Xunit.Fact]
     public static void test6()
     {
-      Dafny.ISequence<BigInteger> _379_d0;
-      _379_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _380_r0;
-      _380_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqExtendMultiple(_379_d0, new BigInteger(66));
-      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_380_r0).Count), new BigInteger(66))).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(86,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _367_d0;
+      _367_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(12), new BigInteger(2283));
+      Dafny.ISequence<BigInteger> _368_d1;
+      _368_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(281), new BigInteger(11138));
+      if (!((new BigInteger((_367_d0).Count)) == (new BigInteger((_368_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(96,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__32_mUint8Seq_Compile.__default.ToNatRight(_380_r0)) == (Uint8__32_mUint8Seq_Compile.__default.ToNatRight(_379_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(87,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _369_r0;
+      _369_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqAdd(_367_d0, _368_d1);
+    }
+    [Xunit.Fact]
+    public static void test7()
+    {
+      Dafny.ISequence<BigInteger> _370_d0;
+      _370_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _371_d1;
+      _371_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_370_d0).Count)) == (new BigInteger((_371_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(105,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _372_r0;
+      _372_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqAdd(_370_d0, _371_d1);
     }
     [Xunit.Fact]
     public static void test8()
     {
-      Dafny.ISequence<BigInteger> _381_r0;
-      _381_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqZero(BigInteger.One);
-      if (!((new BigInteger((_381_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(100,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _373_d0;
+      _373_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(1325), new BigInteger(2331));
+      Dafny.ISequence<BigInteger> _374_d1;
+      _374_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(234), new BigInteger(1796));
+      if (!((new BigInteger((_373_d0).Count)) == (new BigInteger((_374_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(117,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__32_mUint8Seq_Compile.__default.ToNatRight(_381_r0)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(101,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _375_r0;
+      _375_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqSub(_373_d0, _374_d1);
     }
     [Xunit.Fact]
     public static void test9()
     {
-      Dafny.ISequence<BigInteger> _382_d0;
-      _382_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _383_d1;
-      _383_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _384_r0;
-      _384_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqAdd(_382_d0, _383_d1);
+      Dafny.ISequence<BigInteger> _376_d0;
+      _376_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(920), new BigInteger(2061));
+      Dafny.ISequence<BigInteger> _377_d1;
+      _377_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(645), new BigInteger(2062));
+      if (!((new BigInteger((_376_d0).Count)) == (new BigInteger((_377_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(127,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _378_r0;
+      _378_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqSub(_376_d0, _377_d1);
     }
     [Xunit.Fact]
     public static void test10()
     {
-      Dafny.ISequence<BigInteger> _385_d0;
-      _385_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(8098));
-      Dafny.ISequence<BigInteger> _386_d1;
-      _386_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(16953));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _387_r0;
-      _387_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqAdd(_385_d0, _386_d1);
+      Dafny.ISequence<BigInteger> _379_d0;
+      _379_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _380_d1;
+      _380_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_379_d0).Count)) == (new BigInteger((_380_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(136,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _381_r0;
+      _381_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqSub(_379_d0, _380_d1);
     }
     [Xunit.Fact]
     public static void test11()
     {
-      Dafny.ISequence<BigInteger> _388_d0;
-      _388_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _389_d1;
-      _389_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _390_r0;
-      _390_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqAdd(_388_d0, _389_d1);
+      Dafny.ISequence<BigInteger> _382_d0;
+      _382_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _383_r0;
+      _383_r0 = Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_382_d0);
     }
     [Xunit.Fact]
     public static void test12()
     {
-      Dafny.ISequence<BigInteger> _391_d0;
-      _391_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(4044));
-      Dafny.ISequence<BigInteger> _392_d1;
-      _392_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(1653));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _393_r0;
-      _393_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqSub(_391_d0, _392_d1);
+      Dafny.ISequence<BigInteger> _384_d0;
+      _384_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _385_r0;
+      _385_r0 = Uint8__32_mUint32Seq_Compile.__default.ToNatLeft(_384_d0);
     }
     [Xunit.Fact]
     public static void test13()
     {
-      Dafny.ISequence<BigInteger> _394_d0;
-      _394_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(535));
-      Dafny.ISequence<BigInteger> _395_d1;
-      _395_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(536));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _396_r0;
-      _396_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqSub(_394_d0, _395_d1);
+      Dafny.ISequence<BigInteger> _386_r0;
+      _386_r0 = Uint8__32_mUint32Seq_Compile.__default.FromNat(new BigInteger(65));
     }
     [Xunit.Fact]
     public static void test14()
     {
-      Dafny.ISequence<BigInteger> _397_d0;
-      _397_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _398_d1;
-      _398_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _399_r0;
-      _399_r0 = Uint8__32_mUint8Seq_Compile.__default.SeqSub(_397_d0, _398_d1);
+      Dafny.ISequence<BigInteger> _387_r0;
+      _387_r0 = Uint8__32_mUint32Seq_Compile.__default.FromNat(BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test15()
     {
-      Dafny.ISequence<BigInteger> _400_d0;
-      _400_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _401_r0;
-      _401_r0 = Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_400_d0);
+      Dafny.ISequence<BigInteger> _388_d0;
+      _388_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_388_d0).Count)) <= (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(177,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Dafny.ISequence<BigInteger> _389_r0;
+      _389_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqExtend(_388_d0, BigInteger.One);
+      if (!((new BigInteger((_389_r0).Count)) == (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(179,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!((Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_389_r0)) == (Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_388_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(180,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
     }
     [Xunit.Fact]
     public static void test16()
     {
-      Dafny.ISequence<BigInteger> _402_d0;
-      _402_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _403_r0;
-      _403_r0 = Uint8__32_mUint32Seq_Compile.__default.ToNatLeft(_402_d0);
+      Dafny.ISequence<BigInteger> _390_d0;
+      _390_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _391_d1;
+      _391_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_390_d0).Count)) == (new BigInteger((_391_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(194,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _392_r0;
+      _392_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqAdd(_390_d0, _391_d1);
     }
     [Xunit.Fact]
     public static void test17()
     {
-      Dafny.ISequence<BigInteger> _404_r0;
-      _404_r0 = Uint8__32_mUint32Seq_Compile.__default.FromNat(new BigInteger(2279));
+      Dafny.ISequence<BigInteger> _393_d0;
+      _393_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(342), new BigInteger(4720));
+      Dafny.ISequence<BigInteger> _394_d1;
+      _394_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(281), new BigInteger(2283));
+      if (!((new BigInteger((_393_d0).Count)) == (new BigInteger((_394_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(204,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _395_r0;
+      _395_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqAdd(_393_d0, _394_d1);
     }
     [Xunit.Fact]
     public static void test18()
     {
-      Dafny.ISequence<BigInteger> _405_r0;
-      _405_r0 = Uint8__32_mUint32Seq_Compile.__default.FromNat(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _396_d0;
+      _396_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _397_d1;
+      _397_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_396_d0).Count)) == (new BigInteger((_397_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(213,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _398_r0;
+      _398_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqAdd(_396_d0, _397_d1);
     }
     [Xunit.Fact]
     public static void test19()
     {
-      Dafny.ISequence<BigInteger> _406_d0;
-      _406_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _407_r0;
-      _407_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqExtend(_406_d0, BigInteger.One);
-      if (!((new BigInteger((_407_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(197,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _399_d0;
+      _399_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(1325), new BigInteger(2331));
+      Dafny.ISequence<BigInteger> _400_d1;
+      _400_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(234), new BigInteger(1796));
+      if (!((new BigInteger((_399_d0).Count)) == (new BigInteger((_400_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(225,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_407_r0)) == (Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_406_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(198,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _401_r0;
+      _401_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqSub(_399_d0, _400_d1);
     }
     [Xunit.Fact]
     public static void test20()
     {
-      Dafny.ISequence<BigInteger> _408_d0;
-      _408_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _409_r0;
-      _409_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqExtend(_408_d0, new BigInteger(98));
-      if (!((new BigInteger((_409_r0).Count)) == (new BigInteger(98)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(206,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _402_d0;
+      _402_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(920), new BigInteger(2061));
+      Dafny.ISequence<BigInteger> _403_d1;
+      _403_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(645), new BigInteger(2062));
+      if (!((new BigInteger((_402_d0).Count)) == (new BigInteger((_403_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(235,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_409_r0)) == (Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_408_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(207,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _404_r0;
+      _404_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqSub(_402_d0, _403_d1);
     }
     [Xunit.Fact]
     public static void test21()
     {
-      Dafny.ISequence<BigInteger> _410_d0;
-      _410_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _411_r0;
-      _411_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqExtendMultiple(_410_d0, new BigInteger(66));
-      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_411_r0).Count), new BigInteger(66))).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(214,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _405_d0;
+      _405_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _406_d1;
+      _406_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_405_d0).Count)) == (new BigInteger((_406_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(244,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_411_r0)) == (Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_410_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(215,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _407_r0;
+      _407_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqSub(_405_d0, _406_d1);
     }
     [Xunit.Fact]
     public static void test22()
     {
-      Dafny.ISequence<BigInteger> _412_r0;
-      _412_r0 = Uint8__32_mUint32Seq_Compile.__default.FromNatWithLen(new BigInteger(1236), BigInteger.One);
-      if (!((new BigInteger((_412_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(221,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-      if (!((Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_412_r0)) == (new BigInteger(1236)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(222,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test23()
-    {
-      Dafny.ISequence<BigInteger> _413_r0;
-      _413_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqZero(BigInteger.One);
-      if (!((new BigInteger((_413_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(228,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-      if (!((Uint8__32_mUint32Seq_Compile.__default.ToNatRight(_413_r0)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(229,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test24()
-    {
-      Dafny.ISequence<BigInteger> _414_d0;
-      _414_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _415_d1;
-      _415_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _416_r0;
-      _416_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqAdd(_414_d0, _415_d1);
-    }
-    [Xunit.Fact]
-    public static void test25()
-    {
-      Dafny.ISequence<BigInteger> _417_d0;
-      _417_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(8098));
-      Dafny.ISequence<BigInteger> _418_d1;
-      _418_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(16953));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _419_r0;
-      _419_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqAdd(_417_d0, _418_d1);
-    }
-    [Xunit.Fact]
-    public static void test26()
-    {
-      Dafny.ISequence<BigInteger> _420_d0;
-      _420_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _421_d1;
-      _421_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _422_r0;
-      _422_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqAdd(_420_d0, _421_d1);
-    }
-    [Xunit.Fact]
-    public static void test27()
-    {
-      Dafny.ISequence<BigInteger> _423_d0;
-      _423_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(2475));
-      Dafny.ISequence<BigInteger> _424_d1;
-      _424_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(1888));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _425_r0;
-      _425_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqSub(_423_d0, _424_d1);
-    }
-    [Xunit.Fact]
-    public static void test28()
-    {
-      Dafny.ISequence<BigInteger> _426_d0;
-      _426_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(535));
-      Dafny.ISequence<BigInteger> _427_d1;
-      _427_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(536));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _428_r0;
-      _428_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqSub(_426_d0, _427_d1);
-    }
-    [Xunit.Fact]
-    public static void test29()
-    {
-      Dafny.ISequence<BigInteger> _429_d0;
-      _429_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _430_d1;
-      _430_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _431_r0;
-      _431_r0 = Uint8__32_mUint32Seq_Compile.__default.SeqSub(_429_d0, _430_d1);
-    }
-    [Xunit.Fact]
-    public static void test30()
-    {
-      Dafny.ISequence<BigInteger> _432_d0;
-      _432_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _433_r0;
-      _433_r0 = Uint8__32_Compile.__default.ToSmall(_432_d0);
-      if (!((new BigInteger((_433_r0).Count)) == ((new BigInteger((_432_d0).Count)) * (Uint8__32_Compile.__default.E())))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(296,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test31()
-    {
-      Dafny.ISequence<BigInteger> _434_d0;
-      _434_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _435_r0;
-      _435_r0 = Uint8__32_Compile.__default.ToLarge(_434_d0);
-      if (!((new BigInteger((_435_r0).Count)) == (Dafny.Helpers.EuclideanDivision(new BigInteger((_434_d0).Count), Uint8__32_Compile.__default.E())))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(305,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _408_d0;
+      _408_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _409_r0;
+      _409_r0 = Uint8__32_Compile.__default.ToSmall(_408_d0);
+      if (!((new BigInteger((_409_r0).Count)) == ((new BigInteger((_408_d0).Count)) * (Uint8__32_Compile.__default.E())))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_32.dfy(256,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
   }
@@ -21613,24 +21386,24 @@ namespace Uint8__64_mUint8Seq_Compile {
       }
     }
     public static BigInteger ToNatLeft(Dafny.ISequence<BigInteger> xs) {
-      BigInteger _436___accumulator = BigInteger.Zero;
+      BigInteger _410___accumulator = BigInteger.Zero;
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return (BigInteger.Zero) + (_436___accumulator);
+        return (BigInteger.Zero) + (_410___accumulator);
       } else {
-        _436___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__64_mUint8Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_436___accumulator);
+        _410___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__64_mUint8Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_410___accumulator);
         Dafny.ISequence<BigInteger> _in54 = Seq_Compile.__default.DropLast<BigInteger>(xs);
         xs = _in54;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> FromNat(BigInteger n) {
-      Dafny.ISequence<BigInteger> _437___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _411___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((n).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_437___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_411___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _437___accumulator = Dafny.Sequence<BigInteger>.Concat(_437___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__64_mUint8Seq_Compile.__default.BASE())));
+        _411___accumulator = Dafny.Sequence<BigInteger>.Concat(_411___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__64_mUint8Seq_Compile.__default.BASE())));
         BigInteger _in55 = Dafny.Helpers.EuclideanDivision(n, Uint8__64_mUint8Seq_Compile.__default.BASE());
         n = _in55;
         goto TAIL_CALL_START;
@@ -21651,16 +21424,16 @@ namespace Uint8__64_mUint8Seq_Compile {
     }
     public static Dafny.ISequence<BigInteger> SeqExtendMultiple(Dafny.ISequence<BigInteger> xs, BigInteger n)
     {
-      BigInteger _438_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
-      return Uint8__64_mUint8Seq_Compile.__default.SeqExtend(xs, _438_newLen);
+      BigInteger _412_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
+      return Uint8__64_mUint8Seq_Compile.__default.SeqExtend(xs, _412_newLen);
     }
     public static Dafny.ISequence<BigInteger> FromNatWithLen(BigInteger n, BigInteger len)
     {
       return Uint8__64_mUint8Seq_Compile.__default.SeqExtend(Uint8__64_mUint8Seq_Compile.__default.FromNat(n), len);
     }
     public static Dafny.ISequence<BigInteger> SeqZero(BigInteger len) {
-      Dafny.ISequence<BigInteger> _439_xs = Uint8__64_mUint8Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
-      return _439_xs;
+      Dafny.ISequence<BigInteger> _413_xs = Uint8__64_mUint8Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
+      return _413_xs;
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqAdd(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
     {
@@ -21668,13 +21441,13 @@ namespace Uint8__64_mUint8Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs17 = Uint8__64_mUint8Seq_Compile.__default.SeqAdd(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _440_zs_k = _let_tmp_rhs17.dtor__0;
-        BigInteger _441_cin = _let_tmp_rhs17.dtor__1;
-        BigInteger _442_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_441_cin);
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs18 = (((_442_sum) < (Uint8__64_mUint8Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_442_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_442_sum) - (Uint8__64_mUint8Seq_Compile.__default.BASE()), BigInteger.One)));
-        BigInteger _443_sum__out = _let_tmp_rhs18.dtor__0;
-        BigInteger _444_cout = _let_tmp_rhs18.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_440_zs_k, Dafny.Sequence<BigInteger>.FromElements(_443_sum__out)), _444_cout);
+        Dafny.ISequence<BigInteger> _414_zs_k = _let_tmp_rhs17.dtor__0;
+        BigInteger _415_cin = _let_tmp_rhs17.dtor__1;
+        BigInteger _416_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_415_cin);
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs18 = (((_416_sum) < (Uint8__64_mUint8Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_416_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_416_sum) - (Uint8__64_mUint8Seq_Compile.__default.BASE()), BigInteger.One)));
+        BigInteger _417_sum__out = _let_tmp_rhs18.dtor__0;
+        BigInteger _418_cout = _let_tmp_rhs18.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_414_zs_k, Dafny.Sequence<BigInteger>.FromElements(_417_sum__out)), _418_cout);
       }
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqSub(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
@@ -21683,12 +21456,12 @@ namespace Uint8__64_mUint8Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs19 = Uint8__64_mUint8Seq_Compile.__default.SeqSub(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _445_zs = _let_tmp_rhs19.dtor__0;
-        BigInteger _446_cin = _let_tmp_rhs19.dtor__1;
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs20 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_446_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_446_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__64_mUint8Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_446_cin), BigInteger.One)));
-        BigInteger _447_diff__out = _let_tmp_rhs20.dtor__0;
-        BigInteger _448_cout = _let_tmp_rhs20.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_445_zs, Dafny.Sequence<BigInteger>.FromElements(_447_diff__out)), _448_cout);
+        Dafny.ISequence<BigInteger> _419_zs = _let_tmp_rhs19.dtor__0;
+        BigInteger _420_cin = _let_tmp_rhs19.dtor__1;
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs20 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_420_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_420_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__64_mUint8Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_420_cin), BigInteger.One)));
+        BigInteger _421_diff__out = _let_tmp_rhs20.dtor__0;
+        BigInteger _422_cout = _let_tmp_rhs20.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_419_zs, Dafny.Sequence<BigInteger>.FromElements(_421_diff__out)), _422_cout);
       }
     }
   }
@@ -21717,24 +21490,24 @@ namespace Uint8__64_mUint64Seq_Compile {
       }
     }
     public static BigInteger ToNatLeft(Dafny.ISequence<BigInteger> xs) {
-      BigInteger _449___accumulator = BigInteger.Zero;
+      BigInteger _423___accumulator = BigInteger.Zero;
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return (BigInteger.Zero) + (_449___accumulator);
+        return (BigInteger.Zero) + (_423___accumulator);
       } else {
-        _449___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__64_mUint64Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_449___accumulator);
+        _423___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint8__64_mUint64Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_423___accumulator);
         Dafny.ISequence<BigInteger> _in58 = Seq_Compile.__default.DropLast<BigInteger>(xs);
         xs = _in58;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> FromNat(BigInteger n) {
-      Dafny.ISequence<BigInteger> _450___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _424___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((n).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_450___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_424___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _450___accumulator = Dafny.Sequence<BigInteger>.Concat(_450___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__64_mUint64Seq_Compile.__default.BASE())));
+        _424___accumulator = Dafny.Sequence<BigInteger>.Concat(_424___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint8__64_mUint64Seq_Compile.__default.BASE())));
         BigInteger _in59 = Dafny.Helpers.EuclideanDivision(n, Uint8__64_mUint64Seq_Compile.__default.BASE());
         n = _in59;
         goto TAIL_CALL_START;
@@ -21755,16 +21528,16 @@ namespace Uint8__64_mUint64Seq_Compile {
     }
     public static Dafny.ISequence<BigInteger> SeqExtendMultiple(Dafny.ISequence<BigInteger> xs, BigInteger n)
     {
-      BigInteger _451_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
-      return Uint8__64_mUint64Seq_Compile.__default.SeqExtend(xs, _451_newLen);
+      BigInteger _425_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
+      return Uint8__64_mUint64Seq_Compile.__default.SeqExtend(xs, _425_newLen);
     }
     public static Dafny.ISequence<BigInteger> FromNatWithLen(BigInteger n, BigInteger len)
     {
       return Uint8__64_mUint64Seq_Compile.__default.SeqExtend(Uint8__64_mUint64Seq_Compile.__default.FromNat(n), len);
     }
     public static Dafny.ISequence<BigInteger> SeqZero(BigInteger len) {
-      Dafny.ISequence<BigInteger> _452_xs = Uint8__64_mUint64Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
-      return _452_xs;
+      Dafny.ISequence<BigInteger> _426_xs = Uint8__64_mUint64Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
+      return _426_xs;
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqAdd(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
     {
@@ -21772,13 +21545,13 @@ namespace Uint8__64_mUint64Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs21 = Uint8__64_mUint64Seq_Compile.__default.SeqAdd(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _453_zs_k = _let_tmp_rhs21.dtor__0;
-        BigInteger _454_cin = _let_tmp_rhs21.dtor__1;
-        BigInteger _455_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_454_cin);
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs22 = (((_455_sum) < (Uint8__64_mUint64Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_455_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_455_sum) - (Uint8__64_mUint64Seq_Compile.__default.BASE()), BigInteger.One)));
-        BigInteger _456_sum__out = _let_tmp_rhs22.dtor__0;
-        BigInteger _457_cout = _let_tmp_rhs22.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_453_zs_k, Dafny.Sequence<BigInteger>.FromElements(_456_sum__out)), _457_cout);
+        Dafny.ISequence<BigInteger> _427_zs_k = _let_tmp_rhs21.dtor__0;
+        BigInteger _428_cin = _let_tmp_rhs21.dtor__1;
+        BigInteger _429_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_428_cin);
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs22 = (((_429_sum) < (Uint8__64_mUint64Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_429_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_429_sum) - (Uint8__64_mUint64Seq_Compile.__default.BASE()), BigInteger.One)));
+        BigInteger _430_sum__out = _let_tmp_rhs22.dtor__0;
+        BigInteger _431_cout = _let_tmp_rhs22.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_427_zs_k, Dafny.Sequence<BigInteger>.FromElements(_430_sum__out)), _431_cout);
       }
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqSub(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
@@ -21787,12 +21560,12 @@ namespace Uint8__64_mUint64Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs23 = Uint8__64_mUint64Seq_Compile.__default.SeqSub(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _458_zs = _let_tmp_rhs23.dtor__0;
-        BigInteger _459_cin = _let_tmp_rhs23.dtor__1;
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs24 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_459_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_459_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__64_mUint64Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_459_cin), BigInteger.One)));
-        BigInteger _460_diff__out = _let_tmp_rhs24.dtor__0;
-        BigInteger _461_cout = _let_tmp_rhs24.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_458_zs, Dafny.Sequence<BigInteger>.FromElements(_460_diff__out)), _461_cout);
+        Dafny.ISequence<BigInteger> _432_zs = _let_tmp_rhs23.dtor__0;
+        BigInteger _433_cin = _let_tmp_rhs23.dtor__1;
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs24 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_433_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_433_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint8__64_mUint64Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_433_cin), BigInteger.One)));
+        BigInteger _434_diff__out = _let_tmp_rhs24.dtor__0;
+        BigInteger _435_cout = _let_tmp_rhs24.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_432_zs, Dafny.Sequence<BigInteger>.FromElements(_434_diff__out)), _435_cout);
       }
     }
   }
@@ -21811,24 +21584,24 @@ namespace Uint8__64_Compile {
       return Dafny.Helpers.EuclideanDivision(Uint8__64_mUint64Seq_Compile.__default.BITS(), Uint8__64_mUint8Seq_Compile.__default.BITS());
     }
     public static Dafny.ISequence<BigInteger> ToSmall(Dafny.ISequence<BigInteger> xs) {
-      Dafny.ISequence<BigInteger> _462___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _436___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_462___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_436___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _462___accumulator = Dafny.Sequence<BigInteger>.Concat(_462___accumulator, Uint8__64_mUint8Seq_Compile.__default.FromNatWithLen(Seq_Compile.__default.First<BigInteger>(xs), Uint8__64_Compile.__default.E()));
+        _436___accumulator = Dafny.Sequence<BigInteger>.Concat(_436___accumulator, Uint8__64_mUint8Seq_Compile.__default.FromNatWithLen(Seq_Compile.__default.First<BigInteger>(xs), Uint8__64_Compile.__default.E()));
         Dafny.ISequence<BigInteger> _in62 = Seq_Compile.__default.DropFirst<BigInteger>(xs);
         xs = _in62;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> ToLarge(Dafny.ISequence<BigInteger> xs) {
-      Dafny.ISequence<BigInteger> _463___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _437___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_463___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_437___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _463___accumulator = Dafny.Sequence<BigInteger>.Concat(_463___accumulator, Dafny.Sequence<BigInteger>.FromElements(Uint8__64_mUint8Seq_Compile.__default.ToNatRight((xs).Take(Uint8__64_Compile.__default.E()))));
+        _437___accumulator = Dafny.Sequence<BigInteger>.Concat(_437___accumulator, Dafny.Sequence<BigInteger>.FromElements(Uint8__64_mUint8Seq_Compile.__default.ToNatRight((xs).Take(Uint8__64_Compile.__default.E()))));
         Dafny.ISequence<BigInteger> _in63 = (xs).Drop(Uint8__64_Compile.__default.E());
         xs = _in63;
         goto TAIL_CALL_START;
@@ -21842,319 +21615,258 @@ namespace srcCollectionsSequencesUint8__64dfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      Dafny.ISequence<BigInteger> _464_d0;
-      _464_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _465_r0;
-      _465_r0 = Uint8__64_mUint8Seq_Compile.__default.ToNatRight(_464_d0);
+      Dafny.ISequence<BigInteger> _438_d0;
+      _438_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _439_r0;
+      _439_r0 = Uint8__64_mUint8Seq_Compile.__default.ToNatRight(_438_d0);
     }
     [Xunit.Fact]
     public static void test1()
     {
-      Dafny.ISequence<BigInteger> _466_d0;
-      _466_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _467_r0;
-      _467_r0 = Uint8__64_mUint8Seq_Compile.__default.ToNatLeft(_466_d0);
+      Dafny.ISequence<BigInteger> _440_d0;
+      _440_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _441_r0;
+      _441_r0 = Uint8__64_mUint8Seq_Compile.__default.ToNatLeft(_440_d0);
     }
     [Xunit.Fact]
     public static void test2()
     {
-      Dafny.ISequence<BigInteger> _468_r0;
-      _468_r0 = Uint8__64_mUint8Seq_Compile.__default.FromNat(new BigInteger(2279));
+      Dafny.ISequence<BigInteger> _442_r0;
+      _442_r0 = Uint8__64_mUint8Seq_Compile.__default.FromNat(new BigInteger(65));
     }
     [Xunit.Fact]
     public static void test3()
     {
-      Dafny.ISequence<BigInteger> _469_r0;
-      _469_r0 = Uint8__64_mUint8Seq_Compile.__default.FromNat(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _443_r0;
+      _443_r0 = Uint8__64_mUint8Seq_Compile.__default.FromNat(BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test4()
     {
-      Dafny.ISequence<BigInteger> _470_d0;
-      _470_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _471_r0;
-      _471_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqExtend(_470_d0, BigInteger.One);
-      if (!((new BigInteger((_471_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(69,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _444_d0;
+      _444_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_444_d0).Count)) <= (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(69,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__64_mUint8Seq_Compile.__default.ToNatRight(_471_r0)) == (Uint8__64_mUint8Seq_Compile.__default.ToNatRight(_470_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(70,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _445_r0;
+      _445_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqExtend(_444_d0, BigInteger.One);
+      if (!((new BigInteger((_445_r0).Count)) == (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(71,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!((Uint8__64_mUint8Seq_Compile.__default.ToNatRight(_445_r0)) == (Uint8__64_mUint8Seq_Compile.__default.ToNatRight(_444_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(72,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test5()
     {
-      Dafny.ISequence<BigInteger> _472_d0;
-      _472_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _473_r0;
-      _473_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqExtend(_472_d0, new BigInteger(98));
-      if (!((new BigInteger((_473_r0).Count)) == (new BigInteger(98)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(78,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _446_d0;
+      _446_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _447_d1;
+      _447_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_446_d0).Count)) == (new BigInteger((_447_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(86,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__64_mUint8Seq_Compile.__default.ToNatRight(_473_r0)) == (Uint8__64_mUint8Seq_Compile.__default.ToNatRight(_472_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(79,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _448_r0;
+      _448_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqAdd(_446_d0, _447_d1);
     }
     [Xunit.Fact]
     public static void test6()
     {
-      Dafny.ISequence<BigInteger> _474_d0;
-      _474_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _475_r0;
-      _475_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqExtendMultiple(_474_d0, new BigInteger(66));
-      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_475_r0).Count), new BigInteger(66))).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(86,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _449_d0;
+      _449_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(12), new BigInteger(2283));
+      Dafny.ISequence<BigInteger> _450_d1;
+      _450_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(281), new BigInteger(11138));
+      if (!((new BigInteger((_449_d0).Count)) == (new BigInteger((_450_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(96,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__64_mUint8Seq_Compile.__default.ToNatRight(_475_r0)) == (Uint8__64_mUint8Seq_Compile.__default.ToNatRight(_474_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(87,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _451_r0;
+      _451_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqAdd(_449_d0, _450_d1);
+    }
+    [Xunit.Fact]
+    public static void test7()
+    {
+      Dafny.ISequence<BigInteger> _452_d0;
+      _452_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _453_d1;
+      _453_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_452_d0).Count)) == (new BigInteger((_453_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(105,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _454_r0;
+      _454_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqAdd(_452_d0, _453_d1);
     }
     [Xunit.Fact]
     public static void test8()
     {
-      Dafny.ISequence<BigInteger> _476_r0;
-      _476_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqZero(BigInteger.One);
-      if (!((new BigInteger((_476_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(100,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _455_d0;
+      _455_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(1325), new BigInteger(2331));
+      Dafny.ISequence<BigInteger> _456_d1;
+      _456_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(234), new BigInteger(1796));
+      if (!((new BigInteger((_455_d0).Count)) == (new BigInteger((_456_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(117,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__64_mUint8Seq_Compile.__default.ToNatRight(_476_r0)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(101,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _457_r0;
+      _457_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqSub(_455_d0, _456_d1);
     }
     [Xunit.Fact]
     public static void test9()
     {
-      Dafny.ISequence<BigInteger> _477_d0;
-      _477_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _478_d1;
-      _478_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _479_r0;
-      _479_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqAdd(_477_d0, _478_d1);
+      Dafny.ISequence<BigInteger> _458_d0;
+      _458_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(920), new BigInteger(2061));
+      Dafny.ISequence<BigInteger> _459_d1;
+      _459_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(645), new BigInteger(2062));
+      if (!((new BigInteger((_458_d0).Count)) == (new BigInteger((_459_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(127,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _460_r0;
+      _460_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqSub(_458_d0, _459_d1);
     }
     [Xunit.Fact]
     public static void test10()
     {
-      Dafny.ISequence<BigInteger> _480_d0;
-      _480_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(8098));
-      Dafny.ISequence<BigInteger> _481_d1;
-      _481_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(16953));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _482_r0;
-      _482_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqAdd(_480_d0, _481_d1);
+      Dafny.ISequence<BigInteger> _461_d0;
+      _461_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _462_d1;
+      _462_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_461_d0).Count)) == (new BigInteger((_462_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(136,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _463_r0;
+      _463_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqSub(_461_d0, _462_d1);
     }
     [Xunit.Fact]
     public static void test11()
     {
-      Dafny.ISequence<BigInteger> _483_d0;
-      _483_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _484_d1;
-      _484_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _485_r0;
-      _485_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqAdd(_483_d0, _484_d1);
+      Dafny.ISequence<BigInteger> _464_d0;
+      _464_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _465_r0;
+      _465_r0 = Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_464_d0);
     }
     [Xunit.Fact]
     public static void test12()
     {
-      Dafny.ISequence<BigInteger> _486_d0;
-      _486_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(4044));
-      Dafny.ISequence<BigInteger> _487_d1;
-      _487_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(1653));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _488_r0;
-      _488_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqSub(_486_d0, _487_d1);
+      Dafny.ISequence<BigInteger> _466_d0;
+      _466_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _467_r0;
+      _467_r0 = Uint8__64_mUint64Seq_Compile.__default.ToNatLeft(_466_d0);
     }
     [Xunit.Fact]
     public static void test13()
     {
-      Dafny.ISequence<BigInteger> _489_d0;
-      _489_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(535));
-      Dafny.ISequence<BigInteger> _490_d1;
-      _490_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(536));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _491_r0;
-      _491_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqSub(_489_d0, _490_d1);
+      Dafny.ISequence<BigInteger> _468_r0;
+      _468_r0 = Uint8__64_mUint64Seq_Compile.__default.FromNat(new BigInteger(65));
     }
     [Xunit.Fact]
     public static void test14()
     {
-      Dafny.ISequence<BigInteger> _492_d0;
-      _492_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _493_d1;
-      _493_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _494_r0;
-      _494_r0 = Uint8__64_mUint8Seq_Compile.__default.SeqSub(_492_d0, _493_d1);
+      Dafny.ISequence<BigInteger> _469_r0;
+      _469_r0 = Uint8__64_mUint64Seq_Compile.__default.FromNat(BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test15()
     {
-      Dafny.ISequence<BigInteger> _495_d0;
-      _495_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _496_r0;
-      _496_r0 = Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_495_d0);
+      Dafny.ISequence<BigInteger> _470_d0;
+      _470_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_470_d0).Count)) <= (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(177,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Dafny.ISequence<BigInteger> _471_r0;
+      _471_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqExtend(_470_d0, BigInteger.One);
+      if (!((new BigInteger((_471_r0).Count)) == (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(179,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!((Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_471_r0)) == (Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_470_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(180,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
     }
     [Xunit.Fact]
     public static void test16()
     {
-      Dafny.ISequence<BigInteger> _497_d0;
-      _497_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _498_r0;
-      _498_r0 = Uint8__64_mUint64Seq_Compile.__default.ToNatLeft(_497_d0);
+      Dafny.ISequence<BigInteger> _472_d0;
+      _472_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _473_d1;
+      _473_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_472_d0).Count)) == (new BigInteger((_473_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(194,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _474_r0;
+      _474_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqAdd(_472_d0, _473_d1);
     }
     [Xunit.Fact]
     public static void test17()
     {
-      Dafny.ISequence<BigInteger> _499_r0;
-      _499_r0 = Uint8__64_mUint64Seq_Compile.__default.FromNat(new BigInteger(2279));
+      Dafny.ISequence<BigInteger> _475_d0;
+      _475_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(342), new BigInteger(4720));
+      Dafny.ISequence<BigInteger> _476_d1;
+      _476_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(281), new BigInteger(2283));
+      if (!((new BigInteger((_475_d0).Count)) == (new BigInteger((_476_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(204,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _477_r0;
+      _477_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqAdd(_475_d0, _476_d1);
     }
     [Xunit.Fact]
     public static void test18()
     {
-      Dafny.ISequence<BigInteger> _500_r0;
-      _500_r0 = Uint8__64_mUint64Seq_Compile.__default.FromNat(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _478_d0;
+      _478_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _479_d1;
+      _479_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_478_d0).Count)) == (new BigInteger((_479_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(213,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _480_r0;
+      _480_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqAdd(_478_d0, _479_d1);
     }
     [Xunit.Fact]
     public static void test19()
     {
-      Dafny.ISequence<BigInteger> _501_d0;
-      _501_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _502_r0;
-      _502_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqExtend(_501_d0, BigInteger.One);
-      if (!((new BigInteger((_502_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(197,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _481_d0;
+      _481_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(1325), new BigInteger(2331));
+      Dafny.ISequence<BigInteger> _482_d1;
+      _482_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(234), new BigInteger(1796));
+      if (!((new BigInteger((_481_d0).Count)) == (new BigInteger((_482_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(225,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_502_r0)) == (Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_501_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(198,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _483_r0;
+      _483_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqSub(_481_d0, _482_d1);
     }
     [Xunit.Fact]
     public static void test20()
     {
-      Dafny.ISequence<BigInteger> _503_d0;
-      _503_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _504_r0;
-      _504_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqExtend(_503_d0, new BigInteger(98));
-      if (!((new BigInteger((_504_r0).Count)) == (new BigInteger(98)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(206,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _484_d0;
+      _484_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(920), new BigInteger(2061));
+      Dafny.ISequence<BigInteger> _485_d1;
+      _485_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(645), new BigInteger(2062));
+      if (!((new BigInteger((_484_d0).Count)) == (new BigInteger((_485_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(235,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_504_r0)) == (Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_503_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(207,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _486_r0;
+      _486_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqSub(_484_d0, _485_d1);
     }
     [Xunit.Fact]
     public static void test21()
     {
-      Dafny.ISequence<BigInteger> _505_d0;
-      _505_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _506_r0;
-      _506_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqExtendMultiple(_505_d0, new BigInteger(66));
-      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_506_r0).Count), new BigInteger(66))).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(214,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _487_d0;
+      _487_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _488_d1;
+      _488_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_487_d0).Count)) == (new BigInteger((_488_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(244,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_506_r0)) == (Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_505_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(215,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _489_r0;
+      _489_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqSub(_487_d0, _488_d1);
     }
     [Xunit.Fact]
     public static void test22()
     {
-      Dafny.ISequence<BigInteger> _507_r0;
-      _507_r0 = Uint8__64_mUint64Seq_Compile.__default.FromNatWithLen(new BigInteger(1236), BigInteger.One);
-      if (!((new BigInteger((_507_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(221,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-      if (!((Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_507_r0)) == (new BigInteger(1236)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(222,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test23()
-    {
-      Dafny.ISequence<BigInteger> _508_r0;
-      _508_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqZero(BigInteger.One);
-      if (!((new BigInteger((_508_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(228,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-      if (!((Uint8__64_mUint64Seq_Compile.__default.ToNatRight(_508_r0)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(229,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test24()
-    {
-      Dafny.ISequence<BigInteger> _509_d0;
-      _509_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _510_d1;
-      _510_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _511_r0;
-      _511_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqAdd(_509_d0, _510_d1);
-    }
-    [Xunit.Fact]
-    public static void test25()
-    {
-      Dafny.ISequence<BigInteger> _512_d0;
-      _512_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(8098));
-      Dafny.ISequence<BigInteger> _513_d1;
-      _513_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(16953));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _514_r0;
-      _514_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqAdd(_512_d0, _513_d1);
-    }
-    [Xunit.Fact]
-    public static void test26()
-    {
-      Dafny.ISequence<BigInteger> _515_d0;
-      _515_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _516_d1;
-      _516_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _517_r0;
-      _517_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqAdd(_515_d0, _516_d1);
-    }
-    [Xunit.Fact]
-    public static void test27()
-    {
-      Dafny.ISequence<BigInteger> _518_d0;
-      _518_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(2475));
-      Dafny.ISequence<BigInteger> _519_d1;
-      _519_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(1888));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _520_r0;
-      _520_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqSub(_518_d0, _519_d1);
-    }
-    [Xunit.Fact]
-    public static void test28()
-    {
-      Dafny.ISequence<BigInteger> _521_d0;
-      _521_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(535));
-      Dafny.ISequence<BigInteger> _522_d1;
-      _522_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(536));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _523_r0;
-      _523_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqSub(_521_d0, _522_d1);
-    }
-    [Xunit.Fact]
-    public static void test29()
-    {
-      Dafny.ISequence<BigInteger> _524_d0;
-      _524_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _525_d1;
-      _525_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _526_r0;
-      _526_r0 = Uint8__64_mUint64Seq_Compile.__default.SeqSub(_524_d0, _525_d1);
-    }
-    [Xunit.Fact]
-    public static void test30()
-    {
-      Dafny.ISequence<BigInteger> _527_d0;
-      _527_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _528_r0;
-      _528_r0 = Uint8__64_Compile.__default.ToSmall(_527_d0);
-      if (!((new BigInteger((_528_r0).Count)) == ((new BigInteger((_527_d0).Count)) * (Uint8__64_Compile.__default.E())))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(296,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test31()
-    {
-      Dafny.ISequence<BigInteger> _529_d0;
-      _529_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _530_r0;
-      _530_r0 = Uint8__64_Compile.__default.ToLarge(_529_d0);
-      if (!((new BigInteger((_530_r0).Count)) == (Dafny.Helpers.EuclideanDivision(new BigInteger((_529_d0).Count), Uint8__64_Compile.__default.E())))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(305,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _490_d0;
+      _490_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _491_r0;
+      _491_r0 = Uint8__64_Compile.__default.ToSmall(_490_d0);
+      if (!((new BigInteger((_491_r0).Count)) == ((new BigInteger((_490_d0).Count)) * (Uint8__64_Compile.__default.E())))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint8_64.dfy(256,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
   }
@@ -22176,24 +21888,24 @@ namespace Uint16__32_mUint16Seq_Compile {
       }
     }
     public static BigInteger ToNatLeft(Dafny.ISequence<BigInteger> xs) {
-      BigInteger _531___accumulator = BigInteger.Zero;
+      BigInteger _492___accumulator = BigInteger.Zero;
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return (BigInteger.Zero) + (_531___accumulator);
+        return (BigInteger.Zero) + (_492___accumulator);
       } else {
-        _531___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint16__32_mUint16Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_531___accumulator);
+        _492___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint16__32_mUint16Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_492___accumulator);
         Dafny.ISequence<BigInteger> _in64 = Seq_Compile.__default.DropLast<BigInteger>(xs);
         xs = _in64;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> FromNat(BigInteger n) {
-      Dafny.ISequence<BigInteger> _532___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _493___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((n).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_532___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_493___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _532___accumulator = Dafny.Sequence<BigInteger>.Concat(_532___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint16__32_mUint16Seq_Compile.__default.BASE())));
+        _493___accumulator = Dafny.Sequence<BigInteger>.Concat(_493___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint16__32_mUint16Seq_Compile.__default.BASE())));
         BigInteger _in65 = Dafny.Helpers.EuclideanDivision(n, Uint16__32_mUint16Seq_Compile.__default.BASE());
         n = _in65;
         goto TAIL_CALL_START;
@@ -22214,16 +21926,16 @@ namespace Uint16__32_mUint16Seq_Compile {
     }
     public static Dafny.ISequence<BigInteger> SeqExtendMultiple(Dafny.ISequence<BigInteger> xs, BigInteger n)
     {
-      BigInteger _533_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
-      return Uint16__32_mUint16Seq_Compile.__default.SeqExtend(xs, _533_newLen);
+      BigInteger _494_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
+      return Uint16__32_mUint16Seq_Compile.__default.SeqExtend(xs, _494_newLen);
     }
     public static Dafny.ISequence<BigInteger> FromNatWithLen(BigInteger n, BigInteger len)
     {
       return Uint16__32_mUint16Seq_Compile.__default.SeqExtend(Uint16__32_mUint16Seq_Compile.__default.FromNat(n), len);
     }
     public static Dafny.ISequence<BigInteger> SeqZero(BigInteger len) {
-      Dafny.ISequence<BigInteger> _534_xs = Uint16__32_mUint16Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
-      return _534_xs;
+      Dafny.ISequence<BigInteger> _495_xs = Uint16__32_mUint16Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
+      return _495_xs;
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqAdd(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
     {
@@ -22231,13 +21943,13 @@ namespace Uint16__32_mUint16Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs25 = Uint16__32_mUint16Seq_Compile.__default.SeqAdd(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _535_zs_k = _let_tmp_rhs25.dtor__0;
-        BigInteger _536_cin = _let_tmp_rhs25.dtor__1;
-        BigInteger _537_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_536_cin);
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs26 = (((_537_sum) < (Uint16__32_mUint16Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_537_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_537_sum) - (Uint16__32_mUint16Seq_Compile.__default.BASE()), BigInteger.One)));
-        BigInteger _538_sum__out = _let_tmp_rhs26.dtor__0;
-        BigInteger _539_cout = _let_tmp_rhs26.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_535_zs_k, Dafny.Sequence<BigInteger>.FromElements(_538_sum__out)), _539_cout);
+        Dafny.ISequence<BigInteger> _496_zs_k = _let_tmp_rhs25.dtor__0;
+        BigInteger _497_cin = _let_tmp_rhs25.dtor__1;
+        BigInteger _498_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_497_cin);
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs26 = (((_498_sum) < (Uint16__32_mUint16Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_498_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_498_sum) - (Uint16__32_mUint16Seq_Compile.__default.BASE()), BigInteger.One)));
+        BigInteger _499_sum__out = _let_tmp_rhs26.dtor__0;
+        BigInteger _500_cout = _let_tmp_rhs26.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_496_zs_k, Dafny.Sequence<BigInteger>.FromElements(_499_sum__out)), _500_cout);
       }
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqSub(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
@@ -22246,12 +21958,12 @@ namespace Uint16__32_mUint16Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs27 = Uint16__32_mUint16Seq_Compile.__default.SeqSub(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _540_zs = _let_tmp_rhs27.dtor__0;
-        BigInteger _541_cin = _let_tmp_rhs27.dtor__1;
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs28 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_541_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_541_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint16__32_mUint16Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_541_cin), BigInteger.One)));
-        BigInteger _542_diff__out = _let_tmp_rhs28.dtor__0;
-        BigInteger _543_cout = _let_tmp_rhs28.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_540_zs, Dafny.Sequence<BigInteger>.FromElements(_542_diff__out)), _543_cout);
+        Dafny.ISequence<BigInteger> _501_zs = _let_tmp_rhs27.dtor__0;
+        BigInteger _502_cin = _let_tmp_rhs27.dtor__1;
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs28 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_502_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_502_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint16__32_mUint16Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_502_cin), BigInteger.One)));
+        BigInteger _503_diff__out = _let_tmp_rhs28.dtor__0;
+        BigInteger _504_cout = _let_tmp_rhs28.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_501_zs, Dafny.Sequence<BigInteger>.FromElements(_503_diff__out)), _504_cout);
       }
     }
   }
@@ -22280,24 +21992,24 @@ namespace Uint16__32_mUint32Seq_Compile {
       }
     }
     public static BigInteger ToNatLeft(Dafny.ISequence<BigInteger> xs) {
-      BigInteger _544___accumulator = BigInteger.Zero;
+      BigInteger _505___accumulator = BigInteger.Zero;
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return (BigInteger.Zero) + (_544___accumulator);
+        return (BigInteger.Zero) + (_505___accumulator);
       } else {
-        _544___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint16__32_mUint32Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_544___accumulator);
+        _505___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint16__32_mUint32Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_505___accumulator);
         Dafny.ISequence<BigInteger> _in68 = Seq_Compile.__default.DropLast<BigInteger>(xs);
         xs = _in68;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> FromNat(BigInteger n) {
-      Dafny.ISequence<BigInteger> _545___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _506___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((n).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_545___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_506___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _545___accumulator = Dafny.Sequence<BigInteger>.Concat(_545___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint16__32_mUint32Seq_Compile.__default.BASE())));
+        _506___accumulator = Dafny.Sequence<BigInteger>.Concat(_506___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint16__32_mUint32Seq_Compile.__default.BASE())));
         BigInteger _in69 = Dafny.Helpers.EuclideanDivision(n, Uint16__32_mUint32Seq_Compile.__default.BASE());
         n = _in69;
         goto TAIL_CALL_START;
@@ -22318,16 +22030,16 @@ namespace Uint16__32_mUint32Seq_Compile {
     }
     public static Dafny.ISequence<BigInteger> SeqExtendMultiple(Dafny.ISequence<BigInteger> xs, BigInteger n)
     {
-      BigInteger _546_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
-      return Uint16__32_mUint32Seq_Compile.__default.SeqExtend(xs, _546_newLen);
+      BigInteger _507_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
+      return Uint16__32_mUint32Seq_Compile.__default.SeqExtend(xs, _507_newLen);
     }
     public static Dafny.ISequence<BigInteger> FromNatWithLen(BigInteger n, BigInteger len)
     {
       return Uint16__32_mUint32Seq_Compile.__default.SeqExtend(Uint16__32_mUint32Seq_Compile.__default.FromNat(n), len);
     }
     public static Dafny.ISequence<BigInteger> SeqZero(BigInteger len) {
-      Dafny.ISequence<BigInteger> _547_xs = Uint16__32_mUint32Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
-      return _547_xs;
+      Dafny.ISequence<BigInteger> _508_xs = Uint16__32_mUint32Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
+      return _508_xs;
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqAdd(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
     {
@@ -22335,13 +22047,13 @@ namespace Uint16__32_mUint32Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs29 = Uint16__32_mUint32Seq_Compile.__default.SeqAdd(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _548_zs_k = _let_tmp_rhs29.dtor__0;
-        BigInteger _549_cin = _let_tmp_rhs29.dtor__1;
-        BigInteger _550_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_549_cin);
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs30 = (((_550_sum) < (Uint16__32_mUint32Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_550_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_550_sum) - (Uint16__32_mUint32Seq_Compile.__default.BASE()), BigInteger.One)));
-        BigInteger _551_sum__out = _let_tmp_rhs30.dtor__0;
-        BigInteger _552_cout = _let_tmp_rhs30.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_548_zs_k, Dafny.Sequence<BigInteger>.FromElements(_551_sum__out)), _552_cout);
+        Dafny.ISequence<BigInteger> _509_zs_k = _let_tmp_rhs29.dtor__0;
+        BigInteger _510_cin = _let_tmp_rhs29.dtor__1;
+        BigInteger _511_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_510_cin);
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs30 = (((_511_sum) < (Uint16__32_mUint32Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_511_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_511_sum) - (Uint16__32_mUint32Seq_Compile.__default.BASE()), BigInteger.One)));
+        BigInteger _512_sum__out = _let_tmp_rhs30.dtor__0;
+        BigInteger _513_cout = _let_tmp_rhs30.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_509_zs_k, Dafny.Sequence<BigInteger>.FromElements(_512_sum__out)), _513_cout);
       }
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqSub(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
@@ -22350,12 +22062,12 @@ namespace Uint16__32_mUint32Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs31 = Uint16__32_mUint32Seq_Compile.__default.SeqSub(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _553_zs = _let_tmp_rhs31.dtor__0;
-        BigInteger _554_cin = _let_tmp_rhs31.dtor__1;
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs32 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_554_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_554_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint16__32_mUint32Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_554_cin), BigInteger.One)));
-        BigInteger _555_diff__out = _let_tmp_rhs32.dtor__0;
-        BigInteger _556_cout = _let_tmp_rhs32.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_553_zs, Dafny.Sequence<BigInteger>.FromElements(_555_diff__out)), _556_cout);
+        Dafny.ISequence<BigInteger> _514_zs = _let_tmp_rhs31.dtor__0;
+        BigInteger _515_cin = _let_tmp_rhs31.dtor__1;
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs32 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_515_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_515_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint16__32_mUint32Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_515_cin), BigInteger.One)));
+        BigInteger _516_diff__out = _let_tmp_rhs32.dtor__0;
+        BigInteger _517_cout = _let_tmp_rhs32.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_514_zs, Dafny.Sequence<BigInteger>.FromElements(_516_diff__out)), _517_cout);
       }
     }
   }
@@ -22374,24 +22086,24 @@ namespace Uint16__32_Compile {
       return Dafny.Helpers.EuclideanDivision(Uint16__32_mUint32Seq_Compile.__default.BITS(), Uint16__32_mUint16Seq_Compile.__default.BITS());
     }
     public static Dafny.ISequence<BigInteger> ToSmall(Dafny.ISequence<BigInteger> xs) {
-      Dafny.ISequence<BigInteger> _557___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _518___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_557___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_518___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _557___accumulator = Dafny.Sequence<BigInteger>.Concat(_557___accumulator, Uint16__32_mUint16Seq_Compile.__default.FromNatWithLen(Seq_Compile.__default.First<BigInteger>(xs), Uint16__32_Compile.__default.E()));
+        _518___accumulator = Dafny.Sequence<BigInteger>.Concat(_518___accumulator, Uint16__32_mUint16Seq_Compile.__default.FromNatWithLen(Seq_Compile.__default.First<BigInteger>(xs), Uint16__32_Compile.__default.E()));
         Dafny.ISequence<BigInteger> _in72 = Seq_Compile.__default.DropFirst<BigInteger>(xs);
         xs = _in72;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> ToLarge(Dafny.ISequence<BigInteger> xs) {
-      Dafny.ISequence<BigInteger> _558___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _519___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_558___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_519___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _558___accumulator = Dafny.Sequence<BigInteger>.Concat(_558___accumulator, Dafny.Sequence<BigInteger>.FromElements(Uint16__32_mUint16Seq_Compile.__default.ToNatRight((xs).Take(Uint16__32_Compile.__default.E()))));
+        _519___accumulator = Dafny.Sequence<BigInteger>.Concat(_519___accumulator, Dafny.Sequence<BigInteger>.FromElements(Uint16__32_mUint16Seq_Compile.__default.ToNatRight((xs).Take(Uint16__32_Compile.__default.E()))));
         Dafny.ISequence<BigInteger> _in73 = (xs).Drop(Uint16__32_Compile.__default.E());
         xs = _in73;
         goto TAIL_CALL_START;
@@ -22405,331 +22117,272 @@ namespace srcCollectionsSequencesUint16__32dfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      Dafny.ISequence<BigInteger> _559_d0;
-      _559_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _560_r0;
-      _560_r0 = Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_559_d0);
+      Dafny.ISequence<BigInteger> _520_d0;
+      _520_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _521_r0;
+      _521_r0 = Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_520_d0);
     }
     [Xunit.Fact]
     public static void test1()
     {
-      Dafny.ISequence<BigInteger> _561_d0;
-      _561_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _562_r0;
-      _562_r0 = Uint16__32_mUint16Seq_Compile.__default.ToNatLeft(_561_d0);
+      Dafny.ISequence<BigInteger> _522_d0;
+      _522_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _523_r0;
+      _523_r0 = Uint16__32_mUint16Seq_Compile.__default.ToNatLeft(_522_d0);
     }
     [Xunit.Fact]
     public static void test2()
     {
-      Dafny.ISequence<BigInteger> _563_r0;
-      _563_r0 = Uint16__32_mUint16Seq_Compile.__default.FromNat(new BigInteger(2279));
+      Dafny.ISequence<BigInteger> _524_r0;
+      _524_r0 = Uint16__32_mUint16Seq_Compile.__default.FromNat(new BigInteger(65));
     }
     [Xunit.Fact]
     public static void test3()
     {
-      Dafny.ISequence<BigInteger> _564_r0;
-      _564_r0 = Uint16__32_mUint16Seq_Compile.__default.FromNat(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _525_r0;
+      _525_r0 = Uint16__32_mUint16Seq_Compile.__default.FromNat(BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test4()
     {
-      Dafny.ISequence<BigInteger> _565_d0;
-      _565_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _566_r0;
-      _566_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqExtend(_565_d0, BigInteger.One);
-      if (!((new BigInteger((_566_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(69,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _526_d0;
+      _526_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_526_d0).Count)) <= (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(69,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_566_r0)) == (Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_565_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(70,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _527_r0;
+      _527_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqExtend(_526_d0, BigInteger.One);
+      if (!((new BigInteger((_527_r0).Count)) == (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(71,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!((Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_527_r0)) == (Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_526_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(72,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test5()
     {
-      Dafny.ISequence<BigInteger> _567_d0;
-      _567_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _568_r0;
-      _568_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqExtend(_567_d0, new BigInteger(98));
-      if (!((new BigInteger((_568_r0).Count)) == (new BigInteger(98)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(78,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _528_d0;
+      _528_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _529_d1;
+      _529_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_528_d0).Count)) == (new BigInteger((_529_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(86,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_568_r0)) == (Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_567_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(79,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _530_r0;
+      _530_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqAdd(_528_d0, _529_d1);
     }
     [Xunit.Fact]
     public static void test6()
     {
-      Dafny.ISequence<BigInteger> _569_d0;
-      _569_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _570_r0;
-      _570_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqExtendMultiple(_569_d0, new BigInteger(66));
-      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_570_r0).Count), new BigInteger(66))).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(86,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _531_d0;
+      _531_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(12), new BigInteger(2283));
+      Dafny.ISequence<BigInteger> _532_d1;
+      _532_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(281), new BigInteger(11138));
+      if (!((new BigInteger((_531_d0).Count)) == (new BigInteger((_532_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(96,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_570_r0)) == (Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_569_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(87,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _533_r0;
+      _533_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqAdd(_531_d0, _532_d1);
     }
     [Xunit.Fact]
     public static void test7()
     {
-      Dafny.ISequence<BigInteger> _571_r0;
-      _571_r0 = Uint16__32_mUint16Seq_Compile.__default.FromNatWithLen(new BigInteger(1236), BigInteger.One);
-      if (!((new BigInteger((_571_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(93,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _534_d0;
+      _534_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _535_d1;
+      _535_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_534_d0).Count)) == (new BigInteger((_535_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(105,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_571_r0)) == (new BigInteger(1236)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(94,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _536_r0;
+      _536_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqAdd(_534_d0, _535_d1);
     }
     [Xunit.Fact]
     public static void test8()
     {
-      Dafny.ISequence<BigInteger> _572_r0;
-      _572_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqZero(BigInteger.One);
-      if (!((new BigInteger((_572_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(100,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _537_d0;
+      _537_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(1325), new BigInteger(2331));
+      Dafny.ISequence<BigInteger> _538_d1;
+      _538_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(234), new BigInteger(1796));
+      if (!((new BigInteger((_537_d0).Count)) == (new BigInteger((_538_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(117,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint16__32_mUint16Seq_Compile.__default.ToNatRight(_572_r0)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(101,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _539_r0;
+      _539_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqSub(_537_d0, _538_d1);
     }
     [Xunit.Fact]
     public static void test9()
     {
-      Dafny.ISequence<BigInteger> _573_d0;
-      _573_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _574_d1;
-      _574_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _575_r0;
-      _575_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqAdd(_573_d0, _574_d1);
+      Dafny.ISequence<BigInteger> _540_d0;
+      _540_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(920), new BigInteger(2061));
+      Dafny.ISequence<BigInteger> _541_d1;
+      _541_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(645), new BigInteger(2062));
+      if (!((new BigInteger((_540_d0).Count)) == (new BigInteger((_541_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(127,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _542_r0;
+      _542_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqSub(_540_d0, _541_d1);
     }
     [Xunit.Fact]
     public static void test10()
     {
-      Dafny.ISequence<BigInteger> _576_d0;
-      _576_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(8098));
-      Dafny.ISequence<BigInteger> _577_d1;
-      _577_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(16953));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _578_r0;
-      _578_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqAdd(_576_d0, _577_d1);
+      Dafny.ISequence<BigInteger> _543_d0;
+      _543_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _544_d1;
+      _544_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_543_d0).Count)) == (new BigInteger((_544_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(136,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _545_r0;
+      _545_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqSub(_543_d0, _544_d1);
     }
     [Xunit.Fact]
     public static void test11()
     {
-      Dafny.ISequence<BigInteger> _579_d0;
-      _579_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _580_d1;
-      _580_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _581_r0;
-      _581_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqAdd(_579_d0, _580_d1);
+      Dafny.ISequence<BigInteger> _546_d0;
+      _546_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _547_r0;
+      _547_r0 = Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_546_d0);
     }
     [Xunit.Fact]
     public static void test12()
     {
-      Dafny.ISequence<BigInteger> _582_d0;
-      _582_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(4044));
-      Dafny.ISequence<BigInteger> _583_d1;
-      _583_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(1653));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _584_r0;
-      _584_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqSub(_582_d0, _583_d1);
+      Dafny.ISequence<BigInteger> _548_d0;
+      _548_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _549_r0;
+      _549_r0 = Uint16__32_mUint32Seq_Compile.__default.ToNatLeft(_548_d0);
     }
     [Xunit.Fact]
     public static void test13()
     {
-      Dafny.ISequence<BigInteger> _585_d0;
-      _585_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(535));
-      Dafny.ISequence<BigInteger> _586_d1;
-      _586_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(536));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _587_r0;
-      _587_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqSub(_585_d0, _586_d1);
+      Dafny.ISequence<BigInteger> _550_r0;
+      _550_r0 = Uint16__32_mUint32Seq_Compile.__default.FromNat(new BigInteger(65));
     }
     [Xunit.Fact]
     public static void test14()
     {
-      Dafny.ISequence<BigInteger> _588_d0;
-      _588_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _589_d1;
-      _589_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _590_r0;
-      _590_r0 = Uint16__32_mUint16Seq_Compile.__default.SeqSub(_588_d0, _589_d1);
+      Dafny.ISequence<BigInteger> _551_r0;
+      _551_r0 = Uint16__32_mUint32Seq_Compile.__default.FromNat(BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test15()
     {
-      Dafny.ISequence<BigInteger> _591_d0;
-      _591_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _592_r0;
-      _592_r0 = Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_591_d0);
+      Dafny.ISequence<BigInteger> _552_d0;
+      _552_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_552_d0).Count)) <= (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(177,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Dafny.ISequence<BigInteger> _553_r0;
+      _553_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqExtend(_552_d0, BigInteger.One);
+      if (!((new BigInteger((_553_r0).Count)) == (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(179,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!((Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_553_r0)) == (Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_552_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(180,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
     }
     [Xunit.Fact]
     public static void test16()
     {
-      Dafny.ISequence<BigInteger> _593_d0;
-      _593_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _594_r0;
-      _594_r0 = Uint16__32_mUint32Seq_Compile.__default.ToNatLeft(_593_d0);
+      Dafny.ISequence<BigInteger> _554_d0;
+      _554_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _555_d1;
+      _555_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_554_d0).Count)) == (new BigInteger((_555_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(194,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _556_r0;
+      _556_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqAdd(_554_d0, _555_d1);
     }
     [Xunit.Fact]
     public static void test17()
     {
-      Dafny.ISequence<BigInteger> _595_r0;
-      _595_r0 = Uint16__32_mUint32Seq_Compile.__default.FromNat(new BigInteger(2279));
+      Dafny.ISequence<BigInteger> _557_d0;
+      _557_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(342), new BigInteger(4720));
+      Dafny.ISequence<BigInteger> _558_d1;
+      _558_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(281), new BigInteger(2283));
+      if (!((new BigInteger((_557_d0).Count)) == (new BigInteger((_558_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(204,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _559_r0;
+      _559_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqAdd(_557_d0, _558_d1);
     }
     [Xunit.Fact]
     public static void test18()
     {
-      Dafny.ISequence<BigInteger> _596_r0;
-      _596_r0 = Uint16__32_mUint32Seq_Compile.__default.FromNat(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _560_d0;
+      _560_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _561_d1;
+      _561_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_560_d0).Count)) == (new BigInteger((_561_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(213,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _562_r0;
+      _562_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqAdd(_560_d0, _561_d1);
     }
     [Xunit.Fact]
     public static void test19()
     {
-      Dafny.ISequence<BigInteger> _597_d0;
-      _597_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _598_r0;
-      _598_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqExtend(_597_d0, BigInteger.One);
-      if (!((new BigInteger((_598_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(197,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _563_d0;
+      _563_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(1325), new BigInteger(2331));
+      Dafny.ISequence<BigInteger> _564_d1;
+      _564_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(234), new BigInteger(1796));
+      if (!((new BigInteger((_563_d0).Count)) == (new BigInteger((_564_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(225,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_598_r0)) == (Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_597_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(198,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _565_r0;
+      _565_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqSub(_563_d0, _564_d1);
     }
     [Xunit.Fact]
     public static void test20()
     {
-      Dafny.ISequence<BigInteger> _599_d0;
-      _599_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _600_r0;
-      _600_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqExtend(_599_d0, new BigInteger(98));
-      if (!((new BigInteger((_600_r0).Count)) == (new BigInteger(98)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(206,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _566_d0;
+      _566_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(920), new BigInteger(2061));
+      Dafny.ISequence<BigInteger> _567_d1;
+      _567_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(645), new BigInteger(2062));
+      if (!((new BigInteger((_566_d0).Count)) == (new BigInteger((_567_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(235,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_600_r0)) == (Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_599_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(207,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _568_r0;
+      _568_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqSub(_566_d0, _567_d1);
     }
     [Xunit.Fact]
     public static void test21()
     {
-      Dafny.ISequence<BigInteger> _601_d0;
-      _601_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _602_r0;
-      _602_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqExtendMultiple(_601_d0, new BigInteger(66));
-      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_602_r0).Count), new BigInteger(66))).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(214,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _569_d0;
+      _569_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _570_d1;
+      _570_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_569_d0).Count)) == (new BigInteger((_570_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(244,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_602_r0)) == (Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_601_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(215,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _571_r0;
+      _571_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqSub(_569_d0, _570_d1);
     }
     [Xunit.Fact]
     public static void test22()
     {
-      Dafny.ISequence<BigInteger> _603_r0;
-      _603_r0 = Uint16__32_mUint32Seq_Compile.__default.FromNatWithLen(new BigInteger(1236), BigInteger.One);
-      if (!((new BigInteger((_603_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(221,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-      if (!((Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_603_r0)) == (new BigInteger(1236)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(222,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _572_d0;
+      _572_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _573_r0;
+      _573_r0 = Uint16__32_Compile.__default.ToSmall(_572_d0);
+      if (!((new BigInteger((_573_r0).Count)) == ((new BigInteger((_572_d0).Count)) * (Uint16__32_Compile.__default.E())))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(256,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test23()
     {
-      Dafny.ISequence<BigInteger> _604_r0;
-      _604_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqZero(BigInteger.One);
-      if (!((new BigInteger((_604_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(228,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _574_d0;
+      _574_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
+      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_574_d0).Count), Uint16__32_Compile.__default.E())).Sign == 0)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(265,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint16__32_mUint32Seq_Compile.__default.ToNatRight(_604_r0)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(229,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test24()
-    {
-      Dafny.ISequence<BigInteger> _605_d0;
-      _605_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _606_d1;
-      _606_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _607_r0;
-      _607_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqAdd(_605_d0, _606_d1);
-    }
-    [Xunit.Fact]
-    public static void test25()
-    {
-      Dafny.ISequence<BigInteger> _608_d0;
-      _608_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(8098));
-      Dafny.ISequence<BigInteger> _609_d1;
-      _609_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(16953));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _610_r0;
-      _610_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqAdd(_608_d0, _609_d1);
-    }
-    [Xunit.Fact]
-    public static void test26()
-    {
-      Dafny.ISequence<BigInteger> _611_d0;
-      _611_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _612_d1;
-      _612_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _613_r0;
-      _613_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqAdd(_611_d0, _612_d1);
-    }
-    [Xunit.Fact]
-    public static void test27()
-    {
-      Dafny.ISequence<BigInteger> _614_d0;
-      _614_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(2475));
-      Dafny.ISequence<BigInteger> _615_d1;
-      _615_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(1888));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _616_r0;
-      _616_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqSub(_614_d0, _615_d1);
-    }
-    [Xunit.Fact]
-    public static void test28()
-    {
-      Dafny.ISequence<BigInteger> _617_d0;
-      _617_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(535));
-      Dafny.ISequence<BigInteger> _618_d1;
-      _618_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(536));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _619_r0;
-      _619_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqSub(_617_d0, _618_d1);
-    }
-    [Xunit.Fact]
-    public static void test29()
-    {
-      Dafny.ISequence<BigInteger> _620_d0;
-      _620_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _621_d1;
-      _621_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _622_r0;
-      _622_r0 = Uint16__32_mUint32Seq_Compile.__default.SeqSub(_620_d0, _621_d1);
-    }
-    [Xunit.Fact]
-    public static void test30()
-    {
-      Dafny.ISequence<BigInteger> _623_d0;
-      _623_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _624_r0;
-      _624_r0 = Uint16__32_Compile.__default.ToSmall(_623_d0);
-      if (!((new BigInteger((_624_r0).Count)) == ((new BigInteger((_623_d0).Count)) * (Uint16__32_Compile.__default.E())))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(296,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test31()
-    {
-      Dafny.ISequence<BigInteger> _625_d0;
-      _625_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _626_r0;
-      _626_r0 = Uint16__32_Compile.__default.ToLarge(_625_d0);
-      if (!((new BigInteger((_626_r0).Count)) == (Dafny.Helpers.EuclideanDivision(new BigInteger((_625_d0).Count), Uint16__32_Compile.__default.E())))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(305,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _575_r0;
+      _575_r0 = Uint16__32_Compile.__default.ToLarge(_574_d0);
+      if (!((new BigInteger((_575_r0).Count)) == (Dafny.Helpers.EuclideanDivision(new BigInteger((_574_d0).Count), Uint16__32_Compile.__default.E())))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint16_32.dfy(267,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
   }
@@ -22751,24 +22404,24 @@ namespace Uint32__64_mUint32Seq_Compile {
       }
     }
     public static BigInteger ToNatLeft(Dafny.ISequence<BigInteger> xs) {
-      BigInteger _627___accumulator = BigInteger.Zero;
+      BigInteger _576___accumulator = BigInteger.Zero;
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return (BigInteger.Zero) + (_627___accumulator);
+        return (BigInteger.Zero) + (_576___accumulator);
       } else {
-        _627___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint32__64_mUint32Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_627___accumulator);
+        _576___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint32__64_mUint32Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_576___accumulator);
         Dafny.ISequence<BigInteger> _in74 = Seq_Compile.__default.DropLast<BigInteger>(xs);
         xs = _in74;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> FromNat(BigInteger n) {
-      Dafny.ISequence<BigInteger> _628___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _577___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((n).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_628___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_577___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _628___accumulator = Dafny.Sequence<BigInteger>.Concat(_628___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint32__64_mUint32Seq_Compile.__default.BASE())));
+        _577___accumulator = Dafny.Sequence<BigInteger>.Concat(_577___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint32__64_mUint32Seq_Compile.__default.BASE())));
         BigInteger _in75 = Dafny.Helpers.EuclideanDivision(n, Uint32__64_mUint32Seq_Compile.__default.BASE());
         n = _in75;
         goto TAIL_CALL_START;
@@ -22789,16 +22442,16 @@ namespace Uint32__64_mUint32Seq_Compile {
     }
     public static Dafny.ISequence<BigInteger> SeqExtendMultiple(Dafny.ISequence<BigInteger> xs, BigInteger n)
     {
-      BigInteger _629_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
-      return Uint32__64_mUint32Seq_Compile.__default.SeqExtend(xs, _629_newLen);
+      BigInteger _578_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
+      return Uint32__64_mUint32Seq_Compile.__default.SeqExtend(xs, _578_newLen);
     }
     public static Dafny.ISequence<BigInteger> FromNatWithLen(BigInteger n, BigInteger len)
     {
       return Uint32__64_mUint32Seq_Compile.__default.SeqExtend(Uint32__64_mUint32Seq_Compile.__default.FromNat(n), len);
     }
     public static Dafny.ISequence<BigInteger> SeqZero(BigInteger len) {
-      Dafny.ISequence<BigInteger> _630_xs = Uint32__64_mUint32Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
-      return _630_xs;
+      Dafny.ISequence<BigInteger> _579_xs = Uint32__64_mUint32Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
+      return _579_xs;
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqAdd(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
     {
@@ -22806,13 +22459,13 @@ namespace Uint32__64_mUint32Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs33 = Uint32__64_mUint32Seq_Compile.__default.SeqAdd(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _631_zs_k = _let_tmp_rhs33.dtor__0;
-        BigInteger _632_cin = _let_tmp_rhs33.dtor__1;
-        BigInteger _633_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_632_cin);
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs34 = (((_633_sum) < (Uint32__64_mUint32Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_633_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_633_sum) - (Uint32__64_mUint32Seq_Compile.__default.BASE()), BigInteger.One)));
-        BigInteger _634_sum__out = _let_tmp_rhs34.dtor__0;
-        BigInteger _635_cout = _let_tmp_rhs34.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_631_zs_k, Dafny.Sequence<BigInteger>.FromElements(_634_sum__out)), _635_cout);
+        Dafny.ISequence<BigInteger> _580_zs_k = _let_tmp_rhs33.dtor__0;
+        BigInteger _581_cin = _let_tmp_rhs33.dtor__1;
+        BigInteger _582_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_581_cin);
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs34 = (((_582_sum) < (Uint32__64_mUint32Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_582_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_582_sum) - (Uint32__64_mUint32Seq_Compile.__default.BASE()), BigInteger.One)));
+        BigInteger _583_sum__out = _let_tmp_rhs34.dtor__0;
+        BigInteger _584_cout = _let_tmp_rhs34.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_580_zs_k, Dafny.Sequence<BigInteger>.FromElements(_583_sum__out)), _584_cout);
       }
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqSub(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
@@ -22821,12 +22474,12 @@ namespace Uint32__64_mUint32Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs35 = Uint32__64_mUint32Seq_Compile.__default.SeqSub(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _636_zs = _let_tmp_rhs35.dtor__0;
-        BigInteger _637_cin = _let_tmp_rhs35.dtor__1;
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs36 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_637_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_637_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint32__64_mUint32Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_637_cin), BigInteger.One)));
-        BigInteger _638_diff__out = _let_tmp_rhs36.dtor__0;
-        BigInteger _639_cout = _let_tmp_rhs36.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_636_zs, Dafny.Sequence<BigInteger>.FromElements(_638_diff__out)), _639_cout);
+        Dafny.ISequence<BigInteger> _585_zs = _let_tmp_rhs35.dtor__0;
+        BigInteger _586_cin = _let_tmp_rhs35.dtor__1;
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs36 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_586_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_586_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint32__64_mUint32Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_586_cin), BigInteger.One)));
+        BigInteger _587_diff__out = _let_tmp_rhs36.dtor__0;
+        BigInteger _588_cout = _let_tmp_rhs36.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_585_zs, Dafny.Sequence<BigInteger>.FromElements(_587_diff__out)), _588_cout);
       }
     }
   }
@@ -22855,24 +22508,24 @@ namespace Uint32__64_mUint64Seq_Compile {
       }
     }
     public static BigInteger ToNatLeft(Dafny.ISequence<BigInteger> xs) {
-      BigInteger _640___accumulator = BigInteger.Zero;
+      BigInteger _589___accumulator = BigInteger.Zero;
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return (BigInteger.Zero) + (_640___accumulator);
+        return (BigInteger.Zero) + (_589___accumulator);
       } else {
-        _640___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint32__64_mUint64Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_640___accumulator);
+        _589___accumulator = ((Seq_Compile.__default.Last<BigInteger>(xs)) * (Power_Compile.__default.Pow(Uint32__64_mUint64Seq_Compile.__default.BASE(), (new BigInteger((xs).Count)) - (BigInteger.One)))) + (_589___accumulator);
         Dafny.ISequence<BigInteger> _in78 = Seq_Compile.__default.DropLast<BigInteger>(xs);
         xs = _in78;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> FromNat(BigInteger n) {
-      Dafny.ISequence<BigInteger> _641___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _590___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((n).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_641___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_590___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _641___accumulator = Dafny.Sequence<BigInteger>.Concat(_641___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint32__64_mUint64Seq_Compile.__default.BASE())));
+        _590___accumulator = Dafny.Sequence<BigInteger>.Concat(_590___accumulator, Dafny.Sequence<BigInteger>.FromElements(Dafny.Helpers.EuclideanModulus(n, Uint32__64_mUint64Seq_Compile.__default.BASE())));
         BigInteger _in79 = Dafny.Helpers.EuclideanDivision(n, Uint32__64_mUint64Seq_Compile.__default.BASE());
         n = _in79;
         goto TAIL_CALL_START;
@@ -22893,16 +22546,16 @@ namespace Uint32__64_mUint64Seq_Compile {
     }
     public static Dafny.ISequence<BigInteger> SeqExtendMultiple(Dafny.ISequence<BigInteger> xs, BigInteger n)
     {
-      BigInteger _642_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
-      return Uint32__64_mUint64Seq_Compile.__default.SeqExtend(xs, _642_newLen);
+      BigInteger _591_newLen = ((new BigInteger((xs).Count)) + (n)) - (Dafny.Helpers.EuclideanModulus(new BigInteger((xs).Count), n));
+      return Uint32__64_mUint64Seq_Compile.__default.SeqExtend(xs, _591_newLen);
     }
     public static Dafny.ISequence<BigInteger> FromNatWithLen(BigInteger n, BigInteger len)
     {
       return Uint32__64_mUint64Seq_Compile.__default.SeqExtend(Uint32__64_mUint64Seq_Compile.__default.FromNat(n), len);
     }
     public static Dafny.ISequence<BigInteger> SeqZero(BigInteger len) {
-      Dafny.ISequence<BigInteger> _643_xs = Uint32__64_mUint64Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
-      return _643_xs;
+      Dafny.ISequence<BigInteger> _592_xs = Uint32__64_mUint64Seq_Compile.__default.FromNatWithLen(BigInteger.Zero, len);
+      return _592_xs;
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqAdd(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
     {
@@ -22910,13 +22563,13 @@ namespace Uint32__64_mUint64Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs37 = Uint32__64_mUint64Seq_Compile.__default.SeqAdd(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _644_zs_k = _let_tmp_rhs37.dtor__0;
-        BigInteger _645_cin = _let_tmp_rhs37.dtor__1;
-        BigInteger _646_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_645_cin);
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs38 = (((_646_sum) < (Uint32__64_mUint64Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_646_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_646_sum) - (Uint32__64_mUint64Seq_Compile.__default.BASE()), BigInteger.One)));
-        BigInteger _647_sum__out = _let_tmp_rhs38.dtor__0;
-        BigInteger _648_cout = _let_tmp_rhs38.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_644_zs_k, Dafny.Sequence<BigInteger>.FromElements(_647_sum__out)), _648_cout);
+        Dafny.ISequence<BigInteger> _593_zs_k = _let_tmp_rhs37.dtor__0;
+        BigInteger _594_cin = _let_tmp_rhs37.dtor__1;
+        BigInteger _595_sum = ((Seq_Compile.__default.Last<BigInteger>(xs)) + (Seq_Compile.__default.Last<BigInteger>(ys))) + (_594_cin);
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs38 = (((_595_sum) < (Uint32__64_mUint64Seq_Compile.__default.BASE())) ? (_System.Tuple2<BigInteger, BigInteger>.create(_595_sum, BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((_595_sum) - (Uint32__64_mUint64Seq_Compile.__default.BASE()), BigInteger.One)));
+        BigInteger _596_sum__out = _let_tmp_rhs38.dtor__0;
+        BigInteger _597_cout = _let_tmp_rhs38.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_593_zs_k, Dafny.Sequence<BigInteger>.FromElements(_596_sum__out)), _597_cout);
       }
     }
     public static _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> SeqSub(Dafny.ISequence<BigInteger> xs, Dafny.ISequence<BigInteger> ys)
@@ -22925,12 +22578,12 @@ namespace Uint32__64_mUint64Seq_Compile {
         return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.FromElements(), BigInteger.Zero);
       } else {
         _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _let_tmp_rhs39 = Uint32__64_mUint64Seq_Compile.__default.SeqSub(Seq_Compile.__default.DropLast<BigInteger>(xs), Seq_Compile.__default.DropLast<BigInteger>(ys));
-        Dafny.ISequence<BigInteger> _649_zs = _let_tmp_rhs39.dtor__0;
-        BigInteger _650_cin = _let_tmp_rhs39.dtor__1;
-        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs40 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_650_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_650_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint32__64_mUint64Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_650_cin), BigInteger.One)));
-        BigInteger _651_diff__out = _let_tmp_rhs40.dtor__0;
-        BigInteger _652_cout = _let_tmp_rhs40.dtor__1;
-        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_649_zs, Dafny.Sequence<BigInteger>.FromElements(_651_diff__out)), _652_cout);
+        Dafny.ISequence<BigInteger> _598_zs = _let_tmp_rhs39.dtor__0;
+        BigInteger _599_cin = _let_tmp_rhs39.dtor__1;
+        _System._ITuple2<BigInteger, BigInteger> _let_tmp_rhs40 = (((Seq_Compile.__default.Last<BigInteger>(xs)) >= ((Seq_Compile.__default.Last<BigInteger>(ys)) + (_599_cin))) ? (_System.Tuple2<BigInteger, BigInteger>.create(((Seq_Compile.__default.Last<BigInteger>(xs)) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_599_cin), BigInteger.Zero)) : (_System.Tuple2<BigInteger, BigInteger>.create((((Uint32__64_mUint64Seq_Compile.__default.BASE()) + (Seq_Compile.__default.Last<BigInteger>(xs))) - (Seq_Compile.__default.Last<BigInteger>(ys))) - (_599_cin), BigInteger.One)));
+        BigInteger _600_diff__out = _let_tmp_rhs40.dtor__0;
+        BigInteger _601_cout = _let_tmp_rhs40.dtor__1;
+        return _System.Tuple2<Dafny.ISequence<BigInteger>, BigInteger>.create(Dafny.Sequence<BigInteger>.Concat(_598_zs, Dafny.Sequence<BigInteger>.FromElements(_600_diff__out)), _601_cout);
       }
     }
   }
@@ -22949,24 +22602,24 @@ namespace Uint32__64_Compile {
       return Dafny.Helpers.EuclideanDivision(Uint32__64_mUint64Seq_Compile.__default.BITS(), Uint32__64_mUint32Seq_Compile.__default.BITS());
     }
     public static Dafny.ISequence<BigInteger> ToSmall(Dafny.ISequence<BigInteger> xs) {
-      Dafny.ISequence<BigInteger> _653___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _602___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_653___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_602___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _653___accumulator = Dafny.Sequence<BigInteger>.Concat(_653___accumulator, Uint32__64_mUint32Seq_Compile.__default.FromNatWithLen(Seq_Compile.__default.First<BigInteger>(xs), Uint32__64_Compile.__default.E()));
+        _602___accumulator = Dafny.Sequence<BigInteger>.Concat(_602___accumulator, Uint32__64_mUint32Seq_Compile.__default.FromNatWithLen(Seq_Compile.__default.First<BigInteger>(xs), Uint32__64_Compile.__default.E()));
         Dafny.ISequence<BigInteger> _in82 = Seq_Compile.__default.DropFirst<BigInteger>(xs);
         xs = _in82;
         goto TAIL_CALL_START;
       }
     }
     public static Dafny.ISequence<BigInteger> ToLarge(Dafny.ISequence<BigInteger> xs) {
-      Dafny.ISequence<BigInteger> _654___accumulator = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _603___accumulator = Dafny.Sequence<BigInteger>.FromElements();
     TAIL_CALL_START: ;
       if ((new BigInteger((xs).Count)).Sign == 0) {
-        return Dafny.Sequence<BigInteger>.Concat(_654___accumulator, Dafny.Sequence<BigInteger>.FromElements());
+        return Dafny.Sequence<BigInteger>.Concat(_603___accumulator, Dafny.Sequence<BigInteger>.FromElements());
       } else {
-        _654___accumulator = Dafny.Sequence<BigInteger>.Concat(_654___accumulator, Dafny.Sequence<BigInteger>.FromElements(Uint32__64_mUint32Seq_Compile.__default.ToNatRight((xs).Take(Uint32__64_Compile.__default.E()))));
+        _603___accumulator = Dafny.Sequence<BigInteger>.Concat(_603___accumulator, Dafny.Sequence<BigInteger>.FromElements(Uint32__64_mUint32Seq_Compile.__default.ToNatRight((xs).Take(Uint32__64_Compile.__default.E()))));
         Dafny.ISequence<BigInteger> _in83 = (xs).Drop(Uint32__64_Compile.__default.E());
         xs = _in83;
         goto TAIL_CALL_START;
@@ -22980,331 +22633,272 @@ namespace srcCollectionsSequencesUint32__64dfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      Dafny.ISequence<BigInteger> _655_d0;
-      _655_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _656_r0;
-      _656_r0 = Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_655_d0);
+      Dafny.ISequence<BigInteger> _604_d0;
+      _604_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _605_r0;
+      _605_r0 = Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_604_d0);
     }
     [Xunit.Fact]
     public static void test1()
     {
-      Dafny.ISequence<BigInteger> _657_d0;
-      _657_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _658_r0;
-      _658_r0 = Uint32__64_mUint32Seq_Compile.__default.ToNatLeft(_657_d0);
+      Dafny.ISequence<BigInteger> _606_d0;
+      _606_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _607_r0;
+      _607_r0 = Uint32__64_mUint32Seq_Compile.__default.ToNatLeft(_606_d0);
     }
     [Xunit.Fact]
     public static void test2()
     {
-      Dafny.ISequence<BigInteger> _659_r0;
-      _659_r0 = Uint32__64_mUint32Seq_Compile.__default.FromNat(new BigInteger(2279));
+      Dafny.ISequence<BigInteger> _608_r0;
+      _608_r0 = Uint32__64_mUint32Seq_Compile.__default.FromNat(new BigInteger(65));
     }
     [Xunit.Fact]
     public static void test3()
     {
-      Dafny.ISequence<BigInteger> _660_r0;
-      _660_r0 = Uint32__64_mUint32Seq_Compile.__default.FromNat(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _609_r0;
+      _609_r0 = Uint32__64_mUint32Seq_Compile.__default.FromNat(BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test4()
     {
-      Dafny.ISequence<BigInteger> _661_d0;
-      _661_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _662_r0;
-      _662_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqExtend(_661_d0, BigInteger.One);
-      if (!((new BigInteger((_662_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(69,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _610_d0;
+      _610_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_610_d0).Count)) <= (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(69,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_662_r0)) == (Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_661_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(70,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _611_r0;
+      _611_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqExtend(_610_d0, BigInteger.One);
+      if (!((new BigInteger((_611_r0).Count)) == (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(71,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!((Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_611_r0)) == (Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_610_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(72,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test5()
     {
-      Dafny.ISequence<BigInteger> _663_d0;
-      _663_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _664_r0;
-      _664_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqExtend(_663_d0, new BigInteger(98));
-      if (!((new BigInteger((_664_r0).Count)) == (new BigInteger(98)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(78,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _612_d0;
+      _612_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _613_d1;
+      _613_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_612_d0).Count)) == (new BigInteger((_613_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(86,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_664_r0)) == (Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_663_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(79,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _614_r0;
+      _614_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqAdd(_612_d0, _613_d1);
     }
     [Xunit.Fact]
     public static void test6()
     {
-      Dafny.ISequence<BigInteger> _665_d0;
-      _665_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _666_r0;
-      _666_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqExtendMultiple(_665_d0, new BigInteger(66));
-      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_666_r0).Count), new BigInteger(66))).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(86,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _615_d0;
+      _615_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(12), new BigInteger(2283));
+      Dafny.ISequence<BigInteger> _616_d1;
+      _616_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(281), new BigInteger(11138));
+      if (!((new BigInteger((_615_d0).Count)) == (new BigInteger((_616_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(96,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_666_r0)) == (Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_665_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(87,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _617_r0;
+      _617_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqAdd(_615_d0, _616_d1);
     }
     [Xunit.Fact]
     public static void test7()
     {
-      Dafny.ISequence<BigInteger> _667_r0;
-      _667_r0 = Uint32__64_mUint32Seq_Compile.__default.FromNatWithLen(new BigInteger(1236), BigInteger.One);
-      if (!((new BigInteger((_667_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(93,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _618_d0;
+      _618_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _619_d1;
+      _619_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_618_d0).Count)) == (new BigInteger((_619_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(105,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_667_r0)) == (new BigInteger(1236)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(94,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _620_r0;
+      _620_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqAdd(_618_d0, _619_d1);
     }
     [Xunit.Fact]
     public static void test8()
     {
-      Dafny.ISequence<BigInteger> _668_r0;
-      _668_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqZero(BigInteger.One);
-      if (!((new BigInteger((_668_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(100,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _621_d0;
+      _621_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(1325), new BigInteger(2331));
+      Dafny.ISequence<BigInteger> _622_d1;
+      _622_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(234), new BigInteger(1796));
+      if (!((new BigInteger((_621_d0).Count)) == (new BigInteger((_622_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(117,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint32__64_mUint32Seq_Compile.__default.ToNatRight(_668_r0)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(101,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _623_r0;
+      _623_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqSub(_621_d0, _622_d1);
     }
     [Xunit.Fact]
     public static void test9()
     {
-      Dafny.ISequence<BigInteger> _669_d0;
-      _669_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _670_d1;
-      _670_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _671_r0;
-      _671_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqAdd(_669_d0, _670_d1);
+      Dafny.ISequence<BigInteger> _624_d0;
+      _624_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(920), new BigInteger(2061));
+      Dafny.ISequence<BigInteger> _625_d1;
+      _625_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(645), new BigInteger(2062));
+      if (!((new BigInteger((_624_d0).Count)) == (new BigInteger((_625_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(127,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _626_r0;
+      _626_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqSub(_624_d0, _625_d1);
     }
     [Xunit.Fact]
     public static void test10()
     {
-      Dafny.ISequence<BigInteger> _672_d0;
-      _672_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(8098));
-      Dafny.ISequence<BigInteger> _673_d1;
-      _673_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(16953));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _674_r0;
-      _674_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqAdd(_672_d0, _673_d1);
+      Dafny.ISequence<BigInteger> _627_d0;
+      _627_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _628_d1;
+      _628_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_627_d0).Count)) == (new BigInteger((_628_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(136,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _629_r0;
+      _629_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqSub(_627_d0, _628_d1);
     }
     [Xunit.Fact]
     public static void test11()
     {
-      Dafny.ISequence<BigInteger> _675_d0;
-      _675_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _676_d1;
-      _676_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _677_r0;
-      _677_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqAdd(_675_d0, _676_d1);
+      Dafny.ISequence<BigInteger> _630_d0;
+      _630_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _631_r0;
+      _631_r0 = Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_630_d0);
     }
     [Xunit.Fact]
     public static void test12()
     {
-      Dafny.ISequence<BigInteger> _678_d0;
-      _678_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(4044));
-      Dafny.ISequence<BigInteger> _679_d1;
-      _679_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(1653));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _680_r0;
-      _680_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqSub(_678_d0, _679_d1);
+      Dafny.ISequence<BigInteger> _632_d0;
+      _632_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      BigInteger _633_r0;
+      _633_r0 = Uint32__64_mUint64Seq_Compile.__default.ToNatLeft(_632_d0);
     }
     [Xunit.Fact]
     public static void test13()
     {
-      Dafny.ISequence<BigInteger> _681_d0;
-      _681_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(535));
-      Dafny.ISequence<BigInteger> _682_d1;
-      _682_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(536));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _683_r0;
-      _683_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqSub(_681_d0, _682_d1);
+      Dafny.ISequence<BigInteger> _634_r0;
+      _634_r0 = Uint32__64_mUint64Seq_Compile.__default.FromNat(new BigInteger(65));
     }
     [Xunit.Fact]
     public static void test14()
     {
-      Dafny.ISequence<BigInteger> _684_d0;
-      _684_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _685_d1;
-      _685_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _686_r0;
-      _686_r0 = Uint32__64_mUint32Seq_Compile.__default.SeqSub(_684_d0, _685_d1);
+      Dafny.ISequence<BigInteger> _635_r0;
+      _635_r0 = Uint32__64_mUint64Seq_Compile.__default.FromNat(BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test15()
     {
-      Dafny.ISequence<BigInteger> _687_d0;
-      _687_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _688_r0;
-      _688_r0 = Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_687_d0);
+      Dafny.ISequence<BigInteger> _636_d0;
+      _636_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
+      if (!((new BigInteger((_636_d0).Count)) <= (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(177,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Dafny.ISequence<BigInteger> _637_r0;
+      _637_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqExtend(_636_d0, BigInteger.One);
+      if (!((new BigInteger((_637_r0).Count)) == (BigInteger.One))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(179,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
+      if (!((Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_637_r0)) == (Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_636_d0)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(180,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      }
     }
     [Xunit.Fact]
     public static void test16()
     {
-      Dafny.ISequence<BigInteger> _689_d0;
-      _689_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      BigInteger _690_r0;
-      _690_r0 = Uint32__64_mUint64Seq_Compile.__default.ToNatLeft(_689_d0);
+      Dafny.ISequence<BigInteger> _638_d0;
+      _638_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _639_d1;
+      _639_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero);
+      if (!((new BigInteger((_638_d0).Count)) == (new BigInteger((_639_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(194,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _640_r0;
+      _640_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqAdd(_638_d0, _639_d1);
     }
     [Xunit.Fact]
     public static void test17()
     {
-      Dafny.ISequence<BigInteger> _691_r0;
-      _691_r0 = Uint32__64_mUint64Seq_Compile.__default.FromNat(new BigInteger(2279));
+      Dafny.ISequence<BigInteger> _641_d0;
+      _641_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(342), new BigInteger(4720));
+      Dafny.ISequence<BigInteger> _642_d1;
+      _642_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(281), new BigInteger(2283));
+      if (!((new BigInteger((_641_d0).Count)) == (new BigInteger((_642_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(204,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _643_r0;
+      _643_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqAdd(_641_d0, _642_d1);
     }
     [Xunit.Fact]
     public static void test18()
     {
-      Dafny.ISequence<BigInteger> _692_r0;
-      _692_r0 = Uint32__64_mUint64Seq_Compile.__default.FromNat(BigInteger.Zero);
+      Dafny.ISequence<BigInteger> _644_d0;
+      _644_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _645_d1;
+      _645_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_644_d0).Count)) == (new BigInteger((_645_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(213,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _646_r0;
+      _646_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqAdd(_644_d0, _645_d1);
     }
     [Xunit.Fact]
     public static void test19()
     {
-      Dafny.ISequence<BigInteger> _693_d0;
-      _693_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _694_r0;
-      _694_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqExtend(_693_d0, BigInteger.One);
-      if (!((new BigInteger((_694_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(197,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _647_d0;
+      _647_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(1325), new BigInteger(2331));
+      Dafny.ISequence<BigInteger> _648_d1;
+      _648_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(234), new BigInteger(1796));
+      if (!((new BigInteger((_647_d0).Count)) == (new BigInteger((_648_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(225,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_694_r0)) == (Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_693_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(198,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _649_r0;
+      _649_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqSub(_647_d0, _648_d1);
     }
     [Xunit.Fact]
     public static void test20()
     {
-      Dafny.ISequence<BigInteger> _695_d0;
-      _695_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _696_r0;
-      _696_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqExtend(_695_d0, new BigInteger(98));
-      if (!((new BigInteger((_696_r0).Count)) == (new BigInteger(98)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(206,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _650_d0;
+      _650_d0 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(920), new BigInteger(2061));
+      Dafny.ISequence<BigInteger> _651_d1;
+      _651_d1 = Dafny.Sequence<BigInteger>.FromElements(new BigInteger(645), new BigInteger(2062));
+      if (!((new BigInteger((_650_d0).Count)) == (new BigInteger((_651_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(235,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_696_r0)) == (Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_695_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(207,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _652_r0;
+      _652_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqSub(_650_d0, _651_d1);
     }
     [Xunit.Fact]
     public static void test21()
     {
-      Dafny.ISequence<BigInteger> _697_d0;
-      _697_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _698_r0;
-      _698_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqExtendMultiple(_697_d0, new BigInteger(66));
-      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_698_r0).Count), new BigInteger(66))).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(214,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _653_d0;
+      _653_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _654_d1;
+      _654_d1 = Dafny.Sequence<BigInteger>.FromElements();
+      if (!((new BigInteger((_653_d0).Count)) == (new BigInteger((_654_d1).Count)))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(244,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_698_r0)) == (Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_697_d0)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(215,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
+      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _655_r0;
+      _655_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqSub(_653_d0, _654_d1);
     }
     [Xunit.Fact]
     public static void test22()
     {
-      Dafny.ISequence<BigInteger> _699_r0;
-      _699_r0 = Uint32__64_mUint64Seq_Compile.__default.FromNatWithLen(new BigInteger(1236), BigInteger.One);
-      if (!((new BigInteger((_699_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(221,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-      if (!((Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_699_r0)) == (new BigInteger(1236)))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(222,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _656_d0;
+      _656_d0 = Dafny.Sequence<BigInteger>.FromElements();
+      Dafny.ISequence<BigInteger> _657_r0;
+      _657_r0 = Uint32__64_Compile.__default.ToSmall(_656_d0);
+      if (!((new BigInteger((_657_r0).Count)) == ((new BigInteger((_656_d0).Count)) * (Uint32__64_Compile.__default.E())))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(256,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
     [Xunit.Fact]
     public static void test23()
     {
-      Dafny.ISequence<BigInteger> _700_r0;
-      _700_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqZero(BigInteger.One);
-      if (!((new BigInteger((_700_r0).Count)) == (BigInteger.One))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(228,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _658_d0;
+      _658_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
+      if (!((Dafny.Helpers.EuclideanModulus(new BigInteger((_658_d0).Count), Uint32__64_Compile.__default.E())).Sign == 0)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(265,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
       }
-      if (!((Uint32__64_mUint64Seq_Compile.__default.ToNatRight(_700_r0)).Sign == 0)) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(229,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test24()
-    {
-      Dafny.ISequence<BigInteger> _701_d0;
-      _701_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      Dafny.ISequence<BigInteger> _702_d1;
-      _702_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero);
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _703_r0;
-      _703_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqAdd(_701_d0, _702_d1);
-    }
-    [Xunit.Fact]
-    public static void test25()
-    {
-      Dafny.ISequence<BigInteger> _704_d0;
-      _704_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(8098));
-      Dafny.ISequence<BigInteger> _705_d1;
-      _705_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(16953));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _706_r0;
-      _706_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqAdd(_704_d0, _705_d1);
-    }
-    [Xunit.Fact]
-    public static void test26()
-    {
-      Dafny.ISequence<BigInteger> _707_d0;
-      _707_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _708_d1;
-      _708_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _709_r0;
-      _709_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqAdd(_707_d0, _708_d1);
-    }
-    [Xunit.Fact]
-    public static void test27()
-    {
-      Dafny.ISequence<BigInteger> _710_d0;
-      _710_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(2475));
-      Dafny.ISequence<BigInteger> _711_d1;
-      _711_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(1888));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _712_r0;
-      _712_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqSub(_710_d0, _711_d1);
-    }
-    [Xunit.Fact]
-    public static void test28()
-    {
-      Dafny.ISequence<BigInteger> _713_d0;
-      _713_d0 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(535));
-      Dafny.ISequence<BigInteger> _714_d1;
-      _714_d1 = Dafny.Sequence<BigInteger>.FromElements(BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, BigInteger.Zero, new BigInteger(536));
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _715_r0;
-      _715_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqSub(_713_d0, _714_d1);
-    }
-    [Xunit.Fact]
-    public static void test29()
-    {
-      Dafny.ISequence<BigInteger> _716_d0;
-      _716_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _717_d1;
-      _717_d1 = Dafny.Sequence<BigInteger>.FromElements();
-      _System._ITuple2<Dafny.ISequence<BigInteger>, BigInteger> _718_r0;
-      _718_r0 = Uint32__64_mUint64Seq_Compile.__default.SeqSub(_716_d0, _717_d1);
-    }
-    [Xunit.Fact]
-    public static void test30()
-    {
-      Dafny.ISequence<BigInteger> _719_d0;
-      _719_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _720_r0;
-      _720_r0 = Uint32__64_Compile.__default.ToSmall(_719_d0);
-      if (!((new BigInteger((_720_r0).Count)) == ((new BigInteger((_719_d0).Count)) * (Uint32__64_Compile.__default.E())))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(296,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
-      }
-    }
-    [Xunit.Fact]
-    public static void test31()
-    {
-      Dafny.ISequence<BigInteger> _721_d0;
-      _721_d0 = Dafny.Sequence<BigInteger>.FromElements();
-      Dafny.ISequence<BigInteger> _722_r0;
-      _722_r0 = Uint32__64_Compile.__default.ToLarge(_721_d0);
-      if (!((new BigInteger((_722_r0).Count)) == (Dafny.Helpers.EuclideanDivision(new BigInteger((_721_d0).Count), Uint32__64_Compile.__default.E())))) {
-        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(305,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
+      Dafny.ISequence<BigInteger> _659_r0;
+      _659_r0 = Uint32__64_Compile.__default.ToLarge(_658_d0);
+      if (!((new BigInteger((_659_r0).Count)) == (Dafny.Helpers.EuclideanDivision(new BigInteger((_658_d0).Count), Uint32__64_Compile.__default.E())))) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Collections/Sequences/Uint32_64.dfy(267,0): " + Dafny.Sequence<char>.FromString("expectation violation"));
       }
     }
   }
@@ -23315,146 +22909,161 @@ namespace srcWrappersdfyUnitTests_Compile {
     [Xunit.Fact]
     public static void test0()
     {
-      Wrappers_Compile._IOption<BigInteger> _723_d0;
-      _723_d0 = Wrappers_Compile.Option<BigInteger>.create_Some(BigInteger.Zero);
-      Wrappers_Compile._IResult<BigInteger, Dafny.ISequence<char>> _724_r0;
-      _724_r0 = (_723_d0).ToResult();
+      Wrappers_Compile._IOption<BigInteger> _660_d0;
+      _660_d0 = Wrappers_Compile.Option<BigInteger>.create_Some(BigInteger.Zero);
+      Wrappers_Compile._IResult<BigInteger, Dafny.ISequence<char>> _661_r0;
+      _661_r0 = (_660_d0).ToResult();
     }
     [Xunit.Fact]
     public static void test2()
     {
-      Wrappers_Compile._IOption<BigInteger> _725_d0;
-      _725_d0 = Wrappers_Compile.Option<BigInteger>.create_Some(BigInteger.Zero);
-      BigInteger _726_r0;
-      _726_r0 = Wrappers_Compile.Option<BigInteger>.UnwrapOr(_725_d0, BigInteger.One);
+      Wrappers_Compile._IOption<BigInteger> _662_d0;
+      _662_d0 = Wrappers_Compile.Option<BigInteger>.create_Some(BigInteger.Zero);
+      BigInteger _663_r0;
+      _663_r0 = Wrappers_Compile.Option<BigInteger>.UnwrapOr(_662_d0, BigInteger.One);
     }
     [Xunit.Fact]
     public static void test4()
     {
-      Wrappers_Compile._IOption<BigInteger> _727_d0;
-      _727_d0 = Wrappers_Compile.Option<BigInteger>.create_Some(BigInteger.Zero);
-      bool _728_r0;
-      _728_r0 = (_727_d0).IsFailure();
+      Wrappers_Compile._IOption<BigInteger> _664_d0;
+      _664_d0 = Wrappers_Compile.Option<BigInteger>.create_Some(BigInteger.Zero);
+      bool _665_r0;
+      _665_r0 = (_664_d0).IsFailure();
     }
     [Xunit.Fact]
     public static void test5()
     {
-      Wrappers_Compile._IOption<BigInteger> _729_d0;
-      _729_d0 = Wrappers_Compile.Option<BigInteger>.create_None();
-      Wrappers_Compile._IOption<BigInteger> _730_r0;
-      _730_r0 = (_729_d0).PropagateFailure<BigInteger>();
+      Wrappers_Compile._IOption<BigInteger> _666_d0;
+      _666_d0 = Wrappers_Compile.Option<BigInteger>.create_None();
+      if (!((_666_d0).is_None)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Wrappers.dfy(48,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Wrappers_Compile._IOption<BigInteger> _667_r0;
+      _667_r0 = (_666_d0).PropagateFailure<BigInteger>();
     }
     [Xunit.Fact]
     public static void test6()
     {
-      Wrappers_Compile._IOption<BigInteger> _731_d0;
-      _731_d0 = Wrappers_Compile.Option<BigInteger>.create_Some(BigInteger.Zero);
-      BigInteger _732_r0;
-      _732_r0 = (_731_d0).Extract();
+      Wrappers_Compile._IOption<BigInteger> _668_d0;
+      _668_d0 = Wrappers_Compile.Option<BigInteger>.create_Some(BigInteger.Zero);
+      if (!((_668_d0).is_Some)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Wrappers.dfy(55,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _669_r0;
+      _669_r0 = (_668_d0).Extract();
     }
     [Xunit.Fact]
     public static void test7()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _733_d0;
-      _733_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
-      Wrappers_Compile._IOption<BigInteger> _734_r0;
-      _734_r0 = (_733_d0).ToOption();
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _670_d0;
+      _670_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
+      Wrappers_Compile._IOption<BigInteger> _671_r0;
+      _671_r0 = (_670_d0).ToOption();
     }
     [Xunit.Fact]
     public static void test8()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _735_d0;
-      _735_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Failure(BigInteger.Zero);
-      Wrappers_Compile._IOption<BigInteger> _736_r0;
-      _736_r0 = (_735_d0).ToOption();
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _672_d0;
+      _672_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Failure(BigInteger.Zero);
+      Wrappers_Compile._IOption<BigInteger> _673_r0;
+      _673_r0 = (_672_d0).ToOption();
     }
     [Xunit.Fact]
     public static void test9()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _737_d0;
-      _737_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
-      BigInteger _738_r0;
-      _738_r0 = Wrappers_Compile.Result<BigInteger, BigInteger>.UnwrapOr(_737_d0, BigInteger.One);
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _674_d0;
+      _674_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
+      BigInteger _675_r0;
+      _675_r0 = Wrappers_Compile.Result<BigInteger, BigInteger>.UnwrapOr(_674_d0, BigInteger.One);
     }
     [Xunit.Fact]
     public static void test10()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _739_d0;
-      _739_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Failure(BigInteger.Zero);
-      BigInteger _740_r0;
-      _740_r0 = Wrappers_Compile.Result<BigInteger, BigInteger>.UnwrapOr(_739_d0, BigInteger.One);
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _676_d0;
+      _676_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Failure(BigInteger.Zero);
+      BigInteger _677_r0;
+      _677_r0 = Wrappers_Compile.Result<BigInteger, BigInteger>.UnwrapOr(_676_d0, BigInteger.One);
     }
     [Xunit.Fact]
     public static void test11()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _741_d0;
-      _741_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
-      bool _742_r0;
-      _742_r0 = (_741_d0).IsFailure();
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _678_d0;
+      _678_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
+      bool _679_r0;
+      _679_r0 = (_678_d0).IsFailure();
     }
     [Xunit.Fact]
     public static void test12()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _743_d0;
-      _743_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Failure(BigInteger.Zero);
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _744_r0;
-      _744_r0 = (_743_d0).PropagateFailure<BigInteger>();
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _680_d0;
+      _680_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Failure(BigInteger.Zero);
+      if (!((_680_d0).is_Failure)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Wrappers.dfy(102,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _681_r0;
+      _681_r0 = (_680_d0).PropagateFailure<BigInteger>();
     }
     [Xunit.Fact]
     public static void test13()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _745_d0;
-      _745_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _746_r0;
-      _746_r0 = Wrappers_Compile.Result<BigInteger, BigInteger>.MapFailure<BigInteger>(_745_d0, ((System.Func<BigInteger, BigInteger>)((_747_a0) => {
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _682_d0;
+      _682_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _683_r0;
+      _683_r0 = Wrappers_Compile.Result<BigInteger, BigInteger>.MapFailure<BigInteger>(_682_d0, ((System.Func<BigInteger, BigInteger>)((_684_a0) => {
         return BigInteger.Zero;
       })));
     }
     [Xunit.Fact]
     public static void test14()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _748_d0;
-      _748_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Failure(BigInteger.Zero);
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _749_r0;
-      _749_r0 = Wrappers_Compile.Result<BigInteger, BigInteger>.MapFailure<BigInteger>(_748_d0, ((System.Func<BigInteger, BigInteger>)((_750_a0) => {
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _685_d0;
+      _685_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Failure(BigInteger.Zero);
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _686_r0;
+      _686_r0 = Wrappers_Compile.Result<BigInteger, BigInteger>.MapFailure<BigInteger>(_685_d0, ((System.Func<BigInteger, BigInteger>)((_687_a0) => {
         return BigInteger.Zero;
       })));
     }
     [Xunit.Fact]
     public static void test15()
     {
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _751_d0;
-      _751_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
-      BigInteger _752_r0;
-      _752_r0 = (_751_d0).Extract();
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _688_d0;
+      _688_d0 = Wrappers_Compile.Result<BigInteger, BigInteger>.create_Success(BigInteger.Zero);
+      if (!((_688_d0).is_Success)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Wrappers.dfy(126,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      BigInteger _689_r0;
+      _689_r0 = (_688_d0).Extract();
     }
     [Xunit.Fact]
     public static void test16()
     {
-      Wrappers_Compile._IOutcome<BigInteger> _753_d0;
-      _753_d0 = Wrappers_Compile.Outcome<BigInteger>.create_Pass();
-      bool _754_r0;
-      _754_r0 = (_753_d0).IsFailure();
+      Wrappers_Compile._IOutcome<BigInteger> _690_d0;
+      _690_d0 = Wrappers_Compile.Outcome<BigInteger>.create_Pass();
+      bool _691_r0;
+      _691_r0 = (_690_d0).IsFailure();
     }
     [Xunit.Fact]
     public static void test17()
     {
-      Wrappers_Compile._IOutcome<BigInteger> _755_d0;
-      _755_d0 = Wrappers_Compile.Outcome<BigInteger>.create_Fail(BigInteger.Zero);
-      Wrappers_Compile._IResult<BigInteger, BigInteger> _756_r0;
-      _756_r0 = (_755_d0).PropagateFailure<BigInteger>();
+      Wrappers_Compile._IOutcome<BigInteger> _692_d0;
+      _692_d0 = Wrappers_Compile.Outcome<BigInteger>.create_Fail(BigInteger.Zero);
+      if (!((_692_d0).is_Fail)) {
+        throw new Dafny.HaltException("/Users/fedchina/Desktop/libraries/test/Wrappers.dfy(139,0): " + Dafny.Sequence<char>.FromString("Test does not meet preconditions and should be removed"));
+      }
+      Wrappers_Compile._IResult<BigInteger, BigInteger> _693_r0;
+      _693_r0 = (_692_d0).PropagateFailure<BigInteger>();
     }
     [Xunit.Fact]
     public static void test18()
     {
-      Wrappers_Compile._IOutcome<BigInteger> _757_r0;
-      _757_r0 = Wrappers_Compile.__default.Need<BigInteger>(true, BigInteger.Zero);
+      Wrappers_Compile._IOutcome<BigInteger> _694_r0;
+      _694_r0 = Wrappers_Compile.__default.Need<BigInteger>(true, BigInteger.Zero);
     }
     [Xunit.Fact]
     public static void test19()
     {
-      Wrappers_Compile._IOutcome<BigInteger> _758_r0;
-      _758_r0 = Wrappers_Compile.__default.Need<BigInteger>(false, BigInteger.Zero);
+      Wrappers_Compile._IOutcome<BigInteger> _695_r0;
+      _695_r0 = Wrappers_Compile.__default.Need<BigInteger>(false, BigInteger.Zero);
     }
   }
 } // end of namespace srcWrappersdfyUnitTests_Compile

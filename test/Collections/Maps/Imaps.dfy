@@ -8,14 +8,17 @@ import Wrappers
 // Removing assertions...
 // Annotating blocks...
 // Generating modifications...
-// Test Imaps.Get(block#286917) covers block 286914
-// Test Imaps.Get(block#286917) covers block 286915
-// Test Imaps.Get(block#286917) covers block 286917
-// Extracting the test for Imaps.Get(block#286917) from the counterexample...
-// Failed to determine a variable type (element T@U!val!11)
-// Test Imaps.Get(block#286916) covers block 286914
-// Test Imaps.Get(block#286916) covers block 286916
-// Extracting the test for Imaps.Get(block#286916) from the counterexample...
-// Failed to determine a variable type (element T@U!val!42)
+// Test Imaps.Get(block#261760) covers block 261757
+// Test Imaps.Get(block#261760) covers block 261758
+// Test Imaps.Get(block#261760) covers block 261760
+// Extracting the test for Imaps.Get(block#261760) from the counterexample...
+method {:test} test0() {
+var d0 : imap<int, int> := imap[];
+var r0 := Imaps.Get<int,int>(d0, 0);
+}
+// Test Imaps.Get(block#261759) covers block 261757
+// Test Imaps.Get(block#261759) covers block 261759
+// Extracting the test for Imaps.Get(block#261759) from the counterexample...
+// Test for Imaps.Get(block#261759) matches a test previously generated for Imaps.Get(block#261760).
 
 }

@@ -234,7 +234,7 @@
     "blocksCovered": "7",
     "failedQueries": "0",
     "queries": "3",
-    "tests": "3",
+    "tests": "2",
     "failedTests": "0",
     "dafnyName": "Seq.Filter",
     "compiledName": "Seq_Compile.__default.Filter"

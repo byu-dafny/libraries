@@ -16,11 +16,11 @@ import ModInternalsNonlinear
 // Removing assertions...
 // Annotating blocks...
 // Generating modifications...
-// No test can be generated for Power.Pow(block#398220) because the verifier suceeded.
-// No test can be generated for Power.Pow(block#398219) because the verifier suceeded.
-// No test can be generated for Power.Pow(block#398218) because the verifier suceeded.
-// Test Power.Pow(block#398217) covers block 398217
-// Extracting the test for Power.Pow(block#398217) from the counterexample...
+// No test can be generated for Power.Pow(block#378666) because the verifier timed out.
+// No test can be generated for Power.Pow(block#378665) because the verifier timed out.
+// No test can be generated for Power.Pow(block#378664) because the verifier timed out.
+// Test Power.Pow(block#378663) covers block 378663
+// Extracting the test for Power.Pow(block#378663) from the counterexample...
 method {:test} test0() {
 var r0 := Power.Pow(0, (0 as nat));
 }

@@ -11,10 +11,10 @@
   },
   {
     "blocks": "4",
-    "blocksCovered": "4",
-    "failedQueries": "0",
+    "blocksCovered": "3",
+    "failedQueries": "1",
     "queries": "2",
-    "tests": "2",
+    "tests": "1",
     "failedTests": "0",
     "dafnyName": "MulInternals.MulRecursive",
     "compiledName": "MulInternals_Compile.__default.MulRecursive"

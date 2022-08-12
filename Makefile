@@ -22,6 +22,7 @@ coverage : compile
 	dotnet DuplicateRemover/bin/Debug/net6.0/DuplicateRemover.dll test/AllTests.cs src/AllSource.cs > testCoverage/OnlyTests.cs
 	dotnet build testCoverage/TestCoverage.csproj
 	rm -rf testCoverage/TestResults/*
+	export PATH=${PWD}/dafny/Binaries/:$PATH
 	dotnet test -f net6.0 --collect:"XPlat Code Coverage" --settings runsettings.xml testCoverage/TestCoverage.csproj
 	python3 MoveCoverage.py
 	python3 FilterCoverage.py stats/ testCoverage/TestResults/coverage.cobertura.xml

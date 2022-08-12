@@ -14,34 +14,38 @@ import DivInternalsNonlinear
 // Removing assertions...
 // Annotating blocks...
 // Generating modifications...
-// Test DivInternals.DivPos(block#249261) covers block 249256
-// Test DivInternals.DivPos(block#249261) covers block 249257
-// Test DivInternals.DivPos(block#249261) covers block 249261
-// Extracting the test for DivInternals.DivPos(block#249261) from the counterexample...
+// Test DivInternals.DivPos(block#235505) covers block 235500
+// Test DivInternals.DivPos(block#235505) covers block 235501
+// Test DivInternals.DivPos(block#235505) covers block 235505
+// Extracting the test for DivInternals.DivPos(block#235505) from the counterexample...
 method {:test} test0() {
-var r0 := DivInternals.DivPos(-2439, 2438);
+expect 1797 > 0, "Test does not meet preconditions and should be removed";
+var r0 := DivInternals.DivPos(-1798, 1797);
 }
-// Test DivInternals.DivPos(block#249260) covers block 249256
-// Test DivInternals.DivPos(block#249260) covers block 249258
-// Test DivInternals.DivPos(block#249260) covers block 249260
-// Extracting the test for DivInternals.DivPos(block#249260) from the counterexample...
+// Test DivInternals.DivPos(block#235504) covers block 235500
+// Test DivInternals.DivPos(block#235504) covers block 235502
+// Test DivInternals.DivPos(block#235504) covers block 235504
+// Extracting the test for DivInternals.DivPos(block#235504) from the counterexample...
 method {:test} test1() {
-var r0 := DivInternals.DivPos(2438, 1);
+expect 2460 > 0, "Test does not meet preconditions and should be removed";
+var r0 := DivInternals.DivPos(4417, 2460);
 }
-// Test DivInternals.DivPos(block#249259) covers block 249256
-// Test DivInternals.DivPos(block#249259) covers block 249258
-// Test DivInternals.DivPos(block#249259) covers block 249259
-// Extracting the test for DivInternals.DivPos(block#249259) from the counterexample...
+// Test DivInternals.DivPos(block#235503) covers block 235500
+// Test DivInternals.DivPos(block#235503) covers block 235502
+// Test DivInternals.DivPos(block#235503) covers block 235503
+// Extracting the test for DivInternals.DivPos(block#235503) from the counterexample...
 method {:test} test2() {
+expect 1 > 0, "Test does not meet preconditions and should be removed";
 var r0 := DivInternals.DivPos(0, 1);
 }
-// No test can be generated for DivInternals.DivRecursive(block#250455) because the verifier suceeded.
-// No test can be generated for DivInternals.DivRecursive(block#250454) because the verifier suceeded.
-// No test can be generated for DivInternals.DivRecursive(block#250453) because the verifier suceeded.
-// Test DivInternals.DivRecursive(block#250452) covers block 250452
-// Extracting the test for DivInternals.DivRecursive(block#250452) from the counterexample...
+// No test can be generated for DivInternals.DivRecursive(block#236418) because the verifier timed out.
+// No test can be generated for DivInternals.DivRecursive(block#236417) because the verifier timed out.
+// No test can be generated for DivInternals.DivRecursive(block#236416) because the verifier timed out.
+// Test DivInternals.DivRecursive(block#236415) covers block 236415
+// Extracting the test for DivInternals.DivRecursive(block#236415) from the counterexample...
 method {:test} test3() {
-var r0 := DivInternals.DivRecursive(0, 12);
+expect 11 != 0, "Test does not meet preconditions and should be removed";
+var r0 := DivInternals.DivRecursive(0, 11);
 }
 
 }

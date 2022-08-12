@@ -4,8 +4,8 @@
     "blocksCovered": "4",
     "failedQueries": "0",
     "queries": "2",
-    "tests": "2",
-    "failedTests": "2",
+    "tests": "1",
+    "failedTests": "0",
     "dafnyName": "Imaps.Get",
     "compiledName": "Imaps_Compile.__default.Get"
   }

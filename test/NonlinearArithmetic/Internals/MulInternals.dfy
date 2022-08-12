@@ -9,31 +9,28 @@ import MulInternalsNonlinear
 // Removing assertions...
 // Annotating blocks...
 // Generating modifications...
-// Test MulInternals.MulPos(block#196653) covers block 196650
-// Test MulInternals.MulPos(block#196653) covers block 196652
-// Test MulInternals.MulPos(block#196653) covers block 196653
-// Extracting the test for MulInternals.MulPos(block#196653) from the counterexample...
+// Test MulInternals.MulPos(block#187413) covers block 187410
+// Test MulInternals.MulPos(block#187413) covers block 187412
+// Test MulInternals.MulPos(block#187413) covers block 187413
+// Extracting the test for MulInternals.MulPos(block#187413) from the counterexample...
 method {:test} test0() {
-var r0 := MulInternals.MulPos(8856, 1236);
+expect 1799 >= 0, "Test does not meet preconditions and should be removed";
+var r0 := MulInternals.MulPos(1799, -7719);
 }
-// Test MulInternals.MulPos(block#196651) covers block 196650
-// Test MulInternals.MulPos(block#196651) covers block 196651
-// Extracting the test for MulInternals.MulPos(block#196651) from the counterexample...
+// Test MulInternals.MulPos(block#187411) covers block 187410
+// Test MulInternals.MulPos(block#187411) covers block 187411
+// Extracting the test for MulInternals.MulPos(block#187411) from the counterexample...
 method {:test} test1() {
+expect 0 >= 0, "Test does not meet preconditions and should be removed";
 var r0 := MulInternals.MulPos(0, 0);
 }
-// Test MulInternals.MulRecursive(block#197595) covers block 197592
-// Test MulInternals.MulRecursive(block#197595) covers block 197593
-// Test MulInternals.MulRecursive(block#197595) covers block 197595
-// Extracting the test for MulInternals.MulRecursive(block#197595) from the counterexample...
+// Test MulInternals.MulRecursive(block#188345) covers block 188342
+// Test MulInternals.MulRecursive(block#188345) covers block 188343
+// Test MulInternals.MulRecursive(block#188345) covers block 188345
+// Extracting the test for MulInternals.MulRecursive(block#188345) from the counterexample...
 method {:test} test2() {
-var r0 := MulInternals.MulRecursive(38, 14);
+var r0 := MulInternals.MulRecursive(1238, -7719);
 }
-// Test MulInternals.MulRecursive(block#197594) covers block 197592
-// Test MulInternals.MulRecursive(block#197594) covers block 197594
-// Extracting the test for MulInternals.MulRecursive(block#197594) from the counterexample...
-method {:test} test3() {
-var r0 := MulInternals.MulRecursive(-39, 14);
-}
+// No test can be generated for MulInternals.MulRecursive(block#188344) because the verifier timed out.
 
 }
