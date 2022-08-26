@@ -30,6 +30,8 @@ coverage : compile
 	dotnet tool install dotnet-reportgenerator-globaltool
 	dotnet reportgenerator "-reports:testCoverage/TestResults/coverage.cobertura.xml" "-targetdir:testCoverage/TestResults" "-reporttypes:TextSummary;HtmlSummary"
 
+java-compile : build
+	./compileJava.sh
 
 clean :
 	rm -rf test/bin/
@@ -40,4 +42,5 @@ clean :
 	rm -rf testCoverage/coverage.cobertura.xml
 	rm -rf src/obj/
 	rm -rf src/bin/
+	rm -rf mvn/
 

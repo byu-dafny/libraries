@@ -17,3 +17,4 @@ testCoverage/TestResults/*
 !testCoverage/TestResults/summary.html
 !testCoverage/TestResults/summary.htm
 !testCoverage/TestResults/Summary.txt
+mvn
